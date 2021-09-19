@@ -15,6 +15,8 @@ namespace FoodWaste
         public Form1()
         {
             InitializeComponent();
+
         }
+
     }
 }
