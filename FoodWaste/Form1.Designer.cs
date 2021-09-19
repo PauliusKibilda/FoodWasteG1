@@ -33,6 +33,8 @@ namespace FoodWaste
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.showPasswordCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -75,11 +77,37 @@ namespace FoodWaste
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Password:";
             // 
+            // loginButton
+            // 
+            this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.loginButton.Location = new System.Drawing.Point(403, 283);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(104, 40);
+            this.loginButton.TabIndex = 4;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // showPasswordCheckbox
+            // 
+            this.showPasswordCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.showPasswordCheckbox.AutoSize = true;
+            this.showPasswordCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.showPasswordCheckbox.Location = new System.Drawing.Point(293, 284);
+            this.showPasswordCheckbox.Name = "showPasswordCheckbox";
+            this.showPasswordCheckbox.Size = new System.Drawing.Size(102, 17);
+            this.showPasswordCheckbox.TabIndex = 5;
+            this.showPasswordCheckbox.Text = "Show Password";
+            this.showPasswordCheckbox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.showPasswordCheckbox);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -97,6 +125,8 @@ namespace FoodWaste
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.CheckBox showPasswordCheckbox;
     }
 }
 
