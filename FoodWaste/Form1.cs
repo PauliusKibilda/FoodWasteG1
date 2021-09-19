@@ -18,8 +18,39 @@ namespace FoodWaste
 
         }
 
+        // This function will need to be implemented properly later
+        public bool checkLoginCredentials(string username, string password)
+        {
+            if (username == "admin" && password == "admin")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private void loginButton_Click(object sender, EventArgs e)
         {
+            if (checkLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
+            {
+                // Sign in succeded
+            }
+            else
+            {
+                // Sign in failed
+            }
+        }
+
+        private void showPasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPasswordCheckbox.Checked)
+            {
+                passwordTextBox.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordTextBox.PasswordChar = '*';
+            }
         }
     }
 }
