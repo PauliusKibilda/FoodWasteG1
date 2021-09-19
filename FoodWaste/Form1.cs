@@ -52,5 +52,15 @@ namespace FoodWaste
                 passwordTextBox.PasswordChar = '*';
             }
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            // Go back to the main page
+        }
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
+            // Go to sign up screen
+        }
     }
 }
