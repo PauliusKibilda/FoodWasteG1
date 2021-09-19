@@ -39,7 +39,7 @@ namespace FoodWaste
             // 
             this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameTextBox.Location = new System.Drawing.Point(284, 132);
+            this.usernameTextBox.Location = new System.Drawing.Point(293, 187);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(214, 32);
             this.usernameTextBox.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace FoodWaste
             // 
             this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordTextBox.Location = new System.Drawing.Point(284, 193);
+            this.passwordTextBox.Location = new System.Drawing.Point(293, 245);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(214, 32);
             this.passwordTextBox.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace FoodWaste
             this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameLabel.Location = new System.Drawing.Point(279, 103);
+            this.usernameLabel.Location = new System.Drawing.Point(293, 161);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(119, 26);
             this.usernameLabel.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace FoodWaste
             this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordLabel.Location = new System.Drawing.Point(281, 165);
+            this.passwordLabel.Location = new System.Drawing.Point(293, 219);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(114, 26);
             this.passwordLabel.TabIndex = 3;
