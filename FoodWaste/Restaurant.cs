@@ -8,20 +8,10 @@ namespace FoodWaste
 {
     class Restaurant
     {
-        public string RestaurantName;
-        public string Adress;
-        public string PhoneNumber;
+        public string RestaurantName { get; set; }
+        public string Adress { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public void SetRestaurant(string pName, string pAdress, string pNumber)
-        {
-            RestaurantName = pName;
-            Adress = pAdress;
-            PhoneNumber = pNumber;
-        }
-
-        public string GetRestaurant()
-        {
-            return RestaurantName;
-        }
+        
     }
 }

@@ -8,7 +8,8 @@ namespace FoodWaste
 {
     class Product
     {
-        public string ProductName;
+        public string ProductName { get; set; }
+        public int ExpiryDate { get; set; }
         public enum ProductState
         {
             expired,
@@ -17,16 +18,5 @@ namespace FoodWaste
             listed
         }
         public ProductState State { get; set; }
-        public void SetProduct(string pName, ProductState pState)
-        {
-
-            ProductName = pName;
-            State = pState;
-        }
-
-        public string GetProduct()
-        {
-            return ProductName;
-        }
     }
 }
