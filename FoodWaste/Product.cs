@@ -9,7 +9,7 @@ namespace FoodWaste
     class Product
     {
         public string ProductName { get; set; }
-        public int ExpiryDate { get; set; }
+        public string ExpiryDate { get; set; }
         public enum ProductState
         {
             expired,
