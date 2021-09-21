@@ -33,7 +33,9 @@ namespace FoodWaste
         {
             if (checkLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
             {
-                // Sign in succeded
+                this.Hide();
+                MainPage mainPage = new MainPage();
+                mainPage.ShowDialog();
             }
             else
             {
