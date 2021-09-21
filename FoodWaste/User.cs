@@ -17,7 +17,7 @@ public class User
     public String email {get ; set ; }
     public String mobile {get ; set ; }
     public String password {get ; set ; } 
-    public String role {get ; set ; }
+    public String role {get ; set ; } 
     public String status {get ; set ; }
     
     
