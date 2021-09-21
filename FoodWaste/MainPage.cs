@@ -12,10 +12,14 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        private List<Product> productList = new List<Product>();
+        private List<Product> productList; 
+        private Reader reader;
         public MainPage()
         {
             InitializeComponent();
+            reader = new Reader();
+            productList = new List<Product>();
+            productList = reader.getProductsFromFile();
             initDataGridViewColumns();
         }
 

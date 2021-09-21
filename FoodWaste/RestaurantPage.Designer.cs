@@ -38,7 +38,7 @@ namespace FoodWaste
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(-1, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(366, 305);
+            this.dataGridView1.Size = new System.Drawing.Size(344, 306);
             this.dataGridView1.TabIndex = 0;
             // 
             // RestaurantPage

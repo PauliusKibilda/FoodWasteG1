@@ -12,10 +12,15 @@ namespace FoodWaste
 {
     public partial class RestaurantPage : Form
     {
-        private List<Restaurant> restaurantList = new List<Restaurant>();
+        private List<Restaurant> restaurantList;
+        private Reader reader;
         public RestaurantPage()
         {
             InitializeComponent();
+            restaurantList = new List<Restaurant>();
+            reader = new Reader();
+            restaurantList = reader.getRestaurantsFromFile();
+            initDataGridViewColumns();
         }
         public void initDataGridViewColumns()
         {
