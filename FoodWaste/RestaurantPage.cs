@@ -12,17 +12,16 @@ namespace FoodWaste
 {
     public partial class RestaurantPage : Form
     {
-        private List<Restaurant> restaurantList;
-        private Reader reader;
+        private List<Restaurant> RestaurantList = new List<Restaurant>();
+        private Reader Reader;
         public RestaurantPage()
         {
             InitializeComponent();
-            restaurantList = new List<Restaurant>();
-            reader = new Reader();
-            restaurantList = reader.getRestaurantsFromFile();
-            initDataGridViewColumns();
+            Reader = new Reader();
+            RestaurantList = Reader.GetRestaurantsFromFile();
+            InitDataGridViewColumns();
         }
-        public void initDataGridViewColumns()
+        public void InitDataGridViewColumns()
         {
             DataTable dt = GetTable();
             FillTable(dt);
@@ -40,7 +39,7 @@ namespace FoodWaste
         }
         private void FillTable(DataTable dt)
         {
-            foreach (Restaurant restaurant in restaurantList)
+            foreach (Restaurant restaurant in RestaurantList)
             {
                 dt.Rows.Add(restaurant.RestaurantName, restaurant.Adress, restaurant.PhoneNumber);
             }
