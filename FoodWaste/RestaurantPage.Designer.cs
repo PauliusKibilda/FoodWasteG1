@@ -51,7 +51,6 @@ namespace FoodWaste
             this.Text = "Restoranai";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

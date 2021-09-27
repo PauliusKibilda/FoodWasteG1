@@ -16,9 +16,8 @@ namespace FoodWaste
             RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + RestaurantsFile;
             ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + ProductsFile;
         }
-        public List<Product> getProductsFromFile() {
+        public List<Product> GetProductsFromFile() {
             List<Product> products = new List<Product>();
-            FoodWaste.Product.ProductState state;
             using (StreamReader reader = new StreamReader(ProductsFile))
             {
                 string[] parts = new string[3];
@@ -30,10 +29,9 @@ namespace FoodWaste
             }
             return products;
         }
-        public List<Restaurant> getRestaurantsFromFile()
+        public List<Restaurant> GetRestaurantsFromFile()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
-            FoodWaste.Product.ProductState state;
             using (StreamReader reader = new StreamReader(RestaurantsFile))
             {
                 string[] parts = new string[3];

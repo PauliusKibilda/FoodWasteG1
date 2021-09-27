@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 namespace FoodWaste
 {
 
-public class User
-{
-
-
-
-    public string UserName { get; set; }
-    public int id {get ; set ; } 
-    public String email {get ; set ; }
-    public String mobile {get ; set ; }
-    public String password {get ; set ; } 
-    public String role {get ; set ; } 
-    public String status {get ; set ; }
+    public class User
+    {
+        public string UserName { get; set; }
+        public int Id {get ; set ; } 
+        public String Email {get ; set ; }
+        public String Mobile {get ; set ; }
+        public String Password {get ; set ; } 
+        public String Role {get ; set ; } 
+        public String Status {get ; set ; }
     
-    
-}
+    }
 }

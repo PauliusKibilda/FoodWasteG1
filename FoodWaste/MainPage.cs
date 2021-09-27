@@ -12,47 +12,44 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        private List<Product> productList; 
-        private Reader reader;
+        private List<Product> ProductList = new List<Product>();
+        private Reader Reader;
         public MainPage()
         {
             InitializeComponent();
-            reader = new Reader();
-            productList = new List<Product>();
-            productList = reader.getProductsFromFile();
-            initDataGridViewColumns();
+            Reader = new Reader();
+            ProductList = Reader.GetProductsFromFile();
+            dataGridView1.DataSource = ProductList;
         }
-
-        public void initDataGridViewColumns()
-        {
-            DataTable dt = GetTable();
-            FillTable(dt);
-            dataGridView1.DataSource = dt;
-        }
-
-        private DataTable GetTable()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Produktas", typeof(string));
-            //dt.Columns.Add("Restoranas", typeof(string));
-            dt.Columns.Add("Galiojimo pabaiga", typeof(string));
-            dt.Columns.Add("Būsena", typeof(string));
-           // dt.Columns.Add("Kaina", typeof(string));
-            return dt;
-        }
-        private void FillTable(DataTable dt)
-        {
-            foreach (Product product in productList) 
-            {
-                dt.Rows.Add(product.ProductName, product.ExpiryDate, product.State);
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             RestaurantPage restaurantPage = new RestaurantPage();
             restaurantPage.ShowDialog();
         }
+        private void menuItem1_Click(object sender, EventArgs e) 
+        {
+            if (this.dataGridView1.SelectedRows.Count == 0) 
+            {
+                return;
+            }
+            int index = this.dataGridView1.SelectedRows[0].Index;
+            if (index == -1) 
+            {
+                return;
+            }
+            ProductList[index].State = Product.ProductState.reserved;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+        }
 
+        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            DataGridView dataGridView = sender as DataGridView;
+            DataGridView.HitTestInfo hitTestInfo = dataGridView.HitTest(e.X, e.Y);
+            dataGridView.ClearSelection();
+            dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
+            this.dataGridView1.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+
+        }
     }
 }
