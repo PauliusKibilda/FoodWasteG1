@@ -18,8 +18,8 @@ namespace FoodWaste
         public String Role {get ; set ; } 
         public String Status {get ; set ; }
 
-        private string UsersFile = "Users.txt";
-        public void RegisterUser(String pUserName, String pPassword, String pEmail, String optionalNumber = "no number provided")
+        private static string UsersFile = "Users.txt";
+        public static void RegisterUser(String pUserName, String pPassword, String pEmail, String optionalNumber = "no number provided")
         {
             StreamWriter sw = new StreamWriter(UsersFile);
             sw.Write(pUserName);

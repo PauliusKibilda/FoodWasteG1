@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace FoodWaste
 {
-    public partial class Form1 : Form
+    public partial class LoginPage : Form
     {
-        public Form1()
+        public LoginPage()
         {
             InitializeComponent();
-
         }
 
         // This function will need to be implemented properly later
-        public bool checkLoginCredentials(string username, string password)
+        public bool CheckLoginCredentials(string username, string password)
         {
             if (username == "admin" && password == "admin")
             {
@@ -29,9 +28,9 @@ namespace FoodWaste
             return false;
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (checkLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
+            if (CheckLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
             {
                 this.Hide();
                 MainPage mainPage = new MainPage();
@@ -43,26 +42,26 @@ namespace FoodWaste
             }
         }
 
-        private void showPasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void ShowPasswordCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (showPasswordCheckbox.Checked)
-            {
-                passwordTextBox.PasswordChar = '\0';
-            }
-            else
-            {
-                passwordTextBox.PasswordChar = '*';
-            }
+            passwordTextBox.UseSystemPasswordChar = !showPasswordCheckbox.Checked;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             // Go back to the main page
         }
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            // Go to sign up screen
+            this.Hide();
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.ShowDialog();
+        }
+
+        private void LoginPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
