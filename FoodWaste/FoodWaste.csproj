@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="Products.txt" />
     <Content Include="Restaurants.txt" />
+    <Content Include="Users.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
