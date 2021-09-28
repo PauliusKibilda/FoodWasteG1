@@ -13,11 +13,11 @@ namespace FoodWaste
     public partial class RestaurantPage : Form
     {
         private List<Restaurant> RestaurantList = new List<Restaurant>();
-        private Reader Reader;
+        private FileManager Reader;
         public RestaurantPage()
         {
             InitializeComponent();
-            Reader = new Reader();
+            Reader = new FileManager();
             RestaurantList = Reader.GetRestaurantsFromFile();
             InitDataGridViewColumns();
         }
