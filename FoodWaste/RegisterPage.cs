@@ -15,6 +15,48 @@ namespace FoodWaste
         public RegisterPage()
         {
             InitializeComponent();
+            usernameWarningLabel.Visible = false;
+            emailWarningLabel.Visible = false;
+            passwordWarningLabel.Visible = false;
+            passwordsMatchWarningLabel.Visible = false;
+        }
+
+        private void SignUpButton_Click(object sender, EventArgs e)
+        {
+            // Check if username field is empty
+            usernameWarningLabel.Visible = String.IsNullOrWhiteSpace(usernameTextBox.Text);
+
+            // Check if email field is empty
+            emailWarningLabel.Visible = String.IsNullOrWhiteSpace(emailTextBox.Text);
+
+            // Check if password field is empty
+            passwordWarningLabel.Visible = String.IsNullOrWhiteSpace(passwordTextBox.Text);
+
+            // Check if passwords match
+            passwordsMatchWarningLabel.Visible = passwordTextBox.Text != passwordConfirmTextbox.Text;
+            
+            // Check if there are no warnings
+            if (!(usernameWarningLabel.Visible || emailWarningLabel.Visible || passwordWarningLabel.Visible || passwordsMatchWarningLabel.Visible))
+            {
+                // Sign up succesfull
+                // Add a user to the system
+
+                // User.AddUser() will be implemented later
+
+                //if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
+                //{
+                //    User.AddUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
+                //}
+                //else
+                //{
+                //    User.AddUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
+                //}
+            }
+        }
+
+        private void RegisterPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
