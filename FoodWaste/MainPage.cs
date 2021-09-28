@@ -13,11 +13,11 @@ namespace FoodWaste
     public partial class MainPage : Form
     {
         private List<Product> ProductList = new List<Product>();
-        private Reader Reader;
+        private FileManager Reader;
         public MainPage()
         {
             InitializeComponent();
-            Reader = new Reader();
+            Reader = new FileManager();
             ProductList = Reader.GetProductsFromFile();
             dataGridView1.DataSource = ProductList;
             InitFilterValues();
