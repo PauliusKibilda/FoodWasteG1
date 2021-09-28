@@ -10,8 +10,8 @@ namespace FoodWaste
 {
     class FileManager
     {
-        private string RestaurantsFile = "Restaurants.txt";
-        private string ProductsFile = "Products.txt";
+        private static string RestaurantsFile = "Restaurants.txt";
+        private static string ProductsFile = "Products.txt";
         private static string UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Users.txt";
         public FileManager()
         {
@@ -61,6 +61,30 @@ namespace FoodWaste
                 sw.Write(pEmail);
                 sw.Write(' ');
                 sw.Write(optionalMobile);
+                sw.Write('\n');
+            }
+        }
+        public static void InsertProduct(String Name, DateTime ExpiryDate, Enum State)
+        {
+            using (StreamWriter sw = new StreamWriter(ProductsFile))
+            {
+                sw.Write(Name);
+                sw.Write(' ');
+                sw.Write(ExpiryDate);
+                sw.Write(' ');
+                sw.Write(State);
+                sw.Write('\n');
+            }
+        }
+        public static void InsertRestaurants(String RestaurantName, String PhoneNumber, String Adress)
+        {
+            using (StreamWriter sw = new StreamWriter(RestaurantsFile))
+            {
+                sw.Write(RestaurantName);
+                sw.Write(' ');
+                sw.Write(PhoneNumber);
+                sw.Write(' ');
+                sw.Write(Adress);
                 sw.Write('\n');
             }
         }
