@@ -54,10 +54,14 @@ namespace FoodWaste
         {
             using (StreamWriter sw = new StreamWriter(UsersFile))
             {
-                    sw.Write(pUserName);
-                    sw.Write(pPassword);
-                    sw.Write(pEmail);
-                    sw.Write(optionalMobile);
+                sw.Write(pUserName);
+                sw.Write(' ');
+                sw.Write(pPassword);
+                sw.Write(' ');
+                sw.Write(pEmail);
+                sw.Write(' ');
+                sw.Write(optionalMobile);
+                sw.Write('\n');
             }
         }
     }
