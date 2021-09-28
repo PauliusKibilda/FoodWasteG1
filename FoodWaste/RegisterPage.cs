@@ -49,6 +49,7 @@ namespace FoodWaste
                 {
                     FileManager.RegisterUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
                 }
+                MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
             }
         }
 
