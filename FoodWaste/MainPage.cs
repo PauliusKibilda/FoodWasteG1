@@ -89,20 +89,19 @@ namespace FoodWaste
         {
             int selectedIndex = comboBox1.SelectedIndex;
 
-                if (selectedIndex == 0)
-                {
+            if (selectedIndex == 0)
+            {
                 dataGridView1.DataSource = ProductList;
-                }
-                if (selectedIndex == 1)
-                {
+            }
+            if (selectedIndex == 1)
+            {
 
                 dataGridView1.DataSource = ProductList.Where(x => (x.ExpiryDate >= dateTimePicker1.Value.Date && x.ExpiryDate <= dateTimePicker2.Value.Date)).ToList();
             }
-                if (selectedIndex == 2)
-                {
-                    dataGridView1.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-                }
-            
+            if (selectedIndex == 2)
+            {
+                dataGridView1.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+            }
         }
     }
 }
