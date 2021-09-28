@@ -12,7 +12,7 @@ namespace FoodWaste
     {
         private string RestaurantsFile = "Restaurants.txt";
         private string ProductsFile = "Products.txt";
-        private const string UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + UsersFile;
+        private static string UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Users.txt";
         public FileManager()
         {
             RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + RestaurantsFile;
