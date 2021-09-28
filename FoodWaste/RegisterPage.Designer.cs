@@ -242,8 +242,9 @@ namespace FoodWaste
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.emailTextBox);
+            this.MinimumSize = new System.Drawing.Size(300, 420);
             this.Name = "RegisterPage";
-            this.Text = "RegisterPage";
+            this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterPage_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

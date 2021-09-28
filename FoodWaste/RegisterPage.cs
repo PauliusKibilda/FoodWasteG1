@@ -41,16 +41,14 @@ namespace FoodWaste
                 // Sign up succesfull
                 // Add a user to the system
 
-                // User.AddUser() will be implemented later
-
-                //if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
-                //{
-                //    User.AddUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
-                //}
-                //else
-                //{
-                //    User.AddUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
-                //}
+                if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
+                {
+                    User.RegisterUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
+                }
+                else
+                {
+                    User.RegisterUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
+                }
             }
         }
 

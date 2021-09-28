@@ -129,7 +129,7 @@ namespace FoodWaste
             this.signupButton.UseVisualStyleBackColor = true;
             this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
-            // Form1
+            // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -143,8 +143,9 @@ namespace FoodWaste
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.MinimumSize = new System.Drawing.Size(400, 300);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LoginPage";
+            this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginPage_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -66,5 +66,10 @@ namespace FoodWaste
             RegisterPage registerPage = new RegisterPage();
             registerPage.ShowDialog();
         }
+
+        private void LoginPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
