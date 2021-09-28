@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace FoodWaste
 {
-    class Reader
+    class FileManager
     {
         private string RestaurantsFile = "Restaurants.txt";
         private string ProductsFile = "Products.txt";
-        public Reader() 
+        private static string UsersFile = "Users.txt";
+        public FileManager() 
         {
             RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + RestaurantsFile;
             ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + ProductsFile;
+            UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + UsersFile;
         }
         public List<Product> GetProductsFromFile() {
             List<Product> products = new List<Product>();
@@ -47,6 +49,17 @@ namespace FoodWaste
                 }
             }
             return restaurants;
+        }
+
+        public static void RegisterUserToFile(String pUserName, String pPassword, String pEmail, String optionalMobile = "no number provided")
+        {
+            using (StreamWriter sw = new StreamWriter(UsersFile))
+            {
+                    sw.Write(pUserName);
+                    sw.Write(pPassword);
+                    sw.Write(pEmail);
+                    sw.Write(optionalMobile);
+            }
         }
     }
 }
