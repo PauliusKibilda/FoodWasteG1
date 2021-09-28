@@ -62,7 +62,9 @@ namespace FoodWaste
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            // Go to sign up screen
+            this.Hide();
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.ShowDialog();
         }
     }
 }
