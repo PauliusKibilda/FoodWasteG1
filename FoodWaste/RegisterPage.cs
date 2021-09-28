@@ -61,7 +61,9 @@ namespace FoodWaste
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            LoginPage loginPage = new LoginPage();
+            loginPage.ShowDialog();
         }
     }
 }
