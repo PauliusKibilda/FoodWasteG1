@@ -25,7 +25,7 @@ namespace FoodWaste
                 string[] parts = new string[3];
                 while (!reader.EndOfStream) 
                 {
-                    parts = reader.ReadLine().Split(' ');
+                    parts = reader.ReadLine().Split(',');
                     DateTime date;
                     if (DateTime.TryParseExact(parts[1], "yyyy-MM-dd", null, DateTimeStyles.None, out date))
                     {
@@ -43,7 +43,7 @@ namespace FoodWaste
                 string[] parts = new string[3];
                 while (!reader.EndOfStream)
                 {
-                    parts = reader.ReadLine().Split(' ');
+                    parts = reader.ReadLine().Split(',');
                     restaurants.Add(new Restaurant(parts[0], parts[1], parts[2]));
                 }
             }
@@ -55,11 +55,11 @@ namespace FoodWaste
             using (StreamWriter sw = new StreamWriter(UsersFile))
             {
                 sw.Write(pUserName);
-                sw.Write(' ');
+                sw.Write(',');
                 sw.Write(pPassword);
-                sw.Write(' ');
+                sw.Write(',');
                 sw.Write(pEmail);
-                sw.Write(' ');
+                sw.Write(',');
                 sw.Write(optionalMobile);
                 sw.Write('\n');
             }
