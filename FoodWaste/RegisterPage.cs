@@ -58,5 +58,10 @@ namespace FoodWaste
         {
             Environment.Exit(0);
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
