@@ -13,7 +13,7 @@ namespace FoodWaste
         private string RestaurantsFile = "Restaurants.txt";
         private string ProductsFile = "Products.txt";
         private const string UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + UsersFile;
-        public FileManager() 
+        public FileManager()
         {
             RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + RestaurantsFile;
             ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + ProductsFile;
@@ -48,7 +48,7 @@ namespace FoodWaste
                 }
             }
             return restaurants;
-        }
+       }
 
         public static void RegisterUser(String pUserName, String pPassword, String pEmail, String optionalMobile = "no number provided")
         {
