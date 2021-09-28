@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,11 @@ namespace FoodWaste
                 while (!reader.EndOfStream) 
                 {
                     parts = reader.ReadLine().Split(' ');
-                    products.Add(new Product(parts[0], parts[1], (Product.ProductState)Enum.Parse(typeof(Product.ProductState), parts[2])));
+                    DateTime date;
+                    if (DateTime.TryParseExact(parts[1], "yyyy-MM-dd", null, DateTimeStyles.None, out date))
+                    {
+                        products.Add(new Product(parts[0], date, (Product.ProductState)Enum.Parse(typeof(Product.ProductState), parts[2])));
+                    }
                 }
             }
             return products;
