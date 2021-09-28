@@ -96,9 +96,9 @@ namespace FoodWaste
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.passwordTextBox.Location = new System.Drawing.Point(293, 261);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(214, 32);
             this.passwordTextBox.TabIndex = 7;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameLabel
             // 
@@ -137,9 +137,9 @@ namespace FoodWaste
             this.passwordConfirmTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.passwordConfirmTextbox.Location = new System.Drawing.Point(293, 322);
             this.passwordConfirmTextbox.Name = "passwordConfirmTextbox";
-            this.passwordConfirmTextbox.PasswordChar = '*';
             this.passwordConfirmTextbox.Size = new System.Drawing.Size(214, 32);
             this.passwordConfirmTextbox.TabIndex = 14;
+            this.passwordConfirmTextbox.UseSystemPasswordChar = true;
             // 
             // phoneNumberLabel
             // 

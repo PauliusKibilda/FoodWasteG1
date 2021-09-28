@@ -54,9 +54,9 @@ namespace FoodWaste
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.passwordTextBox.Location = new System.Drawing.Point(293, 221);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(214, 32);
             this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameLabel
             // 
@@ -90,7 +90,7 @@ namespace FoodWaste
             this.loginButton.TabIndex = 4;
             this.loginButton.Text = "Log in";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // showPasswordCheckbox
             // 
@@ -103,7 +103,7 @@ namespace FoodWaste
             this.showPasswordCheckbox.TabIndex = 5;
             this.showPasswordCheckbox.Text = "Show Password";
             this.showPasswordCheckbox.UseVisualStyleBackColor = true;
-            this.showPasswordCheckbox.CheckedChanged += new System.EventHandler(this.showPasswordCheckbox_CheckedChanged);
+            this.showPasswordCheckbox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckbox_CheckedChanged);
             // 
             // backButton
             // 
@@ -115,7 +115,7 @@ namespace FoodWaste
             this.backButton.TabIndex = 6;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // signupButton
             // 

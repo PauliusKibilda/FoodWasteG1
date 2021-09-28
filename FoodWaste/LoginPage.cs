@@ -15,11 +15,10 @@ namespace FoodWaste
         public LoginPage()
         {
             InitializeComponent();
-
         }
 
         // This function will need to be implemented properly later
-        public bool checkLoginCredentials(string username, string password)
+        public bool CheckLoginCredentials(string username, string password)
         {
             if (username == "admin" && password == "admin")
             {
@@ -29,9 +28,9 @@ namespace FoodWaste
             return false;
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            if (checkLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
+            if (CheckLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
             {
                 this.Hide();
                 MainPage mainPage = new MainPage();
@@ -43,19 +42,12 @@ namespace FoodWaste
             }
         }
 
-        private void showPasswordCheckbox_CheckedChanged(object sender, EventArgs e)
+        private void ShowPasswordCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            if (showPasswordCheckbox.Checked)
-            {
-                passwordTextBox.PasswordChar = '\0';
-            }
-            else
-            {
-                passwordTextBox.PasswordChar = '*';
-            }
+            passwordTextBox.UseSystemPasswordChar = !showPasswordCheckbox.Checked;
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             // Go back to the main page
         }
