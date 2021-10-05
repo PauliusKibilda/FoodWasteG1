@@ -122,7 +122,7 @@
   <ItemGroup>
     <Content Include="Products.txt" />
     <Content Include="Restaurants.txt" />
-    <Content Include="Users.txt" />
+    <Content Include="Accounts.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
