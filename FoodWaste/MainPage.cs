@@ -47,6 +47,7 @@ namespace FoodWaste
                 dataGridView1.Rows[index].Cells[2].Value = Product.ProductState.reserved;
                 dataGridView1.Update();
                 dataGridView1.Refresh();
+                FileManager.InsertProduct(new List<Product>(ProductList));
             }
         }
 
