@@ -30,7 +30,7 @@ namespace FoodWaste
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@ namespace FoodWaste
             this.Column2,
             this.Column3});
             this.MainDataGridView.ContextMenuStrip = this.gridClick;
-            this.MainDataGridView.Location = new System.Drawing.Point(52, 118);
+            this.MainDataGridView.Location = new System.Drawing.Point(12, 113);
             this.MainDataGridView.MultiSelect = false;
             this.MainDataGridView.Name = "MainDataGridView";
             this.MainDataGridView.ReadOnly = true;
@@ -75,8 +75,8 @@ namespace FoodWaste
             // Column2
             // 
             this.Column2.DataPropertyName = "ExpiryDate";
-            dataGridViewCellStyle1.Format = "yyyy-MM-dd";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Format = "yyyy-MM-dd";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column2.HeaderText = "Expiration date";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -104,9 +104,11 @@ namespace FoodWaste
             // 
             // RestaurantListButton
             // 
-            this.RestaurantListButton.Location = new System.Drawing.Point(679, 513);
+            this.RestaurantListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RestaurantListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.RestaurantListButton.Location = new System.Drawing.Point(649, 544);
             this.RestaurantListButton.Name = "RestaurantListButton";
-            this.RestaurantListButton.Size = new System.Drawing.Size(107, 23);
+            this.RestaurantListButton.Size = new System.Drawing.Size(167, 38);
             this.RestaurantListButton.TabIndex = 1;
             this.RestaurantListButton.Text = "Restaurant list";
             this.RestaurantListButton.UseVisualStyleBackColor = true;
@@ -115,7 +117,7 @@ namespace FoodWaste
             // FilterComboBox
             // 
             this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(52, 37);
+            this.FilterComboBox.Location = new System.Drawing.Point(12, 38);
             this.FilterComboBox.Name = "FilterComboBox";
             this.FilterComboBox.Size = new System.Drawing.Size(175, 21);
             this.FilterComboBox.TabIndex = 2;
@@ -124,16 +126,16 @@ namespace FoodWaste
             // FilterLabel
             // 
             this.FilterLabel.AutoSize = true;
-            this.FilterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.FilterLabel.Location = new System.Drawing.Point(48, 14);
+            this.FilterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.FilterLabel.Location = new System.Drawing.Point(8, 9);
             this.FilterLabel.Name = "FilterLabel";
-            this.FilterLabel.Size = new System.Drawing.Size(44, 20);
+            this.FilterLabel.Size = new System.Drawing.Size(60, 26);
             this.FilterLabel.TabIndex = 3;
             this.FilterLabel.Text = "Filter";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(52, 65);
+            this.textBox1.Location = new System.Drawing.Point(12, 66);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 4;
@@ -141,7 +143,7 @@ namespace FoodWaste
             // 
             // StartingDateTimePicker
             // 
-            this.StartingDateTimePicker.Location = new System.Drawing.Point(52, 65);
+            this.StartingDateTimePicker.Location = new System.Drawing.Point(12, 66);
             this.StartingDateTimePicker.Name = "StartingDateTimePicker";
             this.StartingDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.StartingDateTimePicker.TabIndex = 5;
@@ -149,7 +151,7 @@ namespace FoodWaste
             // 
             // EndingDateTimePicker
             // 
-            this.EndingDateTimePicker.Location = new System.Drawing.Point(271, 65);
+            this.EndingDateTimePicker.Location = new System.Drawing.Point(231, 66);
             this.EndingDateTimePicker.Name = "EndingDateTimePicker";
             this.EndingDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.EndingDateTimePicker.TabIndex = 6;
@@ -157,7 +159,7 @@ namespace FoodWaste
             // 
             // FilterButton
             // 
-            this.FilterButton.Location = new System.Drawing.Point(233, 37);
+            this.FilterButton.Location = new System.Drawing.Point(193, 38);
             this.FilterButton.Name = "FilterButton";
             this.FilterButton.Size = new System.Drawing.Size(75, 23);
             this.FilterButton.TabIndex = 7;
@@ -179,6 +181,7 @@ namespace FoodWaste
             this.Controls.Add(this.FilterComboBox);
             this.Controls.Add(this.RestaurantListButton);
             this.Controls.Add(this.MainDataGridView);
+            this.MinimumSize = new System.Drawing.Size(721, 521);
             this.Name = "MainPage";
             this.Text = "Main page";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainPage_FormClosed);
