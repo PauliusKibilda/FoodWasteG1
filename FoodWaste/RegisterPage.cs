@@ -17,6 +17,7 @@ namespace FoodWaste
         {
             Role = role; 
             InitializeComponent();
+            this.CenterToScreen();
             usernameWarningLabel.Visible = false;
             emailWarningLabel.Visible = false;
             passwordWarningLabel.Visible = false;
@@ -51,7 +52,12 @@ namespace FoodWaste
                 {
                     FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text, Role);
                 }
+
+                // Feedback message box so user knows the registration was successful
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
+
+                // Redirect to login page
+                BackToLoginPage();
             }
         }
 
@@ -61,6 +67,11 @@ namespace FoodWaste
         }
 
         private void BackButton_Click(object sender, EventArgs e)
+        {
+            BackToLoginPage();
+        }
+
+        private void BackToLoginPage()
         {
             this.Hide();
             LoginPage loginPage = new LoginPage();

@@ -15,6 +15,7 @@ namespace FoodWaste
         public LoginPage()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         // This function will need to be implemented properly later
@@ -32,9 +33,7 @@ namespace FoodWaste
         {
             if (CheckLoginCredentials(usernameTextBox.Text, passwordTextBox.Text))
             {
-                this.Hide();
-                MainPage mainPage = new MainPage();
-                mainPage.ShowDialog();
+                OpenMainPage();
             }
             else
             {
@@ -47,9 +46,9 @@ namespace FoodWaste
             passwordTextBox.UseSystemPasswordChar = !showPasswordCheckbox.Checked;
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
+        private void ContinueAsGuestButton_Click(object sender, EventArgs e)
         {
-            // Go back to the main page
+            OpenMainPage();
         }
 
         private void signupButton_Click(object sender, EventArgs e)
@@ -62,6 +61,13 @@ namespace FoodWaste
         private void LoginPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void OpenMainPage()
+        {
+            this.Hide();
+            MainPage mainPage = new MainPage();
+            mainPage.ShowDialog();
         }
     }
 }

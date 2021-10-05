@@ -15,6 +15,7 @@ namespace FoodWaste
         public RegisterOptions()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void RestaurantButton_Click(object sender, EventArgs e)
@@ -31,6 +32,14 @@ namespace FoodWaste
             this.Close();
             RegisterPage registerPage = new RegisterPage("User");
             registerPage.ShowDialog();
+        }
+
+        private void RegisterOptions_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            LoginPage loginPage = new LoginPage();
+            loginPage.ShowDialog();
         }
     }
 }

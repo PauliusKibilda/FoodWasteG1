@@ -111,11 +111,11 @@ namespace FoodWaste
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.backButton.Location = new System.Drawing.Point(12, 398);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(104, 40);
+            this.backButton.Size = new System.Drawing.Size(197, 40);
             this.backButton.TabIndex = 6;
-            this.backButton.Text = "Back";
+            this.backButton.Text = "Continue as guest";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.backButton.Click += new System.EventHandler(this.ContinueAsGuestButton_Click);
             // 
             // signupButton
             // 

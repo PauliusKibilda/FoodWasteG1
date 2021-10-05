@@ -10,25 +10,25 @@ namespace FoodWaste
     {
         public enum ProductState
         {
-            expired,
-            taken,
-            reserved,
-            listed
+            Expired,
+            Taken,
+            Reserved,
+            Listed
         }
         public string Name { get; set; }
         public DateTime ExpiryDate { get; set; }
         public ProductState State { get; set; }
 
-        public Product(string ProductName, DateTime ExpiryDate) {
-            this.Name = ProductName;
-            this.ExpiryDate = ExpiryDate;
-            this.State = ProductState.listed;
+        public Product(string productName, DateTime expiryDate) {
+            this.Name = productName;
+            this.ExpiryDate = expiryDate;
+            this.State = ProductState.Listed;
         }
-        public Product(string ProductName, DateTime ExpiryDate, ProductState State)
+        public Product(string productName, DateTime expiryDate, ProductState state)
         {
-            this.Name = ProductName;
-            this.ExpiryDate = ExpiryDate;
-            this.State = State;
+            this.Name = productName;
+            this.ExpiryDate = expiryDate;
+            this.State = state;
         }
     }
 }

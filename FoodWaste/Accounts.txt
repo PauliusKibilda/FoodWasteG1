@@ -1,0 +1,2 @@
+user1,user1@gmail.com,password123,868686868,User
+restaurant1,rest1@rest.com,PaSwOrD321,+370000000,Restaurant
