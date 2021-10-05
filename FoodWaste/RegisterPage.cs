@@ -12,8 +12,10 @@ namespace FoodWaste
 {
     public partial class RegisterPage : Form
     {
-        public RegisterPage()
+        private string Role; 
+        public RegisterPage(string role)
         {
+            Role = role; 
             InitializeComponent();
             usernameWarningLabel.Visible = false;
             emailWarningLabel.Visible = false;
@@ -43,11 +45,11 @@ namespace FoodWaste
 
                 if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, Role);
                 }
                 else
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text, Role);
                 }
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
             }
