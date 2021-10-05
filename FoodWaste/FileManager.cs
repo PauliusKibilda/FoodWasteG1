@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FoodWaste
 {
-    class FileManager
+    static class FileManager
     {
         private static string RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Restaurants.txt";
         private static string ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
