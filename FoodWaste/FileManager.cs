@@ -46,7 +46,7 @@ namespace FoodWaste
             return restaurants;
        }
 
-        public static void RegisterUser(String pUserName, String pPassword, String pEmail, String optionalMobile = "no number provided")
+        public static void InsertUser(String pUserName, String pPassword, String pEmail, String optionalMobile = "no number provided")
         {
             using (StreamWriter sw = new StreamWriter(UsersFile, true))
             {
@@ -60,7 +60,7 @@ namespace FoodWaste
                 sw.Write('\n');
             }
         }
-        public static void InsertProduct(List<Product> productList)
+        public static void InsertProducts(List<Product> productList)
         {
             using (StreamWriter sw = new StreamWriter(ProductsFile))
             {
@@ -75,9 +75,9 @@ namespace FoodWaste
                 }
             }
         }
-        public static void InsertRestaurants(String RestaurantName, String PhoneNumber, String Adress)
+        public static void InsertRestaurant(String RestaurantName, String PhoneNumber, String Adress)
         {
-            using (StreamWriter sw = new StreamWriter(RestaurantsFile))
+            using (StreamWriter sw = new StreamWriter(RestaurantsFile, true))
             {
                 sw.Write(RestaurantName);
                 sw.Write(',');

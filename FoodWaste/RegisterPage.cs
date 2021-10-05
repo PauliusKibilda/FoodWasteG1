@@ -43,11 +43,11 @@ namespace FoodWaste
 
                 if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
                 {
-                    FileManager.RegisterUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
                 }
                 else
                 {
-                    FileManager.RegisterUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
                 }
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
             }
