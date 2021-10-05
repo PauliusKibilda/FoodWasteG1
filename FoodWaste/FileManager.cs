@@ -46,7 +46,7 @@ namespace FoodWaste
             return restaurants;
        }
 
-        public static void InsertUser(String pUserName, String pPassword, String pEmail, String optionalMobile = "no number provided")
+        public static void InsertUser(string pUserName, string pPassword, string pEmail, string Role, string optionalMobile = "no number provided")
         {
             using (StreamWriter sw = new StreamWriter(UsersFile, true))
             {
@@ -55,6 +55,8 @@ namespace FoodWaste
                 sw.Write(pPassword);
                 sw.Write(',');
                 sw.Write(pEmail);
+                sw.Write(',');
+                sw.Write(Role);
                 sw.Write(',');
                 sw.Write(optionalMobile);
                 sw.Write('\n');
@@ -75,7 +77,7 @@ namespace FoodWaste
                 }
             }
         }
-        public static void InsertRestaurant(String RestaurantName, String PhoneNumber, String Adress)
+        public static void InsertRestaurant(string RestaurantName, string PhoneNumber, string Adress)
         {
             using (StreamWriter sw = new StreamWriter(RestaurantsFile, true))
             {
