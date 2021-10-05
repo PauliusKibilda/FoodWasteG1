@@ -17,6 +17,7 @@ namespace FoodWaste
         {
             Role = role; 
             InitializeComponent();
+            this.CenterToScreen();
             usernameWarningLabel.Visible = false;
             emailWarningLabel.Visible = false;
             passwordWarningLabel.Visible = false;
