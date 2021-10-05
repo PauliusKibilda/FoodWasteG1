@@ -79,7 +79,7 @@ namespace FoodWaste
             this.Controls.Add(this.RestaurantButton);
             this.MinimumSize = new System.Drawing.Size(359, 225);
             this.Name = "RegisterOptions";
-            this.Text = "RegisterOptions";
+            this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterOptions_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

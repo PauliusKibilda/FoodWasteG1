@@ -18,93 +18,96 @@ namespace FoodWaste
             InitializeComponent();
             this.CenterToScreen();
             ProductList = FileManager.GetProductsFromFile();
-            dataGridView1.DataSource = ProductList;
+            MainDataGridView.DataSource = ProductList;
             InitFilterValues();
         }
-        private void InitFilterValues() {
-            comboBox1.Items.Add("Default view");
-            comboBox1.Items.Add("Expiration date");
-            comboBox1.Items.Add("Product");
-
+        private void InitFilterValues() 
+        {
+            FilterComboBox.Items.Add("Default view");
+            FilterComboBox.Items.Add("Expiration date");
+            FilterComboBox.Items.Add("Product");
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void RestaurantListButton_Click(object sender, EventArgs e)
         {
             RestaurantPage restaurantPage = new RestaurantPage();
             restaurantPage.ShowDialog();
         }
-        private void menuItem1_Click(object sender, EventArgs e) 
+        private void RegisterStripMenuReserve_Click(object sender, EventArgs e) 
         {
-            if (this.dataGridView1.SelectedRows.Count == 0) 
+            if (this.MainDataGridView.SelectedRows.Count == 0) 
             {
                 return;
             }
-            int index = this.dataGridView1.SelectedRows[0].Index;
+            int index = this.MainDataGridView.SelectedRows[0].Index;
             if (index == -1) 
             {
                 return;
             }
-            if (MessageBox.Show("Do you want to reserve " + dataGridView1.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to reserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dataGridView1.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
-                dataGridView1.Update();
-                dataGridView1.Refresh();
+                MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
+                MainDataGridView.Update();
+                MainDataGridView.Refresh();
                 FileManager.InsertProducts(new List<Product>(ProductList));
             }
         }
 
-        private void dataGridView1_MouseDown(object sender, MouseEventArgs e)
+        private void MainDataGridView_MouseDown(object sender, MouseEventArgs e)
         {
             DataGridView dataGridView = sender as DataGridView;
             DataGridView.HitTestInfo hitTestInfo = dataGridView.HitTest(e.X, e.Y);
             dataGridView.ClearSelection();
             dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
-            this.dataGridView1.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
-
+            this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedIndex = comboBox1.SelectedIndex;
+            int selectedIndex = FilterComboBox.SelectedIndex;
             if (selectedIndex == 0)
             {
-                dateTimePicker1.Visible = false;
-                dateTimePicker2.Visible = false;
+                StartingDateTimePicker.Visible = false;
+                EndingDateTimePicker.Visible = false;
                 textBox1.Visible = false;
             }
             if (selectedIndex == 1)
             {
-                dateTimePicker1.Visible = true;
-                dateTimePicker2.Visible = true;
+                StartingDateTimePicker.Visible = true;
+                EndingDateTimePicker.Visible = true;
                 textBox1.Visible = false;
             }
             if (selectedIndex == 2)
             {
-                dateTimePicker1.Visible = false;
-                dateTimePicker2.Visible = false;
+                StartingDateTimePicker.Visible = false;
+                EndingDateTimePicker.Visible = false;
                 textBox1.Visible = true;
             }
 
-            button2.Visible = true;
-
+            FilterButton.Visible = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void FilterButtonClick(object sender, EventArgs e)
         {
-            int selectedIndex = comboBox1.SelectedIndex;
+            int selectedIndex = FilterComboBox.SelectedIndex;
 
             if (selectedIndex == 0)
             {
-                dataGridView1.DataSource = ProductList;
+                MainDataGridView.DataSource = ProductList;
             }
             if (selectedIndex == 1)
             {
 
-                dataGridView1.DataSource = ProductList.Where(x => (x.ExpiryDate >= dateTimePicker1.Value.Date && x.ExpiryDate <= dateTimePicker2.Value.Date)).ToList();
+                MainDataGridView.DataSource = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
             }
             if (selectedIndex == 2)
             {
-                dataGridView1.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                MainDataGridView.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
             }
+        }
+
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
