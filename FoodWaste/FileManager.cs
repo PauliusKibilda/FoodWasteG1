@@ -12,7 +12,7 @@ namespace FoodWaste
     {
         private static string RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Restaurants.txt";
         private static string ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
-        private static string UsersFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Users.txt";
+        private static string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
 
         public static List<Product> GetProductsFromFile() {
             List<Product> products = new List<Product>();
@@ -48,7 +48,7 @@ namespace FoodWaste
 
         public static void InsertUser(string pUserName, string pPassword, string pEmail, string Role, string optionalMobile = "no number provided")
         {
-            using (StreamWriter sw = new StreamWriter(UsersFile, true))
+            using (StreamWriter sw = new StreamWriter(AccountsFile, true))
             {
                 sw.Write(pUserName);
                 sw.Write(',');
