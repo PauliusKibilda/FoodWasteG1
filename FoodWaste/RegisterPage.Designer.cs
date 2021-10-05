@@ -45,15 +45,22 @@ namespace FoodWaste
             this.usernameWarningLabel = new System.Windows.Forms.Label();
             this.emailWarningLabel = new System.Windows.Forms.Label();
             this.passwordWarningLabel = new System.Windows.Forms.Label();
+            this.shortUsernameWarningLabel = new System.Windows.Forms.Label();
+            this.invalidUsernameWarningLabel = new System.Windows.Forms.Label();
+            this.invalidEmailAddressWarningLabel = new System.Windows.Forms.Label();
+            this.passwordRequired8Characters = new System.Windows.Forms.Label();
+            this.passwordInvalidUpperLetter = new System.Windows.Forms.Label();
+            this.invalidPasswordNoNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // signUpButton
             // 
             this.signUpButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.signUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.signUpButton.Location = new System.Drawing.Point(403, 360);
+            this.signUpButton.Location = new System.Drawing.Point(537, 443);
+            this.signUpButton.Margin = new System.Windows.Forms.Padding(4);
             this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(104, 40);
+            this.signUpButton.Size = new System.Drawing.Size(139, 49);
             this.signUpButton.TabIndex = 10;
             this.signUpButton.Text = "Sign up";
             this.signUpButton.UseVisualStyleBackColor = true;
@@ -64,9 +71,10 @@ namespace FoodWaste
             this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordLabel.Location = new System.Drawing.Point(293, 235);
+            this.passwordLabel.Location = new System.Drawing.Point(391, 289);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(108, 26);
+            this.passwordLabel.Size = new System.Drawing.Size(134, 31);
             this.passwordLabel.TabIndex = 9;
             this.passwordLabel.Text = "Password";
             // 
@@ -75,9 +83,10 @@ namespace FoodWaste
             this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.emailLabel.Location = new System.Drawing.Point(293, 108);
+            this.emailLabel.Location = new System.Drawing.Point(391, 133);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(151, 26);
+            this.emailLabel.Size = new System.Drawing.Size(185, 31);
             this.emailLabel.TabIndex = 8;
             this.emailLabel.Text = "Email address";
             // 
@@ -85,18 +94,20 @@ namespace FoodWaste
             // 
             this.emailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.emailTextBox.Location = new System.Drawing.Point(293, 134);
+            this.emailTextBox.Location = new System.Drawing.Point(391, 165);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(214, 32);
+            this.emailTextBox.Size = new System.Drawing.Size(284, 38);
             this.emailTextBox.TabIndex = 6;
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordTextBox.Location = new System.Drawing.Point(293, 261);
+            this.passwordTextBox.Location = new System.Drawing.Point(391, 321);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(214, 32);
+            this.passwordTextBox.Size = new System.Drawing.Size(284, 38);
             this.passwordTextBox.TabIndex = 7;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
@@ -105,9 +116,10 @@ namespace FoodWaste
             this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameLabel.Location = new System.Drawing.Point(293, 47);
+            this.usernameLabel.Location = new System.Drawing.Point(391, 58);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(113, 26);
+            this.usernameLabel.Size = new System.Drawing.Size(139, 31);
             this.usernameLabel.TabIndex = 13;
             this.usernameLabel.Text = "Username";
             // 
@@ -115,9 +127,10 @@ namespace FoodWaste
             // 
             this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameTextBox.Location = new System.Drawing.Point(293, 73);
+            this.usernameTextBox.Location = new System.Drawing.Point(391, 90);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(214, 32);
+            this.usernameTextBox.Size = new System.Drawing.Size(284, 38);
             this.usernameTextBox.TabIndex = 12;
             // 
             // confirmPasswordLabel
@@ -125,9 +138,10 @@ namespace FoodWaste
             this.confirmPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.confirmPasswordLabel.AutoSize = true;
             this.confirmPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.confirmPasswordLabel.Location = new System.Drawing.Point(293, 296);
+            this.confirmPasswordLabel.Location = new System.Drawing.Point(391, 364);
+            this.confirmPasswordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(191, 26);
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(236, 31);
             this.confirmPasswordLabel.TabIndex = 15;
             this.confirmPasswordLabel.Text = "Confirm Password";
             // 
@@ -135,9 +149,10 @@ namespace FoodWaste
             // 
             this.passwordConfirmTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordConfirmTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordConfirmTextbox.Location = new System.Drawing.Point(293, 322);
+            this.passwordConfirmTextbox.Location = new System.Drawing.Point(391, 396);
+            this.passwordConfirmTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordConfirmTextbox.Name = "passwordConfirmTextbox";
-            this.passwordConfirmTextbox.Size = new System.Drawing.Size(214, 32);
+            this.passwordConfirmTextbox.Size = new System.Drawing.Size(284, 38);
             this.passwordConfirmTextbox.TabIndex = 14;
             this.passwordConfirmTextbox.UseSystemPasswordChar = true;
             // 
@@ -146,9 +161,10 @@ namespace FoodWaste
             this.phoneNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.phoneNumberLabel.AutoSize = true;
             this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.phoneNumberLabel.Location = new System.Drawing.Point(293, 171);
+            this.phoneNumberLabel.Location = new System.Drawing.Point(391, 210);
+            this.phoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
-            this.phoneNumberLabel.Size = new System.Drawing.Size(251, 26);
+            this.phoneNumberLabel.Size = new System.Drawing.Size(310, 31);
             this.phoneNumberLabel.TabIndex = 17;
             this.phoneNumberLabel.Text = "Phone number (optional)";
             // 
@@ -156,18 +172,20 @@ namespace FoodWaste
             // 
             this.phoneTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.phoneTextBox.Location = new System.Drawing.Point(293, 199);
+            this.phoneTextBox.Location = new System.Drawing.Point(391, 245);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(214, 32);
+            this.phoneTextBox.Size = new System.Drawing.Size(284, 38);
             this.phoneTextBox.TabIndex = 16;
             // 
             // backButton
             // 
             this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.backButton.Location = new System.Drawing.Point(293, 360);
+            this.backButton.Location = new System.Drawing.Point(391, 443);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(104, 40);
+            this.backButton.Size = new System.Drawing.Size(139, 49);
             this.backButton.TabIndex = 18;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
@@ -179,9 +197,10 @@ namespace FoodWaste
             this.passwordsMatchWarningLabel.AutoSize = true;
             this.passwordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordsMatchWarningLabel.Location = new System.Drawing.Point(513, 329);
+            this.passwordsMatchWarningLabel.Location = new System.Drawing.Point(684, 405);
+            this.passwordsMatchWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordsMatchWarningLabel.Name = "passwordsMatchWarningLabel";
-            this.passwordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
+            this.passwordsMatchWarningLabel.Size = new System.Drawing.Size(251, 25);
             this.passwordsMatchWarningLabel.TabIndex = 19;
             this.passwordsMatchWarningLabel.Text = "The passwords must match";
             // 
@@ -191,9 +210,10 @@ namespace FoodWaste
             this.usernameWarningLabel.AutoSize = true;
             this.usernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.usernameWarningLabel.Location = new System.Drawing.Point(513, 80);
+            this.usernameWarningLabel.Location = new System.Drawing.Point(684, 98);
+            this.usernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameWarningLabel.Name = "usernameWarningLabel";
-            this.usernameWarningLabel.Size = new System.Drawing.Size(242, 20);
+            this.usernameWarningLabel.Size = new System.Drawing.Size(296, 25);
             this.usernameWarningLabel.TabIndex = 20;
             this.usernameWarningLabel.Text = "Username field can not be empty";
             // 
@@ -203,9 +223,10 @@ namespace FoodWaste
             this.emailWarningLabel.AutoSize = true;
             this.emailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.emailWarningLabel.Location = new System.Drawing.Point(513, 141);
+            this.emailWarningLabel.Location = new System.Drawing.Point(684, 174);
+            this.emailWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailWarningLabel.Name = "emailWarningLabel";
-            this.emailWarningLabel.Size = new System.Drawing.Size(235, 20);
+            this.emailWarningLabel.Size = new System.Drawing.Size(289, 25);
             this.emailWarningLabel.TabIndex = 21;
             this.emailWarningLabel.Text = "Email address can not be empty";
             // 
@@ -215,17 +236,110 @@ namespace FoodWaste
             this.passwordWarningLabel.AutoSize = true;
             this.passwordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordWarningLabel.Location = new System.Drawing.Point(513, 268);
+            this.passwordWarningLabel.Location = new System.Drawing.Point(684, 330);
+            this.passwordWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordWarningLabel.Name = "passwordWarningLabel";
-            this.passwordWarningLabel.Size = new System.Drawing.Size(237, 20);
+            this.passwordWarningLabel.Size = new System.Drawing.Size(292, 25);
             this.passwordWarningLabel.TabIndex = 22;
             this.passwordWarningLabel.Text = "Password field can not be empty";
             // 
+            // shortUsernameWarningLabel
+            // 
+            this.shortUsernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.shortUsernameWarningLabel.AutoSize = true;
+            this.shortUsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shortUsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.shortUsernameWarningLabel.Location = new System.Drawing.Point(684, 103);
+            this.shortUsernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.shortUsernameWarningLabel.Name = "shortUsernameWarningLabel";
+            this.shortUsernameWarningLabel.Size = new System.Drawing.Size(373, 25);
+            this.shortUsernameWarningLabel.TabIndex = 23;
+            this.shortUsernameWarningLabel.Text = "Username Must Be At Least 4 Characters";
+            this.shortUsernameWarningLabel.Visible = false;
+            // 
+            // invalidUsernameWarningLabel
+            // 
+            this.invalidUsernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.invalidUsernameWarningLabel.AutoSize = true;
+            this.invalidUsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidUsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.invalidUsernameWarningLabel.Location = new System.Drawing.Point(684, 103);
+            this.invalidUsernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.invalidUsernameWarningLabel.Name = "invalidUsernameWarningLabel";
+            this.invalidUsernameWarningLabel.Size = new System.Drawing.Size(183, 25);
+            this.invalidUsernameWarningLabel.TabIndex = 24;
+            this.invalidUsernameWarningLabel.Text = "Username Is Invalid";
+            this.invalidUsernameWarningLabel.Visible = false;
+            // 
+            // invalidEmailAddressWarningLabel
+            // 
+            this.invalidEmailAddressWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.invalidEmailAddressWarningLabel.AutoSize = true;
+            this.invalidEmailAddressWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidEmailAddressWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.invalidEmailAddressWarningLabel.Location = new System.Drawing.Point(684, 174);
+            this.invalidEmailAddressWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.invalidEmailAddressWarningLabel.Name = "invalidEmailAddressWarningLabel";
+            this.invalidEmailAddressWarningLabel.Size = new System.Drawing.Size(219, 25);
+            this.invalidEmailAddressWarningLabel.TabIndex = 25;
+            this.invalidEmailAddressWarningLabel.Text = "Email Address Is Invalid";
+            this.invalidEmailAddressWarningLabel.Visible = false;
+            // 
+            // passwordRequired8Characters
+            // 
+            this.passwordRequired8Characters.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordRequired8Characters.AutoSize = true;
+            this.passwordRequired8Characters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordRequired8Characters.ForeColor = System.Drawing.Color.Red;
+            this.passwordRequired8Characters.Location = new System.Drawing.Point(684, 309);
+            this.passwordRequired8Characters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordRequired8Characters.Name = "passwordRequired8Characters";
+            this.passwordRequired8Characters.Size = new System.Drawing.Size(266, 50);
+            this.passwordRequired8Characters.TabIndex = 26;
+            this.passwordRequired8Characters.Text = "Password Field Must Contain\r\n At Least 8 Characters";
+            this.passwordRequired8Characters.Visible = false;
+            // 
+            // passwordInvalidUpperLetter
+            // 
+            this.passwordInvalidUpperLetter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.passwordInvalidUpperLetter.AutoSize = true;
+            this.passwordInvalidUpperLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordInvalidUpperLetter.ForeColor = System.Drawing.Color.Red;
+            this.passwordInvalidUpperLetter.Location = new System.Drawing.Point(684, 309);
+            this.passwordInvalidUpperLetter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordInvalidUpperLetter.Name = "passwordInvalidUpperLetter";
+            this.passwordInvalidUpperLetter.Size = new System.Drawing.Size(266, 50);
+            this.passwordInvalidUpperLetter.TabIndex = 27;
+            this.passwordInvalidUpperLetter.Text = "Password Field Must Contain\r\n At Least 1 Upper Case";
+            this.passwordInvalidUpperLetter.Visible = false;
+         
+            // 
+            // invalidPasswordNoNumber
+            // 
+            this.invalidPasswordNoNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.invalidPasswordNoNumber.AutoSize = true;
+            this.invalidPasswordNoNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidPasswordNoNumber.ForeColor = System.Drawing.Color.Red;
+            this.invalidPasswordNoNumber.Location = new System.Drawing.Point(684, 309);
+            this.invalidPasswordNoNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.invalidPasswordNoNumber.Name = "invalidPasswordNoNumber";
+            this.invalidPasswordNoNumber.Size = new System.Drawing.Size(266, 50);
+            this.invalidPasswordNoNumber.TabIndex = 28;
+            this.invalidPasswordNoNumber.Text = "Password Field Must Contain\r\n At Least 1 Number";
+            this.invalidPasswordNoNumber.Visible = false;
+            
+            // 
             // RegisterPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.invalidPasswordNoNumber);
+            this.Controls.Add(this.passwordInvalidUpperLetter);
+            this.Controls.Add(this.passwordRequired8Characters);
+            this.Controls.Add(this.invalidEmailAddressWarningLabel);
+            this.Controls.Add(this.invalidUsernameWarningLabel);
+            this.Controls.Add(this.shortUsernameWarningLabel);
             this.Controls.Add(this.passwordWarningLabel);
             this.Controls.Add(this.emailWarningLabel);
             this.Controls.Add(this.usernameWarningLabel);
@@ -242,7 +356,8 @@ namespace FoodWaste
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.emailTextBox);
-            this.MinimumSize = new System.Drawing.Size(300, 420);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(394, 506);
             this.Name = "RegisterPage";
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterPage_FormClosed);
@@ -268,5 +383,11 @@ namespace FoodWaste
         private System.Windows.Forms.Label usernameWarningLabel;
         private System.Windows.Forms.Label emailWarningLabel;
         private System.Windows.Forms.Label passwordWarningLabel;
+        private System.Windows.Forms.Label shortUsernameWarningLabel;
+        private System.Windows.Forms.Label invalidUsernameWarningLabel;
+        private System.Windows.Forms.Label invalidEmailAddressWarningLabel;
+        private System.Windows.Forms.Label passwordRequired8Characters;
+        private System.Windows.Forms.Label passwordInvalidUpperLetter;
+        private System.Windows.Forms.Label invalidPasswordNoNumber;
     }
 }
