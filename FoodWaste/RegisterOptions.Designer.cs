@@ -36,6 +36,7 @@ namespace FoodWaste
             // 
             // RestaurantButton
             // 
+            this.RestaurantButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RestaurantButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.RestaurantButton.Location = new System.Drawing.Point(26, 115);
             this.RestaurantButton.Name = "RestaurantButton";
@@ -47,6 +48,7 @@ namespace FoodWaste
             // 
             // UserButton
             // 
+            this.UserButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.UserButton.Location = new System.Drawing.Point(176, 115);
             this.UserButton.Name = "UserButton";
@@ -58,9 +60,10 @@ namespace FoodWaste
             // 
             // RegisterText
             // 
+            this.RegisterText.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterText.AutoSize = true;
             this.RegisterText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.RegisterText.Location = new System.Drawing.Point(21, 36);
+            this.RegisterText.Location = new System.Drawing.Point(30, 42);
             this.RegisterText.Name = "RegisterText";
             this.RegisterText.Size = new System.Drawing.Size(273, 25);
             this.RegisterText.TabIndex = 2;
@@ -74,6 +77,7 @@ namespace FoodWaste
             this.Controls.Add(this.RegisterText);
             this.Controls.Add(this.UserButton);
             this.Controls.Add(this.RestaurantButton);
+            this.MinimumSize = new System.Drawing.Size(359, 225);
             this.Name = "RegisterOptions";
             this.Text = "RegisterOptions";
             this.ResumeLayout(false);
