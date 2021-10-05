@@ -19,6 +19,7 @@ namespace FoodWaste
 
         private void RestaurantButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             this.Close();
             RegisterPage registerPage = new RegisterPage("Restaurant");
             registerPage.ShowDialog();
@@ -26,6 +27,7 @@ namespace FoodWaste
 
         private void UserButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             this.Close();
             RegisterPage registerPage = new RegisterPage("User");
             registerPage.ShowDialog();
