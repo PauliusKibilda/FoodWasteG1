@@ -80,6 +80,7 @@ namespace FoodWaste
             this.MinimumSize = new System.Drawing.Size(359, 225);
             this.Name = "RegisterOptions";
             this.Text = "RegisterOptions";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterOptions_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
