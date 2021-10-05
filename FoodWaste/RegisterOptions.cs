@@ -15,6 +15,7 @@ namespace FoodWaste
         public RegisterOptions()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         private void RestaurantButton_Click(object sender, EventArgs e)
