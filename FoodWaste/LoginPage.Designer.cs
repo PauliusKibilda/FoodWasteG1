@@ -127,7 +127,7 @@ namespace FoodWaste
             this.signupButton.TabIndex = 7;
             this.signupButton.Text = "Sign up";
             this.signupButton.UseVisualStyleBackColor = true;
-            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
+            this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
             // LoginPage
             // 

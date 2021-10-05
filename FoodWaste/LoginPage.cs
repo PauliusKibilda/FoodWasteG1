@@ -55,7 +55,7 @@ namespace FoodWaste
             OpenMainPage();
         }
 
-        private void signupButton_Click(object sender, EventArgs e)
+        private void SignupButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegisterOptions registerPage = new RegisterOptions();

@@ -61,15 +61,15 @@ namespace FoodWaste
             return users;
         }
 
-        public static void InsertUser(string pUserName, string pPassword, string pEmail, string Role, string optionalMobile = "no number provided")
+        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "no number provided")
         {
             using (StreamWriter sw = new StreamWriter(AccountsFile, true))
             {
                 sw.Write(pUserName);
                 sw.Write(',');
-                sw.Write(pPassword);
-                sw.Write(',');
                 sw.Write(pEmail);
+                sw.Write(',');
+                sw.Write(pPassword);
                 sw.Write(',');
                 sw.Write(Role);
                 sw.Write(',');
