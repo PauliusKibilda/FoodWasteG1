@@ -18,5 +18,14 @@ namespace FoodWaste
         public string Role {get ; set ; } 
         public string Status {get ; set ; }
 
+        public User(string UserName, string Email, string Password, string Mobile, string Role)
+        {
+            this.UserName = UserName;
+            this.Email = Email;
+            this.Password = Password;
+            this.Mobile = Mobile;
+            this.Role = Role;
+        }
+
     }
 }

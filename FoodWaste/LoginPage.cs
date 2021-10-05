@@ -18,14 +18,18 @@ namespace FoodWaste
             this.CenterToScreen();
         }
 
-        // This function will need to be implemented properly later
+        private List<User> UserList = new List<User>();
+
+        // Check if username and password that are filled in are 
+        
         public bool CheckLoginCredentials(string username, string password)
         {
-            if (username == "admin" && password == "admin")
+            UserList = FileManager.GetUsersFromFile();
+            foreach (User user in UserList)
             {
-                return true;
+                if (username == user.UserName && password == user.Password)
+                    return true;
             }
-
             return false;
         }
 

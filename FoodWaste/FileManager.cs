@@ -46,6 +46,21 @@ namespace FoodWaste
             return restaurants;
        }
 
+        public static List<User> GetUsersFromFile()
+        {
+            List<User> users = new List<User>();
+            using (StreamReader reader = new StreamReader(AccountsFile))
+            {
+                string[] parts = new string[5];
+                while (!reader.EndOfStream)
+                {
+                    parts = reader.ReadLine().Split(',');
+                    users.Add(new User(parts[0], parts[1], parts[2], parts[3], parts[4]));
+                }
+            }
+            return users;
+        }
+
         public static void InsertUser(string pUserName, string pPassword, string pEmail, string Role, string optionalMobile = "no number provided")
         {
             using (StreamWriter sw = new StreamWriter(AccountsFile, true))

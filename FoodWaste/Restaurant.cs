@@ -12,7 +12,8 @@ namespace FoodWaste
         public string Adress { get; set; }
         public string PhoneNumber { get; set; } 
 
-        public Restaurant(string RestaurantName, string PhoneNumber, string Adress) {
+        public Restaurant(string RestaurantName, string PhoneNumber, string Adress) 
+        {
             this.RestaurantName = RestaurantName;
             this.PhoneNumber = PhoneNumber;
             this.Adress = Adress;
