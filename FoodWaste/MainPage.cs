@@ -104,5 +104,10 @@ namespace FoodWaste
                 MainDataGridView.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
             }
         }
+
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

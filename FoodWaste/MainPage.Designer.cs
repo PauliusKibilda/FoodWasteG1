@@ -30,7 +30,7 @@ namespace FoodWaste
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainDataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,8 +75,8 @@ namespace FoodWaste
             // Column2
             // 
             this.Column2.DataPropertyName = "ExpiryDate";
-            dataGridViewCellStyle2.Format = "yyyy-MM-dd";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "yyyy-MM-dd";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column2.HeaderText = "Expiration date";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -181,6 +181,7 @@ namespace FoodWaste
             this.Controls.Add(this.MainDataGridView);
             this.Name = "MainPage";
             this.Text = "Main page";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainPage_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
             this.gridClick.ResumeLayout(false);
             this.ResumeLayout(false);
