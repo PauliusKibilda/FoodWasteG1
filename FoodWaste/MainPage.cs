@@ -16,6 +16,7 @@ namespace FoodWaste
         public MainPage()
         {
             InitializeComponent();
+            this.CenterToScreen();
             ProductList = FileManager.GetProductsFromFile();
             dataGridView1.DataSource = ProductList;
             InitFilterValues();
