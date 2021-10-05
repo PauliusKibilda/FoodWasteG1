@@ -13,12 +13,10 @@ namespace FoodWaste
     public partial class MainPage : Form
     {
         private List<Product> ProductList = new List<Product>();
-        private FileManager Reader;
         public MainPage()
         {
             InitializeComponent();
-            Reader = new FileManager();
-            ProductList = Reader.GetProductsFromFile();
+            ProductList = FileManager.GetProductsFromFile();
             dataGridView1.DataSource = ProductList;
             InitFilterValues();
         }
@@ -65,17 +63,20 @@ namespace FoodWaste
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox1.SelectedIndex;
-            if (selectedIndex == 0) {
+            if (selectedIndex == 0)
+            {
                 dateTimePicker1.Visible = false;
                 dateTimePicker2.Visible = false;
                 textBox1.Visible = false;
             }
-            if (selectedIndex == 1) {
+            if (selectedIndex == 1)
+            {
                 dateTimePicker1.Visible = true;
                 dateTimePicker2.Visible = true;
                 textBox1.Visible = false;
             }
-            if (selectedIndex == 2) {
+            if (selectedIndex == 2)
+            {
                 dateTimePicker1.Visible = false;
                 dateTimePicker2.Visible = false;
                 textBox1.Visible = true;
