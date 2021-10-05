@@ -15,6 +15,7 @@ namespace FoodWaste
         public LoginPage()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
 
         // This function will need to be implemented properly later
