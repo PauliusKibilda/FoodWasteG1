@@ -12,11 +12,11 @@ namespace FoodWaste
     {
         public string UserName { get; set; }
         public int Id {get ; set ; } 
-        public String Email {get ; set ; }
-        public String Mobile {get ; set ; }
-        public String Password {get ; set ; } 
-        public String Role {get ; set ; } 
-        public String Status {get ; set ; }
+        public string Email {get ; set ; }
+        public string Mobile {get ; set ; }
+        public string Password {get ; set ; } 
+        public string Role {get ; set ; } 
+        public string Status {get ; set ; }
 
     }
 }
