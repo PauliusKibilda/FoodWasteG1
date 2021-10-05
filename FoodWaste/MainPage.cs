@@ -45,7 +45,7 @@ namespace FoodWaste
             }
             if (MessageBox.Show("Do you want to reserve " + dataGridView1.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dataGridView1.Rows[index].Cells[2].Value = Product.ProductState.reserved;
+                dataGridView1.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
                 dataGridView1.Update();
                 dataGridView1.Refresh();
                 FileManager.InsertProducts(new List<Product>(ProductList));
