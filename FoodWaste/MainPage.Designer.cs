@@ -30,13 +30,10 @@ namespace FoodWaste
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainDataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ReserveStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.UnReserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestaurantListButton = new System.Windows.Forms.Button();
             this.FilterComboBox = new System.Windows.Forms.ComboBox();
             this.FilterLabel = new System.Windows.Forms.Label();
@@ -44,23 +41,21 @@ namespace FoodWaste
             this.StartingDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EndingDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.FilterButton = new System.Windows.Forms.Button();
-            this.UnReserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AccountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.gridClick.SuspendLayout();
+            this.SettingsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainDataGridView
             // 
             this.MainDataGridView.AllowUserToAddRows = false;
             this.MainDataGridView.AllowUserToDeleteRows = false;
-            this.MainDataGridView.AutoGenerateColumns = false;
             this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.MainDataGridView.ContextMenuStrip = this.gridClick;
-            this.MainDataGridView.Location = new System.Drawing.Point(12, 113);
+            this.MainDataGridView.Location = new System.Drawing.Point(13, 195);
             this.MainDataGridView.MultiSelect = false;
             this.MainDataGridView.Name = "MainDataGridView";
             this.MainDataGridView.ReadOnly = true;
@@ -69,44 +64,28 @@ namespace FoodWaste
             this.MainDataGridView.TabIndex = 0;
             this.MainDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainDataGridView_MouseDown);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Name";
-            this.Column1.HeaderText = "Product";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "ExpiryDate";
-            dataGridViewCellStyle12.Format = "yyyy-MM-dd";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column2.HeaderText = "Expiration date";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "State";
-            this.Column3.HeaderText = "State";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // gridClick
             // 
             this.gridClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReserveStripMenu,
             this.UnReserveToolStripMenuItem});
             this.gridClick.Name = "gridClick";
-            this.gridClick.Size = new System.Drawing.Size(181, 70);
+            this.gridClick.Size = new System.Drawing.Size(130, 48);
             this.gridClick.Opening += new System.ComponentModel.CancelEventHandler(this.gridClick_Opening);
             // 
             // ReserveStripMenu
             // 
             this.ReserveStripMenu.Name = "ReserveStripMenu";
-            this.ReserveStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.ReserveStripMenu.Size = new System.Drawing.Size(129, 22);
             this.ReserveStripMenu.Text = "Reserve";
             this.ReserveStripMenu.Click += new System.EventHandler(this.RegisterStripMenuReserve_Click);
+            // 
+            // UnReserveToolStripMenuItem
+            // 
+            this.UnReserveToolStripMenuItem.Name = "UnReserveToolStripMenuItem";
+            this.UnReserveToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.UnReserveToolStripMenuItem.Text = "UnReserve";
+            this.UnReserveToolStripMenuItem.Click += new System.EventHandler(this.UnReserveToolStripMenuItem_Click);
             // 
             // RestaurantListButton
             // 
@@ -123,7 +102,7 @@ namespace FoodWaste
             // FilterComboBox
             // 
             this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(12, 38);
+            this.FilterComboBox.Location = new System.Drawing.Point(13, 116);
             this.FilterComboBox.Name = "FilterComboBox";
             this.FilterComboBox.Size = new System.Drawing.Size(175, 21);
             this.FilterComboBox.TabIndex = 2;
@@ -133,7 +112,7 @@ namespace FoodWaste
             // 
             this.FilterLabel.AutoSize = true;
             this.FilterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.FilterLabel.Location = new System.Drawing.Point(8, 9);
+            this.FilterLabel.Location = new System.Drawing.Point(12, 87);
             this.FilterLabel.Name = "FilterLabel";
             this.FilterLabel.Size = new System.Drawing.Size(60, 26);
             this.FilterLabel.TabIndex = 3;
@@ -141,7 +120,7 @@ namespace FoodWaste
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 66);
+            this.textBox1.Location = new System.Drawing.Point(12, 143);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 4;
@@ -149,7 +128,7 @@ namespace FoodWaste
             // 
             // StartingDateTimePicker
             // 
-            this.StartingDateTimePicker.Location = new System.Drawing.Point(12, 66);
+            this.StartingDateTimePicker.Location = new System.Drawing.Point(12, 169);
             this.StartingDateTimePicker.Name = "StartingDateTimePicker";
             this.StartingDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.StartingDateTimePicker.TabIndex = 5;
@@ -157,7 +136,7 @@ namespace FoodWaste
             // 
             // EndingDateTimePicker
             // 
-            this.EndingDateTimePicker.Location = new System.Drawing.Point(231, 66);
+            this.EndingDateTimePicker.Location = new System.Drawing.Point(218, 169);
             this.EndingDateTimePicker.Name = "EndingDateTimePicker";
             this.EndingDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.EndingDateTimePicker.TabIndex = 6;
@@ -165,7 +144,7 @@ namespace FoodWaste
             // 
             // FilterButton
             // 
-            this.FilterButton.Location = new System.Drawing.Point(193, 38);
+            this.FilterButton.Location = new System.Drawing.Point(194, 116);
             this.FilterButton.Name = "FilterButton";
             this.FilterButton.Size = new System.Drawing.Size(75, 23);
             this.FilterButton.TabIndex = 7;
@@ -174,18 +153,38 @@ namespace FoodWaste
             this.FilterButton.Visible = false;
             this.FilterButton.Click += new System.EventHandler(this.FilterButtonClick);
             // 
-            // UnReserveToolStripMenuItem
+            // SettingsMenuStrip
             // 
-            this.UnReserveToolStripMenuItem.Name = "UnReserveToolStripMenuItem";
-            this.UnReserveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.UnReserveToolStripMenuItem.Text = "UnReserve";
-            this.UnReserveToolStripMenuItem.Click += new System.EventHandler(this.UnReserveToolStripMenuItem_Click);
+            this.SettingsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SettingsToolStripMenuItem});
+            this.SettingsMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.SettingsMenuStrip.Name = "SettingsMenuStrip";
+            this.SettingsMenuStrip.Size = new System.Drawing.Size(828, 24);
+            this.SettingsMenuStrip.TabIndex = 8;
+            this.SettingsMenuStrip.Text = "menuStrip1";
+            // 
+            // SettingsToolStripMenuItem
+            // 
+            this.SettingsToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.SettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AccountSettingsToolStripMenuItem});
+            this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
+            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.SettingsToolStripMenuItem.Text = "Settings";
+            // 
+            // AccountSettingsToolStripMenuItem
+            // 
+            this.AccountSettingsToolStripMenuItem.Name = "AccountSettingsToolStripMenuItem";
+            this.AccountSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AccountSettingsToolStripMenuItem.Text = "Account settings";
+            this.AccountSettingsToolStripMenuItem.Click += new System.EventHandler(this.AccountSettingsToolStripMenuItem_Click);
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 594);
+            this.Controls.Add(this.SettingsMenuStrip);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.EndingDateTimePicker);
             this.Controls.Add(this.StartingDateTimePicker);
@@ -194,12 +193,15 @@ namespace FoodWaste
             this.Controls.Add(this.FilterComboBox);
             this.Controls.Add(this.RestaurantListButton);
             this.Controls.Add(this.MainDataGridView);
+            this.MainMenuStrip = this.SettingsMenuStrip;
             this.MinimumSize = new System.Drawing.Size(721, 521);
             this.Name = "MainPage";
             this.Text = "Products";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainPage_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
             this.gridClick.ResumeLayout(false);
+            this.SettingsMenuStrip.ResumeLayout(false);
+            this.SettingsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +223,8 @@ namespace FoodWaste
         private System.Windows.Forms.DateTimePicker EndingDateTimePicker;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.ToolStripMenuItem UnReserveToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip SettingsMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AccountSettingsToolStripMenuItem;
     }
 }

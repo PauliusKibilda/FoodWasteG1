@@ -21,6 +21,10 @@ namespace FoodWaste
             InitializeComponent();
             this.CenterToScreen();
             User = user;
+            if (User == null)
+            {
+                SettingsMenuStrip.Visible = false;
+            }
             ProductList = FileManager.GetProductsFromFile();
             VisibleProductList = ProductList;
             sortKey.type = -1;
@@ -204,6 +208,12 @@ namespace FoodWaste
             }
             int index = this.MainDataGridView.SelectedRows[0].Index;
             return index;
+        }
+
+        private void AccountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserSettings userSettings = new UserSettings(User);
+            userSettings.ShowDialog();
         }
     }
 }
