@@ -56,9 +56,31 @@ namespace FoodWaste
         {
             DataGridView dataGridView = sender as DataGridView;
             DataGridView.HitTestInfo hitTestInfo = dataGridView.HitTest(e.X, e.Y);
-            dataGridView.ClearSelection();
-            dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
-            this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+            
+            if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
+            {
+                if (hitTestInfo.ColumnIndex == 0)
+                {
+                    ProductList.Sort((x, y) => string.Compare(x.Name, y.Name));
+                }
+                if (hitTestInfo.ColumnIndex == 1)
+                {
+                    ProductList.Sort((x, y) => DateTime.Compare(x.ExpiryDate, y.ExpiryDate));
+                }
+                if (hitTestInfo.ColumnIndex == 2)
+                {
+                    ProductList.Sort((x, y) => string.Compare(x.State.ToString(), y.State.ToString()));
+                }
+                MainDataGridView.Update();
+                MainDataGridView.Refresh();
+            }
+            else
+            {
+                dataGridView.ClearSelection();
+                dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
+                this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+            }
+
         }
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
