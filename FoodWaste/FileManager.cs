@@ -62,7 +62,7 @@ namespace FoodWaste
             return users;
         }
 
-        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "no number provided")
+        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "")
         {
             using (StreamWriter sw = new StreamWriter(AccountsFile, true))
             {
