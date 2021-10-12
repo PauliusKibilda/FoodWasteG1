@@ -25,12 +25,9 @@ namespace FoodWaste
         public User CheckLoginCredentials(string username, string password)
         {
             UserList = FileManager.GetUsersFromFile();
-            foreach (User user in UserList)
-            {
-                if (username == user.UserName && Hash.GetHashString(password) == user.Password)
-                    return user;
-            }
-            return null;
+            return (from User user in UserList
+                                 where username == user.UserName && Hash.GetHashString(password) == user.Password
+                                 select user).FirstOrDefault();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
