@@ -145,6 +145,7 @@
             // 
             // ChangePassword
             // 
+            this.ChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ChangePassword.AutoSize = true;
             this.ChangePassword.Location = new System.Drawing.Point(149, 199);
             this.ChangePassword.Name = "ChangePassword";
@@ -160,7 +161,8 @@
             this.PasswordWarningLabel.AutoSize = true;
             this.PasswordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.PasswordWarningLabel.Location = new System.Drawing.Point(367, 255);
+            this.PasswordWarningLabel.Location = new System.Drawing.Point(369, 248);
+            this.PasswordWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.PasswordWarningLabel.Name = "PasswordWarningLabel";
             this.PasswordWarningLabel.Size = new System.Drawing.Size(237, 20);
             this.PasswordWarningLabel.TabIndex = 31;
@@ -173,7 +175,7 @@
             this.EmailWarningLabel.AutoSize = true;
             this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.EmailWarningLabel.Location = new System.Drawing.Point(369, 90);
+            this.EmailWarningLabel.Location = new System.Drawing.Point(369, 83);
             this.EmailWarningLabel.Name = "EmailWarningLabel";
             this.EmailWarningLabel.Size = new System.Drawing.Size(235, 20);
             this.EmailWarningLabel.TabIndex = 30;
@@ -186,7 +188,7 @@
             this.PasswordsMatchWarningLabel.AutoSize = true;
             this.PasswordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.PasswordsMatchWarningLabel.Location = new System.Drawing.Point(369, 319);
+            this.PasswordsMatchWarningLabel.Location = new System.Drawing.Point(369, 312);
             this.PasswordsMatchWarningLabel.Name = "PasswordsMatchWarningLabel";
             this.PasswordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
             this.PasswordsMatchWarningLabel.TabIndex = 29;
@@ -211,6 +213,7 @@
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.EmailTextBox);
+            this.MinimumSize = new System.Drawing.Size(636, 489);
             this.Name = "UserSettings";
             this.Text = "Account info";
             this.ResumeLayout(false);
