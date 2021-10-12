@@ -31,7 +31,7 @@ namespace FoodWaste
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
-            // Check if username field is empty
+            // Validate Username
 
             if (!RegisterPageValidation.ValidateUserName(usernameTextBox.Text))
             {
@@ -40,7 +40,7 @@ namespace FoodWaste
             }
             else usernameWarningLabel.Visible = false;
 
-            // Check if email field is empty
+            // Validate Email
             if (!RegisterPageValidation.ValidateEmailAddress(emailTextBox.Text))
             {
                 emailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
@@ -48,7 +48,7 @@ namespace FoodWaste
             }
             else emailWarningLabel.Visible = false;
 
-            // Check if password field is empty
+            // Validate Password
             if (!RegisterPageValidation.ValidatePassword(passwordTextBox.Text))
             {
                 passwordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
@@ -66,7 +66,8 @@ namespace FoodWaste
             
 
             // Check if there are no warnings
-            if (!(usernameWarningLabel.Visible || emailWarningLabel.Visible || passwordWarningLabel.Visible || passwordsMatchWarningLabel.Visible))
+            if (!(usernameWarningLabel.Visible || emailWarningLabel.Visible
+               || passwordWarningLabel.Visible || passwordsMatchWarningLabel.Visible))
             {
                 // Sign up succesfull
                 // Add a user to the system
@@ -83,7 +84,6 @@ namespace FoodWaste
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
 
             }
-
         }
 
         private void RegisterPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -102,8 +102,5 @@ namespace FoodWaste
             LoginPage loginPage = new LoginPage();
             loginPage.ShowDialog();
         }
-
-
-
     }
 }
