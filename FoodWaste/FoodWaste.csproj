@@ -81,6 +81,7 @@
     <Compile Include="RestaurantPage.Designer.cs">
       <DependentUpon>RestaurantPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="SortKey.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>

@@ -14,12 +14,15 @@ namespace FoodWaste
     {
         private List<Product> ProductList = new List<Product>();
         private List<Product> VisibleProductList = new List<Product>();
+        SortKey sortKey = new SortKey();
         public MainPage()
         {
             InitializeComponent();
             this.CenterToScreen();
             ProductList = FileManager.GetProductsFromFile();
             VisibleProductList = ProductList;
+            sortKey.type = -1;
+            sortKey.order = OrderBy.asc;
             MainDataGridView.DataSource = ProductList;
             InitFilterValues();
         }
@@ -62,6 +65,7 @@ namespace FoodWaste
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
                 List<Product> sortedProductList;
+
                 switch (hitTestInfo.ColumnIndex)
                 {
                     case 0:
@@ -77,6 +81,18 @@ namespace FoodWaste
                         sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
                         break;
                 }
+                if (sortKey.type == hitTestInfo.ColumnIndex)
+                {
+                    if (sortKey.order == OrderBy.desc)
+                        sortKey.order = OrderBy.asc;
+                    else
+                        sortKey.order = OrderBy.desc;
+                }
+                if (sortKey.order == OrderBy.desc)
+                {
+                    sortedProductList.Reverse();
+                }
+                sortKey.type = hitTestInfo.ColumnIndex;
                 MainDataGridView.DataSource = sortedProductList;
             }
             else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
