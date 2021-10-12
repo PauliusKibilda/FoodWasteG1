@@ -1,4 +1,1 @@
-user1,user1@gmail.com,password123,868686868,User
-restaurant1,rest1@rest.com,PaSwOrD321,+370000000,Restaurant
-user123,u123@gmail.com,pass123,123123123,User
-restaurant2,r2@r2.lt,r2r2r2r2,222222,Restaurant
+aaaa,asdds@ff,20703A1C146BB151663020EC575DA16A199C5A2255C894DB05D334576F78A280,User,

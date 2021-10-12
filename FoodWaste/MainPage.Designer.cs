@@ -36,7 +36,7 @@ namespace FoodWaste
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.registerStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReserveStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.RestaurantListButton = new System.Windows.Forms.Button();
             this.FilterComboBox = new System.Windows.Forms.ComboBox();
             this.FilterLabel = new System.Windows.Forms.Label();
@@ -44,12 +44,16 @@ namespace FoodWaste
             this.StartingDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EndingDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.FilterButton = new System.Windows.Forms.Button();
+            this.UnReserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.gridClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainDataGridView
             // 
+            this.MainDataGridView.AllowUserToAddRows = false;
+            this.MainDataGridView.AllowUserToDeleteRows = false;
+            this.MainDataGridView.AutoGenerateColumns = false;
             this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MainDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -91,16 +95,18 @@ namespace FoodWaste
             // gridClick
             // 
             this.gridClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registerStripMenu});
+            this.ReserveStripMenu,
+            this.UnReserveToolStripMenuItem});
             this.gridClick.Name = "gridClick";
-            this.gridClick.Size = new System.Drawing.Size(115, 26);
+            this.gridClick.Size = new System.Drawing.Size(181, 70);
+            this.gridClick.Opening += new System.ComponentModel.CancelEventHandler(this.gridClick_Opening);
             // 
-            // registerStripMenu
+            // ReserveStripMenu
             // 
-            this.registerStripMenu.Name = "registerStripMenu";
-            this.registerStripMenu.Size = new System.Drawing.Size(114, 22);
-            this.registerStripMenu.Text = "Reserve";
-            this.registerStripMenu.Click += new System.EventHandler(this.RegisterStripMenuReserve_Click);
+            this.ReserveStripMenu.Name = "ReserveStripMenu";
+            this.ReserveStripMenu.Size = new System.Drawing.Size(180, 22);
+            this.ReserveStripMenu.Text = "Reserve";
+            this.ReserveStripMenu.Click += new System.EventHandler(this.RegisterStripMenuReserve_Click);
             // 
             // RestaurantListButton
             // 
@@ -168,6 +174,13 @@ namespace FoodWaste
             this.FilterButton.Visible = false;
             this.FilterButton.Click += new System.EventHandler(this.FilterButtonClick);
             // 
+            // UnReserveToolStripMenuItem
+            // 
+            this.UnReserveToolStripMenuItem.Name = "UnReserveToolStripMenuItem";
+            this.UnReserveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UnReserveToolStripMenuItem.Text = "UnReserve";
+            this.UnReserveToolStripMenuItem.Click += new System.EventHandler(this.UnReserveToolStripMenuItem_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,7 +209,7 @@ namespace FoodWaste
 
         private System.Windows.Forms.DataGridView MainDataGridView;
         private System.Windows.Forms.Button RestaurantListButton;
-        private System.Windows.Forms.ToolStripMenuItem registerStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem ReserveStripMenu;
         private System.Windows.Forms.ContextMenuStrip gridClick;
         private System.Windows.Forms.ComboBox FilterComboBox;
         private System.Windows.Forms.Label FilterLabel;
@@ -207,5 +220,6 @@ namespace FoodWaste
         private System.Windows.Forms.DateTimePicker StartingDateTimePicker;
         private System.Windows.Forms.DateTimePicker EndingDateTimePicker;
         private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.ToolStripMenuItem UnReserveToolStripMenuItem;
     }
 }

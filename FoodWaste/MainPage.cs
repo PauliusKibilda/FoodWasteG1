@@ -13,12 +13,15 @@ namespace FoodWaste
     public partial class MainPage : Form
     {
         private List<Product> ProductList = new List<Product>();
+        private User User;
+        public MainPage(User user)
         private List<Product> VisibleProductList = new List<Product>();
         SortKey sortKey = new SortKey();
         public MainPage()
         {
             InitializeComponent();
             this.CenterToScreen();
+            User = user;
             ProductList = FileManager.GetProductsFromFile();
             VisibleProductList = ProductList;
             sortKey.type = -1;
@@ -39,11 +42,7 @@ namespace FoodWaste
         }
         private void RegisterStripMenuReserve_Click(object sender, EventArgs e) 
         {
-            if (this.MainDataGridView.SelectedRows.Count == 0) 
-            {
-                return;
-            }
-            int index = this.MainDataGridView.SelectedRows[0].Index;
+            int index = GetSelectedRowIndex();
             if (index == -1) 
             {
                 return;
@@ -51,6 +50,7 @@ namespace FoodWaste
             if (MessageBox.Show("Do you want to reserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
+                ProductList[index].ReservedUsername = User.UserName;
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
                 FileManager.InsertProducts(new List<Product>(ProductList));
@@ -152,6 +152,59 @@ namespace FoodWaste
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void gridClick_Opening(object sender, CancelEventArgs e)
+        {
+            if (User == null)
+            {
+                MessageBox.Show("You must register to reserve products!");
+                e.Cancel = true;
+            }
+            else
+            {
+                int index = GetSelectedRowIndex();
+                if (index == -1)
+                {
+                    e.Cancel = true;
+                }
+                if (User.UserName != ProductList[index].ReservedUsername)
+                {
+                    UnReserveToolStripMenuItem.Enabled = false;
+                    ReserveStripMenu.Enabled = true;
+                }
+                else
+                {
+                    UnReserveToolStripMenuItem.Enabled = true;
+                    ReserveStripMenu.Enabled = false;
+                }
+            }
+        }
+
+        private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = GetSelectedRowIndex();
+            if (index == -1)
+            {
+                return;
+            }
+            if (MessageBox.Show("Do you want to unreserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Listed;
+                ProductList[index].ReservedUsername = "";
+                MainDataGridView.Update();
+                MainDataGridView.Refresh();
+                FileManager.InsertProducts(new List<Product>(ProductList));
+            }
+        }
+        private int GetSelectedRowIndex() 
+        {
+            if (this.MainDataGridView.SelectedRows.Count == 0)
+            {
+                return -1;
+            }
+            int index = this.MainDataGridView.SelectedRows[0].Index;
+            return index;
         }
     }
 }
