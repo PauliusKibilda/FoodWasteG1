@@ -155,14 +155,14 @@ namespace FoodWaste
                 // Sign up succesfull
                 // Add a user to the system
 
-
+                string passwordHash = Hash.GetHashString(passwordTextBox.Text);
                 if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, Role);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, Role);
                 }
                 else
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, phoneTextBox.Text);
+                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, phoneTextBox.Text, Role);
                 }
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
 
