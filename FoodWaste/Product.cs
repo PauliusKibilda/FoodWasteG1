@@ -26,14 +26,7 @@ namespace FoodWaste
             this.State = ProductState.Listed;
             this.ReservedUsername = "";
         }
-        public Product(string productName, DateTime expiryDate, ProductState state)
-        {
-            this.Name = productName;
-            this.ExpiryDate = expiryDate;
-            this.State = state;
-            this.ReservedUsername = "";
-        }
-        public Product(string productName, DateTime expiryDate, ProductState state, string username)
+        public Product(string productName, DateTime expiryDate, ProductState state, string username = "")
         {
             this.Name = productName;
             this.ExpiryDate = expiryDate;
