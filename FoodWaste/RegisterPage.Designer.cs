@@ -45,12 +45,6 @@ namespace FoodWaste
             this.usernameWarningLabel = new System.Windows.Forms.Label();
             this.emailWarningLabel = new System.Windows.Forms.Label();
             this.passwordWarningLabel = new System.Windows.Forms.Label();
-            this.shortUsernameWarningLabel = new System.Windows.Forms.Label();
-            this.invalidUsernameWarningLabel = new System.Windows.Forms.Label();
-            this.invalidEmailAddressWarningLabel = new System.Windows.Forms.Label();
-            this.passwordRequired8Characters = new System.Windows.Forms.Label();
-            this.passwordInvalidUpperLetter = new System.Windows.Forms.Label();
-            this.invalidPasswordNoNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // signUpButton
@@ -210,7 +204,7 @@ namespace FoodWaste
             this.usernameWarningLabel.AutoSize = true;
             this.usernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.usernameWarningLabel.Location = new System.Drawing.Point(684, 98);
+            this.usernameWarningLabel.Location = new System.Drawing.Point(684, 99);
             this.usernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameWarningLabel.Name = "usernameWarningLabel";
             this.usernameWarningLabel.Size = new System.Drawing.Size(296, 25);
@@ -223,7 +217,7 @@ namespace FoodWaste
             this.emailWarningLabel.AutoSize = true;
             this.emailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.emailWarningLabel.Location = new System.Drawing.Point(684, 174);
+            this.emailWarningLabel.Location = new System.Drawing.Point(687, 174);
             this.emailWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emailWarningLabel.Name = "emailWarningLabel";
             this.emailWarningLabel.Size = new System.Drawing.Size(289, 25);
@@ -243,103 +237,11 @@ namespace FoodWaste
             this.passwordWarningLabel.TabIndex = 22;
             this.passwordWarningLabel.Text = "Password field can not be empty";
             // 
-            // shortUsernameWarningLabel
-            // 
-            this.shortUsernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.shortUsernameWarningLabel.AutoSize = true;
-            this.shortUsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shortUsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.shortUsernameWarningLabel.Location = new System.Drawing.Point(684, 103);
-            this.shortUsernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.shortUsernameWarningLabel.Name = "shortUsernameWarningLabel";
-            this.shortUsernameWarningLabel.Size = new System.Drawing.Size(373, 25);
-            this.shortUsernameWarningLabel.TabIndex = 23;
-            this.shortUsernameWarningLabel.Text = "Username Must Be At Least 4 Characters";
-            this.shortUsernameWarningLabel.Visible = false;
-            // 
-            // invalidUsernameWarningLabel
-            // 
-            this.invalidUsernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.invalidUsernameWarningLabel.AutoSize = true;
-            this.invalidUsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invalidUsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.invalidUsernameWarningLabel.Location = new System.Drawing.Point(684, 103);
-            this.invalidUsernameWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.invalidUsernameWarningLabel.Name = "invalidUsernameWarningLabel";
-            this.invalidUsernameWarningLabel.Size = new System.Drawing.Size(183, 25);
-            this.invalidUsernameWarningLabel.TabIndex = 24;
-            this.invalidUsernameWarningLabel.Text = "Username Is Invalid";
-            this.invalidUsernameWarningLabel.Visible = false;
-            // 
-            // invalidEmailAddressWarningLabel
-            // 
-            this.invalidEmailAddressWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.invalidEmailAddressWarningLabel.AutoSize = true;
-            this.invalidEmailAddressWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invalidEmailAddressWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.invalidEmailAddressWarningLabel.Location = new System.Drawing.Point(684, 174);
-            this.invalidEmailAddressWarningLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.invalidEmailAddressWarningLabel.Name = "invalidEmailAddressWarningLabel";
-            this.invalidEmailAddressWarningLabel.Size = new System.Drawing.Size(219, 25);
-            this.invalidEmailAddressWarningLabel.TabIndex = 25;
-            this.invalidEmailAddressWarningLabel.Text = "Email Address Is Invalid";
-            this.invalidEmailAddressWarningLabel.Visible = false;
-            // 
-            // passwordRequired8Characters
-            // 
-            this.passwordRequired8Characters.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordRequired8Characters.AutoSize = true;
-            this.passwordRequired8Characters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordRequired8Characters.ForeColor = System.Drawing.Color.Red;
-            this.passwordRequired8Characters.Location = new System.Drawing.Point(684, 309);
-            this.passwordRequired8Characters.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.passwordRequired8Characters.Name = "passwordRequired8Characters";
-            this.passwordRequired8Characters.Size = new System.Drawing.Size(266, 50);
-            this.passwordRequired8Characters.TabIndex = 26;
-            this.passwordRequired8Characters.Text = "Password Field Must Contain\r\n At Least 8 Characters";
-            this.passwordRequired8Characters.Visible = false;
-            // 
-            // passwordInvalidUpperLetter
-            // 
-            this.passwordInvalidUpperLetter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordInvalidUpperLetter.AutoSize = true;
-            this.passwordInvalidUpperLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordInvalidUpperLetter.ForeColor = System.Drawing.Color.Red;
-            this.passwordInvalidUpperLetter.Location = new System.Drawing.Point(684, 309);
-            this.passwordInvalidUpperLetter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.passwordInvalidUpperLetter.Name = "passwordInvalidUpperLetter";
-            this.passwordInvalidUpperLetter.Size = new System.Drawing.Size(266, 50);
-            this.passwordInvalidUpperLetter.TabIndex = 27;
-            this.passwordInvalidUpperLetter.Text = "Password Field Must Contain\r\n At Least 1 Upper Case";
-            this.passwordInvalidUpperLetter.Visible = false;
-         
-            // 
-            // invalidPasswordNoNumber
-            // 
-            this.invalidPasswordNoNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.invalidPasswordNoNumber.AutoSize = true;
-            this.invalidPasswordNoNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invalidPasswordNoNumber.ForeColor = System.Drawing.Color.Red;
-            this.invalidPasswordNoNumber.Location = new System.Drawing.Point(684, 309);
-            this.invalidPasswordNoNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.invalidPasswordNoNumber.Name = "invalidPasswordNoNumber";
-            this.invalidPasswordNoNumber.Size = new System.Drawing.Size(266, 50);
-            this.invalidPasswordNoNumber.TabIndex = 28;
-            this.invalidPasswordNoNumber.Text = "Password Field Must Contain\r\n At Least 1 Number";
-            this.invalidPasswordNoNumber.Visible = false;
-            
-            // 
             // RegisterPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.invalidPasswordNoNumber);
-            this.Controls.Add(this.passwordInvalidUpperLetter);
-            this.Controls.Add(this.passwordRequired8Characters);
-            this.Controls.Add(this.invalidEmailAddressWarningLabel);
-            this.Controls.Add(this.invalidUsernameWarningLabel);
-            this.Controls.Add(this.shortUsernameWarningLabel);
             this.Controls.Add(this.passwordWarningLabel);
             this.Controls.Add(this.emailWarningLabel);
             this.Controls.Add(this.usernameWarningLabel);
@@ -383,11 +285,5 @@ namespace FoodWaste
         private System.Windows.Forms.Label usernameWarningLabel;
         private System.Windows.Forms.Label emailWarningLabel;
         private System.Windows.Forms.Label passwordWarningLabel;
-        private System.Windows.Forms.Label shortUsernameWarningLabel;
-        private System.Windows.Forms.Label invalidUsernameWarningLabel;
-        private System.Windows.Forms.Label invalidEmailAddressWarningLabel;
-        private System.Windows.Forms.Label passwordRequired8Characters;
-        private System.Windows.Forms.Label passwordInvalidUpperLetter;
-        private System.Windows.Forms.Label invalidPasswordNoNumber;
     }
 }

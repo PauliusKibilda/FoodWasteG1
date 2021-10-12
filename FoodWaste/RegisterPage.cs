@@ -24,133 +24,49 @@ namespace FoodWaste
             InitializeComponent();
             this.CenterToScreen();
             usernameWarningLabel.Visible = false;
-            shortUsernameWarningLabel.Visible = false;
-            invalidUsernameWarningLabel.Visible = false;
             emailWarningLabel.Visible = false;
-            invalidEmailAddressWarningLabel.Visible = false;
             passwordWarningLabel.Visible = false;
             passwordsMatchWarningLabel.Visible = false;
-            passwordRequired8Characters.Visible = false;
-
-            passwordInvalidUpperLetter.Visible = false;
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
             // Check if username field is empty
-            string usernameTrimmed = Regex.Replace(usernameTextBox.Text, @"\s", "");
 
-
-            if (String.IsNullOrWhiteSpace(usernameTextBox.Text))
+            if (!RegisterPageValidation.ValidateUserName(usernameTextBox.Text))
             {
-                shortUsernameWarningLabel.Visible = false;
-                invalidUsernameWarningLabel.Visible = false;
+                usernameWarningLabel.Text = RegisterPageValidation.getErrorMessage();
                 usernameWarningLabel.Visible = true;
-
             }
-            else if (usernameTrimmed.Length == usernameTextBox.Text.Length)
-            {
-                usernameWarningLabel.Visible = false;
-                shortUsernameWarningLabel.Visible = false;
-                invalidUsernameWarningLabel.Visible = false;
-            }
-            else if (usernameTextBox.TextLength < 3)
-            {
-                usernameWarningLabel.Visible = false;
-                invalidUsernameWarningLabel.Visible = false;
-                shortUsernameWarningLabel.Visible = true;
-
-            }
-            else if (usernameTrimmed.Length != usernameTextBox.TextLength)
-            {
-
-                usernameWarningLabel.Visible = false;
-                shortUsernameWarningLabel.Visible = false;
-                invalidUsernameWarningLabel.Visible = true;
-            }
-
+            else usernameWarningLabel.Visible = false;
 
             // Check if email field is empty
-
-
-            if (String.IsNullOrWhiteSpace(emailTextBox.Text))
+            if (!RegisterPageValidation.ValidateEmailAddress(emailTextBox.Text))
             {
-                invalidEmailAddressWarningLabel.Visible = false;
+                emailWarningLabel.Text = RegisterPageValidation.getErrorMessage();
                 emailWarningLabel.Visible = true;
             }
-            else
-            {
-                try
-                {
-                    new System.Net.Mail.MailAddress(this.emailTextBox.Text);
-                    invalidEmailAddressWarningLabel.Visible = false;
-                    emailWarningLabel.Visible = false;
-                }
-                catch (FormatException)
-                {
-                    invalidEmailAddressWarningLabel.Visible = true;
-                }
-
-            }
+            else emailWarningLabel.Visible = false;
 
             // Check if password field is empty
-
-            if (String.IsNullOrWhiteSpace(passwordTextBox.Text))
+            if (!RegisterPageValidation.ValidatePassword(passwordTextBox.Text))
             {
-                invalidPasswordNoNumber.Visible = false;
-                passwordRequired8Characters.Visible = false;
-                passwordInvalidUpperLetter.Visible = false;
+                passwordWarningLabel.Text = RegisterPageValidation.getErrorMessage();
                 passwordWarningLabel.Visible = true;
             }
-            else
-            {
-                var hasNumber = new Regex(@"[0-9]+");
-                var hasUpperChar = new Regex(@"[A-Z]+");
-                var hasMinimum8Chars = new Regex(@".{8,}");
-                bool isValidated;
-
-                if (!(isValidated = hasMinimum8Chars.IsMatch(passwordTextBox.Text)))
-                {
-                    passwordWarningLabel.Visible = false;
-                    passwordInvalidUpperLetter.Visible = false;
-                    invalidPasswordNoNumber.Visible = false;
-                    passwordRequired8Characters.Visible = !isValidated;
-
-                }
-                else if (!(isValidated = hasUpperChar.IsMatch(passwordTextBox.Text)))
-                {
-                    passwordWarningLabel.Visible = false;
-                    passwordRequired8Characters.Visible = false;
-                    invalidPasswordNoNumber.Visible = false;
-                    passwordInvalidUpperLetter.Visible = !isValidated;
-
-                }
-                else if (!(isValidated = hasNumber.IsMatch(passwordTextBox.Text)))
-                {
-                    passwordWarningLabel.Visible = false;
-                    passwordRequired8Characters.Visible = false;
-                    passwordInvalidUpperLetter.Visible = false;
-                    invalidPasswordNoNumber.Visible = !isValidated;
-
-                }
-                else
-                {
-                    passwordWarningLabel.Visible = false;
-                    passwordRequired8Characters.Visible = false;
-                    invalidPasswordNoNumber.Visible = false;
-                    passwordInvalidUpperLetter.Visible = false;
-
-                }
-
-            }
+            else passwordWarningLabel.Visible = false;
 
             // Check if passwords match
-
-            passwordsMatchWarningLabel.Visible = passwordTextBox.Text != passwordConfirmTextbox.Text;
-
+            if (!RegisterPageValidation.IsPasswordSame(passwordTextBox.Text, passwordConfirmTextbox.Text))
+            {
+                passwordsMatchWarningLabel.Text = RegisterPageValidation.getErrorMessage();
+                passwordsMatchWarningLabel.Visible = true;
+            }
+            else passwordsMatchWarningLabel.Visible = false;
+            
 
             // Check if there are no warnings
-            if (!(usernameWarningLabel.Visible || invalidUsernameWarningLabel.Visible || shortUsernameWarningLabel.Visible || emailWarningLabel.Visible || invalidEmailAddressWarningLabel.Visible || invalidPasswordNoNumber.Visible || passwordInvalidUpperLetter.Visible || passwordWarningLabel.Visible || passwordRequired8Characters.Visible || passwordsMatchWarningLabel.Visible))
+            if (!(usernameWarningLabel.Visible || emailWarningLabel.Visible || passwordWarningLabel.Visible || passwordsMatchWarningLabel.Visible))
             {
                 // Sign up succesfull
                 // Add a user to the system
