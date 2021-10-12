@@ -13,11 +13,13 @@ namespace FoodWaste
     public partial class MainPage : Form
     {
         private List<Product> ProductList = new List<Product>();
+        private List<Product> VisibleProductList = new List<Product>();
         public MainPage()
         {
             InitializeComponent();
             this.CenterToScreen();
             ProductList = FileManager.GetProductsFromFile();
+            VisibleProductList = ProductList;
             MainDataGridView.DataSource = ProductList;
             InitFilterValues();
         }
@@ -63,16 +65,16 @@ namespace FoodWaste
                 switch (hitTestInfo.ColumnIndex)
                 {
                     case 0:
-                        sortedProductList = ProductList.OrderBy(product => product.Name).ToList();
+                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
                         break;
                     case 1:
-                        sortedProductList = ProductList.OrderBy(product => product.ExpiryDate).ToList();
+                        sortedProductList = VisibleProductList.OrderBy(product => product.ExpiryDate).ToList();
                         break;
                     case 2:
-                        sortedProductList = ProductList.OrderBy(product => product.State.ToString()).ToList();
+                        sortedProductList = VisibleProductList.OrderBy(product => product.State.ToString()).ToList();
                         break;
                     default:
-                        sortedProductList = ProductList.OrderBy(product => product.Name).ToList();
+                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
                         break;
                 }
                 MainDataGridView.DataSource = sortedProductList;
@@ -121,11 +123,13 @@ namespace FoodWaste
             }
             if (selectedIndex == 1)
             {
-                MainDataGridView.DataSource = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                VisibleProductList = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                MainDataGridView.DataSource = VisibleProductList;
             }
             if (selectedIndex == 2)
             {
-                MainDataGridView.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                VisibleProductList = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                MainDataGridView.DataSource = VisibleProductList;
             }
         }
 
