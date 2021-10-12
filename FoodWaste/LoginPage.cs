@@ -27,7 +27,7 @@ namespace FoodWaste
             UserList = FileManager.GetUsersFromFile();
             foreach (User user in UserList)
             {
-                if (username == user.UserName && password == user.Password)
+                if (username == user.UserName && Hash.GetHashString(password) == user.Password)
                     return true;
             }
             return false;
