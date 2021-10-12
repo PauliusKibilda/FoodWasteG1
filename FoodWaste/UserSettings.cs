@@ -23,20 +23,10 @@ namespace FoodWaste
 
         private void ChangePassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (ChangePassword.Checked)
-            {
-                PasswordLabel.Visible = true;
-                PasswordTextBox.Visible = true;
-                ConfirmPasswordLabel.Visible = true;
-                ConfirmPasswordTextbox.Visible = true;
-            }
-            else
-            {
-                PasswordLabel.Visible = false;
-                PasswordTextBox.Visible = false;
-                ConfirmPasswordLabel.Visible = false;
-                ConfirmPasswordTextbox.Visible = false;
-            }
+            PasswordLabel.Visible = ChangePassword.Checked;
+            PasswordTextBox.Visible = ChangePassword.Checked;
+            ConfirmPasswordLabel.Visible = ChangePassword.Checked;
+            ConfirmPasswordTextbox.Visible = ChangePassword.Checked;
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
