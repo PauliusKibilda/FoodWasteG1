@@ -13,10 +13,12 @@ namespace FoodWaste
     public partial class MainPage : Form
     {
         private List<Product> ProductList = new List<Product>();
-        public MainPage()
+        private User User;
+        public MainPage(User user)
         {
             InitializeComponent();
             this.CenterToScreen();
+            User = user;
             ProductList = FileManager.GetProductsFromFile();
             MainDataGridView.DataSource = ProductList;
             InitFilterValues();
@@ -46,6 +48,7 @@ namespace FoodWaste
             if (MessageBox.Show("Do you want to reserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
+                ProductList[index].ReservedUsername = User.UserName;
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
                 FileManager.InsertProducts(new List<Product>(ProductList));
@@ -108,6 +111,58 @@ namespace FoodWaste
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void gridClick_Opening(object sender, CancelEventArgs e)
+        {
+            if (User == null)
+            {
+                MessageBox.Show("You must register to reserve products!");
+                e.Cancel = true;
+            }
+            else
+            {
+                if (this.MainDataGridView.SelectedRows.Count == 0)
+                {
+                    e.Cancel = true;
+                }
+                int index = this.MainDataGridView.SelectedRows[0].Index;
+                if (index == -1)
+                {
+                    e.Cancel = true;
+                }
+                if (User.UserName != ProductList[index].ReservedUsername)
+                {
+                    UnReserveToolStripMenuItem.Enabled = false;
+                    ReserveStripMenu.Enabled = true;
+                }
+                else
+                {
+                    UnReserveToolStripMenuItem.Enabled = true;
+                    ReserveStripMenu.Enabled = false;
+                }
+            }
+        }
+
+        private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MainDataGridView.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            int index = this.MainDataGridView.SelectedRows[0].Index;
+            if (index == -1)
+            {
+                return;
+            }
+            if (MessageBox.Show("Do you want to unreserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Listed;
+                ProductList[index].ReservedUsername = "";
+                MainDataGridView.Update();
+                MainDataGridView.Refresh();
+                FileManager.InsertProducts(new List<Product>(ProductList));
+            }
         }
     }
 }

@@ -18,14 +18,14 @@ namespace FoodWaste
             List<Product> products = new List<Product>();
             using (StreamReader reader = new StreamReader(ProductsFile))
             {
-                string[] parts = new string[3];
+                string[] parts = new string[4];
                 while (!reader.EndOfStream) 
                 {
                     parts = reader.ReadLine().Split(',');
                     DateTime date;
                     if (DateTime.TryParseExact(parts[1], "yyyy-MM-dd", null, DateTimeStyles.None, out date))
                     {
-                        products.Add(new Product(parts[0], date, (Product.ProductState)Enum.Parse(typeof(Product.ProductState), parts[2])));
+                        products.Add(new Product(parts[0], date, (Product.ProductState)Enum.Parse(typeof(Product.ProductState), parts[2]), parts[3]));
                     }
                 }
             }
@@ -88,6 +88,8 @@ namespace FoodWaste
                     sw.Write(String.Format("{0:yyyy-MM-dd}",product.ExpiryDate));
                     sw.Write(',');
                     sw.Write(product.State);
+                    sw.Write(',');
+                    sw.Write(product.ReservedUsername);
                     sw.Write('\n');
                 }
             }
