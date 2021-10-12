@@ -36,11 +36,7 @@ namespace FoodWaste
         }
         private void RegisterStripMenuReserve_Click(object sender, EventArgs e) 
         {
-            if (this.MainDataGridView.SelectedRows.Count == 0) 
-            {
-                return;
-            }
-            int index = this.MainDataGridView.SelectedRows[0].Index;
+            int index = GetSelectedRowIndex();
             if (index == -1) 
             {
                 return;
@@ -122,11 +118,7 @@ namespace FoodWaste
             }
             else
             {
-                if (this.MainDataGridView.SelectedRows.Count == 0)
-                {
-                    e.Cancel = true;
-                }
-                int index = this.MainDataGridView.SelectedRows[0].Index;
+                int index = GetSelectedRowIndex();
                 if (index == -1)
                 {
                     e.Cancel = true;
@@ -146,11 +138,7 @@ namespace FoodWaste
 
         private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.MainDataGridView.SelectedRows.Count == 0)
-            {
-                return;
-            }
-            int index = this.MainDataGridView.SelectedRows[0].Index;
+            int index = GetSelectedRowIndex();
             if (index == -1)
             {
                 return;
@@ -163,6 +151,15 @@ namespace FoodWaste
                 MainDataGridView.Refresh();
                 FileManager.InsertProducts(new List<Product>(ProductList));
             }
+        }
+        private int GetSelectedRowIndex() 
+        {
+            if (this.MainDataGridView.SelectedRows.Count == 0)
+            {
+                return -1;
+            }
+            int index = this.MainDataGridView.SelectedRows[0].Index;
+            return index;
         }
     }
 }
