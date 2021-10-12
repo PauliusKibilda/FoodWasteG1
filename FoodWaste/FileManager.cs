@@ -111,7 +111,7 @@ namespace FoodWaste
         {
             List<User> userList = GetUsersFromFile();
 
-            using (StreamWriter sw = new StreamWriter(AccountsFile, true))
+            using (StreamWriter sw = new StreamWriter(AccountsFile))
             {
                 foreach (User user in userList)
                 {
