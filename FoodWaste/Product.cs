@@ -18,17 +18,27 @@ namespace FoodWaste
         public string Name { get; set; }
         public DateTime ExpiryDate { get; set; }
         public ProductState State { get; set; }
-
-        public Product(string productName, DateTime expiryDate) {
+        public string ReservedUsername { get; set; }
+        public Product(string productName, DateTime expiryDate)
+        {
             this.Name = productName;
             this.ExpiryDate = expiryDate;
             this.State = ProductState.Listed;
+            this.ReservedUsername = "";
         }
         public Product(string productName, DateTime expiryDate, ProductState state)
         {
             this.Name = productName;
             this.ExpiryDate = expiryDate;
             this.State = state;
+            this.ReservedUsername = "";
+        }
+        public Product(string productName, DateTime expiryDate, ProductState state, string username)
+        {
+            this.Name = productName;
+            this.ExpiryDate = expiryDate;
+            this.State = state;
+            this.ReservedUsername = username;
         }
     }
 }
