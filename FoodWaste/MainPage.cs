@@ -14,10 +14,9 @@ namespace FoodWaste
     {
         private List<Product> ProductList = new List<Product>();
         private User User;
-        public MainPage(User user)
         private List<Product> VisibleProductList = new List<Product>();
         SortKey sortKey = new SortKey();
-        public MainPage()
+        public MainPage(User user)
         {
             InitializeComponent();
             this.CenterToScreen();
