@@ -79,7 +79,7 @@ namespace FoodWaste
                 }
                 MainDataGridView.DataSource = sortedProductList;
             }
-            else
+            else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
             {
                 dataGridView.ClearSelection();
                 dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
