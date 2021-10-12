@@ -16,6 +16,7 @@ namespace FoodWaste
         public UserSettings(User user)
         {
             InitializeComponent();
+            this.CenterToScreen();
             User = user;
             EmailTextBox.Text = user.Email;
             PhoneTextBox.Text = user.Mobile;

@@ -16,6 +16,7 @@ namespace FoodWaste
         public RestaurantPage()
         {
             InitializeComponent();
+            this.CenterToScreen();
             RestaurantList = FileManager.GetRestaurantsFromFile();
             InitDataGridViewColumns();
         }
