@@ -59,20 +59,23 @@ namespace FoodWaste
             
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
-                if (hitTestInfo.ColumnIndex == 0)
+                List<Product> sortedProductList;
+                switch (hitTestInfo.ColumnIndex)
                 {
-                    ProductList.Sort((x, y) => string.Compare(x.Name, y.Name));
+                    case 0:
+                        sortedProductList = ProductList.OrderBy(product => product.Name).ToList();
+                        break;
+                    case 1:
+                        sortedProductList = ProductList.OrderBy(product => product.ExpiryDate).ToList();
+                        break;
+                    case 2:
+                        sortedProductList = ProductList.OrderBy(product => product.State.ToString()).ToList();
+                        break;
+                    default:
+                        sortedProductList = ProductList.OrderBy(product => product.Name).ToList();
+                        break;
                 }
-                if (hitTestInfo.ColumnIndex == 1)
-                {
-                    ProductList.Sort((x, y) => DateTime.Compare(x.ExpiryDate, y.ExpiryDate));
-                }
-                if (hitTestInfo.ColumnIndex == 2)
-                {
-                    ProductList.Sort((x, y) => string.Compare(x.State.ToString(), y.State.ToString()));
-                }
-                MainDataGridView.Update();
-                MainDataGridView.Refresh();
+                MainDataGridView.DataSource = sortedProductList;
             }
             else
             {
@@ -118,7 +121,6 @@ namespace FoodWaste
             }
             if (selectedIndex == 1)
             {
-
                 MainDataGridView.DataSource = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
             }
             if (selectedIndex == 2)
