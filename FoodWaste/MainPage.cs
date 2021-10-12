@@ -14,12 +14,17 @@ namespace FoodWaste
     {
         private List<Product> ProductList = new List<Product>();
         private User User;
+        private List<Product> VisibleProductList = new List<Product>();
+        SortKey sortKey = new SortKey();
         public MainPage(User user)
         {
             InitializeComponent();
             this.CenterToScreen();
             User = user;
             ProductList = FileManager.GetProductsFromFile();
+            VisibleProductList = ProductList;
+            sortKey.type = -1;
+            sortKey.order = OrderBy.asc;
             MainDataGridView.DataSource = ProductList;
             InitFilterValues();
         }
@@ -55,9 +60,47 @@ namespace FoodWaste
         {
             DataGridView dataGridView = sender as DataGridView;
             DataGridView.HitTestInfo hitTestInfo = dataGridView.HitTest(e.X, e.Y);
-            dataGridView.ClearSelection();
-            dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
-            this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+            
+            if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
+            {
+                List<Product> sortedProductList;
+
+                switch (hitTestInfo.ColumnIndex)
+                {
+                    case 0:
+                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
+                        break;
+                    case 1:
+                        sortedProductList = VisibleProductList.OrderBy(product => product.ExpiryDate).ToList();
+                        break;
+                    case 2:
+                        sortedProductList = VisibleProductList.OrderBy(product => product.State.ToString()).ToList();
+                        break;
+                    default:
+                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
+                        break;
+                }
+                if (sortKey.type == hitTestInfo.ColumnIndex)
+                {
+                    if (sortKey.order == OrderBy.desc)
+                        sortKey.order = OrderBy.asc;
+                    else
+                        sortKey.order = OrderBy.desc;
+                }
+                if (sortKey.order == OrderBy.desc)
+                {
+                    sortedProductList.Reverse();
+                }
+                sortKey.type = hitTestInfo.ColumnIndex;
+                MainDataGridView.DataSource = sortedProductList;
+            }
+            else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
+            {
+                dataGridView.ClearSelection();
+                dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
+                this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+            }
+
         }
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,12 +138,13 @@ namespace FoodWaste
             }
             if (selectedIndex == 1)
             {
-
-                MainDataGridView.DataSource = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                VisibleProductList = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                MainDataGridView.DataSource = VisibleProductList;
             }
             if (selectedIndex == 2)
             {
-                MainDataGridView.DataSource = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                VisibleProductList = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                MainDataGridView.DataSource = VisibleProductList;
             }
         }
 
