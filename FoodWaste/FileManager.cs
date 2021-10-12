@@ -14,12 +14,13 @@ namespace FoodWaste
         private static string ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
         private static string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
 
-        public static List<Product> GetProductsFromFile() {
+        public static List<Product> GetProductsFromFile()
+        {
             List<Product> products = new List<Product>();
             using (StreamReader reader = new StreamReader(ProductsFile))
             {
                 string[] parts = new string[4];
-                while (!reader.EndOfStream) 
+                while (!reader.EndOfStream)
                 {
                     parts = reader.ReadLine().Split(',');
                     DateTime date;
@@ -44,7 +45,7 @@ namespace FoodWaste
                 }
             }
             return restaurants;
-       }
+        }
 
         public static List<User> GetUsersFromFile()
         {
@@ -61,7 +62,7 @@ namespace FoodWaste
             return users;
         }
 
-        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "no number provided")
+        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "")
         {
             using (StreamWriter sw = new StreamWriter(AccountsFile, true))
             {
@@ -85,7 +86,7 @@ namespace FoodWaste
                 {
                     sw.Write(product.Name);
                     sw.Write(',');
-                    sw.Write(String.Format("{0:yyyy-MM-dd}",product.ExpiryDate));
+                    sw.Write(String.Format("{0:yyyy-MM-dd}", product.ExpiryDate));
                     sw.Write(',');
                     sw.Write(product.State);
                     sw.Write(',');
@@ -104,6 +105,43 @@ namespace FoodWaste
                 sw.Write(',');
                 sw.Write(Adress);
                 sw.Write('\n');
+            }
+        }
+        public static void InsertChangedUser(User pUser)
+        {
+            List<User> userList = GetUsersFromFile();
+
+            using (StreamWriter sw = new StreamWriter(AccountsFile, true))
+            {
+                foreach (User user in userList)
+                {
+                    if (user.UserName.Equals(pUser.UserName))
+                    {
+                        sw.Write(pUser.UserName);
+                        sw.Write(',');
+                        sw.Write(pUser.Email);
+                        sw.Write(',');
+                        sw.Write(pUser.Password);
+                        sw.Write(',');
+                        sw.Write(pUser.Role);
+                        sw.Write(',');
+                        sw.Write(pUser.Mobile);
+                        sw.Write('\n');
+                    }
+                    else
+                    {
+                        sw.Write(user.UserName);
+                        sw.Write(',');
+                        sw.Write(user.Email);
+                        sw.Write(',');
+                        sw.Write(user.Password);
+                        sw.Write(',');
+                        sw.Write(user.Role);
+                        sw.Write(',');
+                        sw.Write(user.Mobile);
+                        sw.Write('\n');
+                    }
+                }
             }
         }
     }
