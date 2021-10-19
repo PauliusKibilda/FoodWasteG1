@@ -37,12 +37,12 @@ namespace FoodWaste
             {
                 if (user.Role == "User")
                 {
-                    OpenMainPage(user);
+                    OpenPage(new MainPage(user));
                 }
 
                 if (user.Role == "Restaurant")
                 {
-                    OpenRestaurantPage(user);
+                    OpenPage(new RestaurantMainPage(user));
                 }
             }
             else
@@ -58,7 +58,7 @@ namespace FoodWaste
 
         private void ContinueAsGuestButton_Click(object sender, EventArgs e)
         {
-            OpenMainPage(null);
+            OpenPage(new MainPage(null));
         }
 
         private void SignupButton_Click(object sender, EventArgs e)
@@ -73,18 +73,10 @@ namespace FoodWaste
             Environment.Exit(0);
         }
 
-        private void OpenMainPage(User user)
+        private void OpenPage(Form form)
         {
             this.Hide();
-            MainPage mainPage = new MainPage(user);
-            mainPage.ShowDialog();
-        }
-
-        private void OpenRestaurantPage(User user)
-        {
-            this.Hide();
-            RestaurantMainPage restaurantMainPage = new RestaurantMainPage(user);
-            restaurantMainPage.ShowDialog();
+            form.ShowDialog();
         }
     }
 }
