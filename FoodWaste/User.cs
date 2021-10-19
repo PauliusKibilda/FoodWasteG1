@@ -26,6 +26,5 @@ namespace FoodWaste
             this.Mobile = Mobile;
             this.Role = Role;
         }
-
     }
 }
