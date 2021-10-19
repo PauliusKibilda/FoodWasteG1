@@ -60,7 +60,7 @@ namespace FoodWaste
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.restDataGridView);
             this.Name = "RestaurantMainPage";
-            this.Text = "Form1";
+            this.Text = "Restaurant";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RestaurantMainPage_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.restDataGridView)).EndInit();
             this.ResumeLayout(false);

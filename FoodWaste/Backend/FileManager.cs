@@ -10,9 +10,12 @@ namespace FoodWaste
 {
     static class FileManager
     {
-        private static string RestaurantsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Restaurants.txt";
-        private static string ProductsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
-        private static string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
+        private static string RestaurantsFile = 
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Restaurants.txt";
+        private static string ProductsFile = 
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
+        private static string AccountsFile = 
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
 
         public static List<Product> GetProductsFromFile()
         {
@@ -32,6 +35,7 @@ namespace FoodWaste
             }
             return products;
         }
+
         public static List<Restaurant> GetRestaurantsFromFile()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
@@ -78,6 +82,7 @@ namespace FoodWaste
                 sw.Write('\n');
             }
         }
+
         public static void InsertProducts(List<Product> productList)
         {
             using (StreamWriter sw = new StreamWriter(ProductsFile))

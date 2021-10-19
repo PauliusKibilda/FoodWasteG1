@@ -16,10 +16,12 @@ namespace FoodWaste
     public static class RegisterPageValidation
     {
         private static string errorMessage;
+
         public static string GetErrorMessage()
         {
             return errorMessage;
         }
+
         public static bool IsValidUsername(this string username)
         {
             string usernameTrimmed = Regex.Replace(username, @"\s", "");
@@ -67,6 +69,7 @@ namespace FoodWaste
             }
             return true;
         }
+
         public static bool IsValidPassword(this string password)
         {
             if (String.IsNullOrWhiteSpace(password))
@@ -97,6 +100,7 @@ namespace FoodWaste
                 return true;
             }
         }
+
         public static bool IsPasswordSame(string firstPassword, string secondPassword)
         {
             if (!firstPassword.Equals(secondPassword))

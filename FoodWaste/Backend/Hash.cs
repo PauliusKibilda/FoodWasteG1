@@ -9,7 +9,6 @@ namespace FoodWaste
 {
     static class Hash
     {
-
         public static byte[] GetHash(string inputString)
         {
             using (HashAlgorithm algorithm = SHA256.Create())

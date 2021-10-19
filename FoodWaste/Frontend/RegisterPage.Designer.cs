@@ -180,6 +180,7 @@ namespace FoodWaste
             this.PasswordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
             this.PasswordsMatchWarningLabel.Location = new System.Drawing.Point(513, 322);
+            this.PasswordsMatchWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.PasswordsMatchWarningLabel.Name = "PasswordsMatchWarningLabel";
             this.PasswordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
             this.PasswordsMatchWarningLabel.TabIndex = 19;
@@ -192,6 +193,7 @@ namespace FoodWaste
             this.UsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
             this.UsernameWarningLabel.Location = new System.Drawing.Point(515, 73);
+            this.UsernameWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.UsernameWarningLabel.Name = "UsernameWarningLabel";
             this.UsernameWarningLabel.Size = new System.Drawing.Size(242, 20);
             this.UsernameWarningLabel.TabIndex = 20;
@@ -204,6 +206,7 @@ namespace FoodWaste
             this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailWarningLabel.ForeColor = System.Drawing.Color.Red;
             this.EmailWarningLabel.Location = new System.Drawing.Point(513, 134);
+            this.EmailWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.EmailWarningLabel.Name = "EmailWarningLabel";
             this.EmailWarningLabel.Size = new System.Drawing.Size(235, 20);
             this.EmailWarningLabel.TabIndex = 21;
