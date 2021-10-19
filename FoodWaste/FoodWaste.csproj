@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProductAddingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAddingPage.Designer.cs">
+      <DependentUpon>ProductAddingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurantMainPage.Designer.cs">
+      <DependentUpon>RestaurantMainPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductComparer.cs" />
     <Compile Include="ObjectList.cs" />
     <Compile Include="RegisterPageValidation.cs" />
@@ -92,6 +104,9 @@
     <Compile Include="UserSettings.Designer.cs">
       <DependentUpon>UserSettings.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ProductAddingPage.resx">
+      <DependentUpon>ProductAddingPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterPage.resx">
       <DependentUpon>RegisterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantMainPage.resx">
+      <DependentUpon>RestaurantMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurantPage.resx">
       <DependentUpon>RestaurantPage.cs</DependentUpon>

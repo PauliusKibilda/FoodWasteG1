@@ -26,8 +26,8 @@ namespace FoodWaste
         {
             UserList = FileManager.GetUsersFromFile();
             return (from User user in UserList
-                                 where username == user.UserName && Hash.GetHashString(password) == user.Password
-                                 select user).SingleOrDefault();
+                    where username == user.UserName && Hash.GetHashString(password) == user.Password
+                    select user).SingleOrDefault();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -35,7 +35,15 @@ namespace FoodWaste
             User user = CheckLoginCredentials(usernameTextBox.Text, passwordTextBox.Text);
             if (user != null)
             {
-                OpenMainPage(user);
+                if (user.Role == "User")
+                {
+                    OpenPage(new MainPage(user));
+                }
+
+                if (user.Role == "Restaurant")
+                {
+                    OpenPage(new RestaurantMainPage(user));
+                }
             }
             else
             {
@@ -50,7 +58,7 @@ namespace FoodWaste
 
         private void ContinueAsGuestButton_Click(object sender, EventArgs e)
         {
-            OpenMainPage(null);
+            OpenPage(new MainPage(null));
         }
 
         private void SignupButton_Click(object sender, EventArgs e)
@@ -66,12 +74,12 @@ namespace FoodWaste
             Environment.Exit(0);
         }
 
-        private void OpenMainPage(User user)
+        private void OpenPage(Form form)
         {
             this.Hide();
-            MainPage mainPage = new MainPage(user);
-            mainPage.ShowDialog();
+            form.ShowDialog();
             this.Close();
         }
     }
 }
+
