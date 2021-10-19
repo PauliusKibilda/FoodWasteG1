@@ -151,15 +151,10 @@ namespace FoodWaste
                 {
                     e.Cancel = true;
                 }
-                if (User.UserName != Products[index].ReservedUsername)
-                {
-                    UnReserveToolStripMenuItem.Enabled = false;
-                    ReserveStripMenu.Enabled = true;
-                }
                 else
                 {
-                    UnReserveToolStripMenuItem.Enabled = true;
-                    ReserveStripMenu.Enabled = false;
+                    ReserveStripMenu.Enabled = Products[index].State.Equals(Product.ProductState.Listed);
+                    UnReserveToolStripMenuItem.Enabled = (Products[index].State.Equals(Product.ProductState.Reserved) && Products[index].ReservedUsername.Equals(User.UserName));
                 }
             }
         }

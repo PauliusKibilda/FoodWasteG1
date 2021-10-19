@@ -39,7 +39,7 @@ namespace FoodWaste
             }
             else
             {
-                // Sign in failed
+                IncorectCredentialsLabel.Visible = true;
             }
         }
 
@@ -58,6 +58,7 @@ namespace FoodWaste
             this.Hide();
             RegisterOptions registerPage = new RegisterOptions();
             registerPage.ShowDialog();
+            this.Close();
         }
 
         private void LoginPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -70,6 +71,7 @@ namespace FoodWaste
             this.Hide();
             MainPage mainPage = new MainPage(user);
             mainPage.ShowDialog();
+            this.Close();
         }
     }
 }

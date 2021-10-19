@@ -21,25 +21,25 @@ namespace FoodWaste
         private void RestaurantButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            this.Close();
             RegisterPage registerPage = new RegisterPage("Restaurant");
             registerPage.ShowDialog();
+            this.Close();
         }
 
         private void UserButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            this.Close();
             RegisterPage registerPage = new RegisterPage("User");
             registerPage.ShowDialog();
+            this.Close();
         }
 
         private void RegisterOptions_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
-            this.Close();
             LoginPage loginPage = new LoginPage();
             loginPage.ShowDialog();
+            this.Close();
         }
     }
 }
