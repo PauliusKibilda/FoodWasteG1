@@ -15,25 +15,51 @@ namespace FoodWaste
             State
         }
 
-        private SortBy compareField = SortBy.Name;
+        private SortBy compareField;
+        private SortKey sortKey;
+
+        public ProductComparer(SortKey sortKey)
+        {
+            compareField = getColumnType(sortKey.columnIndex);
+            this.sortKey.columnIndex = sortKey.columnIndex;
+            this.sortKey.order = sortKey.order;
+        }
 
         int IComparer<Product>.Compare(Product x, Product y)
         {
+            if (sortKey.order == Order.desc)
+            {
+                Product temp = x;
+                x = y;
+                y = temp;
+            }
             switch (compareField)
             {
                 case SortBy.Name:
                     return x.Name.CompareTo(y.Name);
-                    break;
                 case SortBy.ExpiryDate:
                     return x.ExpiryDate.CompareTo(y.ExpiryDate);
-                    break;
                 case SortBy.State:
                     return x.State.CompareTo(y.State);
-                    break;
                 default:
                     break;
             }
             return x.Name.CompareTo(y.Name);
+        }
+
+        private SortBy getColumnType(int columnIndex)
+        {
+            switch (columnIndex)
+            {
+                case 0:
+                    return SortBy.Name;
+                case 1:
+                    return SortBy.ExpiryDate;
+                case 2:
+                    return SortBy.State;
+                default:
+                    return SortBy.Name;
+            }
         }
     }
 }

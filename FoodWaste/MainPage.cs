@@ -27,9 +27,10 @@ namespace FoodWaste
             }
             ProductList = FileManager.GetProductsFromFile();
             VisibleProductList = ProductList;
-            sortKey.collumnIndex = -1;
-            sortKey.order = Order.asc;
             MainDataGridView.DataSource = ProductList;
+            sortKey.columnIndex = 0;
+            sortKey.order = Order.asc;
+            VisibleProductList.Sort(new ProductComparer(sortKey));
             InitFilterValues();
         }
         private void InitFilterValues() 
@@ -67,36 +68,23 @@ namespace FoodWaste
             
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
-                List<Product> sortedProductList; // IEnumerable
+                List<Product> sortedProductList;
 
-                switch (hitTestInfo.ColumnIndex)
-                {
-                    case 0:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                    case 1:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.ExpiryDate).ToList();
-                        break;
-                    case 2:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.State.ToString()).ToList();
-                        break;
-                    default:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                }
-                if (sortKey.collumnIndex == hitTestInfo.ColumnIndex)
+                if (sortKey.columnIndex == hitTestInfo.ColumnIndex)
                 {
                     if (sortKey.order == Order.desc)
                         sortKey.order = Order.asc;
                     else
                         sortKey.order = Order.desc;
                 }
-                if (sortKey.order == Order.desc)
-                {
-                    sortedProductList.Reverse();
-                }
-                sortKey.collumnIndex = hitTestInfo.ColumnIndex;
-                MainDataGridView.DataSource = sortedProductList;
+                sortKey.columnIndex = hitTestInfo.ColumnIndex;
+                VisibleProductList.Sort(new ProductComparer(sortKey));
+
+                sortedProductList = VisibleProductList;
+                
+                MainDataGridView.DataSource = VisibleProductList;
+                MainDataGridView.Update();
+                MainDataGridView.Refresh();
             }
             else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
             {

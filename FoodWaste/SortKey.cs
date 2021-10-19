@@ -13,7 +13,7 @@ namespace FoodWaste
     }
     struct SortKey
     {
-        public int collumnIndex;
+        public int columnIndex;
         public Order order;
     }
 }
