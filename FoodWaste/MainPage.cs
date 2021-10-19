@@ -147,7 +147,7 @@ namespace FoodWaste
             else
             {
                 int index = GetSelectedRowIndex();
-                if (index == -1)
+                if (Products[index] == null)
                 {
                     e.Cancel = true;
                 }
@@ -167,7 +167,7 @@ namespace FoodWaste
         private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = GetSelectedRowIndex();
-            if (index == -1)
+            if (Products[index] == null)
             {
                 return;
             }
