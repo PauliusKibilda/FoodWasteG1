@@ -74,11 +74,11 @@ namespace FoodWaste
                 string passwordHash = Hash.GetHashString(passwordTextBox.Text);
                 if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, Role);
+                    FileManager.InsertUser(pUserName: usernameTextBox.Text, pEmail:emailTextBox.Text, pPassword:passwordHash, Role:Role);
                 }
                 else
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, phoneTextBox.Text, Role);
+                    FileManager.InsertUser(pUserName:usernameTextBox.Text, pEmail:emailTextBox.Text, pPassword:passwordHash, optionalMobile:phoneTextBox.Text, Role:Role);
                 }
                 MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
 
