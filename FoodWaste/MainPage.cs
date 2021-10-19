@@ -27,9 +27,10 @@ namespace FoodWaste
             }
             ProductList = FileManager.GetProductsFromFile();
             VisibleProductList = ProductList;
-            sortKey.type = -1;
-            sortKey.order = OrderBy.asc;
             MainDataGridView.DataSource = ProductList;
+            sortKey.columnIndex = 0;
+            sortKey.order = Order.asc;
+            VisibleProductList.Sort(new ProductComparer(sortKey));
             InitFilterValues();
         }
         private void InitFilterValues() 
@@ -67,36 +68,15 @@ namespace FoodWaste
             
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
-                List<Product> sortedProductList;
+                if (sortKey.columnIndex == hitTestInfo.ColumnIndex)
+                {
+                    sortKey.order = (sortKey.order == Order.desc) ? Order.asc : Order.desc;
+                }
+                sortKey.columnIndex = hitTestInfo.ColumnIndex;
 
-                switch (hitTestInfo.ColumnIndex)
-                {
-                    case 0:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                    case 1:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.ExpiryDate).ToList();
-                        break;
-                    case 2:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.State.ToString()).ToList();
-                        break;
-                    default:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                }
-                if (sortKey.type == hitTestInfo.ColumnIndex)
-                {
-                    if (sortKey.order == OrderBy.desc)
-                        sortKey.order = OrderBy.asc;
-                    else
-                        sortKey.order = OrderBy.desc;
-                }
-                if (sortKey.order == OrderBy.desc)
-                {
-                    sortedProductList.Reverse();
-                }
-                sortKey.type = hitTestInfo.ColumnIndex;
-                MainDataGridView.DataSource = sortedProductList;
+                VisibleProductList.Sort(new ProductComparer(sortKey));
+                
+                MainDataGridView.Refresh();
             }
             else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
             {
@@ -104,7 +84,6 @@ namespace FoodWaste
                 dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
                 this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
             }
-
         }
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)

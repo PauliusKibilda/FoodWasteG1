@@ -34,7 +34,7 @@ namespace FoodWaste
         {
             if (!RegisterPageValidation.ValidateEmailAddress(EmailTextBox.Text))
             {
-                EmailWarningLabel.Text = RegisterPageValidation.getErrorMessage();
+                EmailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                 EmailWarningLabel.Visible = true;
             }
             else
@@ -45,7 +45,7 @@ namespace FoodWaste
             {
                 if (!RegisterPageValidation.ValidatePassword(PasswordTextBox.Text))
                 {
-                    PasswordWarningLabel.Text = RegisterPageValidation.getErrorMessage();
+                    PasswordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                     PasswordWarningLabel.Visible = true;
                 }
                 else 
@@ -53,7 +53,7 @@ namespace FoodWaste
 
                 if (!RegisterPageValidation.IsPasswordSame(PasswordTextBox.Text, ConfirmPasswordTextbox.Text))
                 {
-                    PasswordsMatchWarningLabel.Text = RegisterPageValidation.getErrorMessage();
+                    PasswordsMatchWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                     PasswordsMatchWarningLabel.Visible = true;
                 }
                 else

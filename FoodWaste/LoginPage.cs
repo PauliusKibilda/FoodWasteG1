@@ -27,7 +27,7 @@ namespace FoodWaste
             UserList = FileManager.GetUsersFromFile();
             return (from User user in UserList
                                  where username == user.UserName && Hash.GetHashString(password) == user.Password
-                                 select user).FirstOrDefault();
+                                 select user).SingleOrDefault();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
