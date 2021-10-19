@@ -12,9 +12,9 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        ProductList Products = new ProductList();
+        ObjectList<Product> Products = new ObjectList<Product>();
         private User User;
-        ProductList VisibleProductList = new ProductList();
+        ObjectList<Product> VisibleProductList = new ObjectList<Product>();
         SortKey sortKey = new SortKey();
         public MainPage(User user)
         {
