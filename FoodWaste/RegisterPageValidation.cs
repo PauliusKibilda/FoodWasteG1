@@ -15,8 +15,6 @@ namespace FoodWaste
 {
     class RegisterPageValidation
     {
-        private static readonly string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
-
         private static string errorMessage;
         public static string GetErrorMessage()
         {
@@ -25,7 +23,7 @@ namespace FoodWaste
         public static bool ValidateUserName(string username)
         {
             string usernameTrimmed = Regex.Replace(username, @"\s", "");
-
+           
             if (String.IsNullOrWhiteSpace(username))
             {
                 errorMessage = "Username Can Not Be Empty";
@@ -43,11 +41,10 @@ namespace FoodWaste
             }
             else
             {
-                string text = System.IO.File.ReadAllText(AccountsFile);
-                string[] values = text.Split(new char[] { ',', '\n' });
-                for (int i = 0; i < values.Length; i++)
+                List<User> users = FileManager.GetUsersFromFile();
+                foreach (User oneUser in users)
                 {
-                    if (values[i].Equals(username))
+                    if (oneUser.UserName.Equals(username))
                     {
                         errorMessage = "This Username Already Exists";
                         return false;
@@ -56,6 +53,12 @@ namespace FoodWaste
                 return true;
             }
         }
+
+        internal static string getErrorMessage()
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool ValidateEmailAddress(string email)
         {
             try
