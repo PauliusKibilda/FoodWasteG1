@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodWaste
 {
-    class ProductList
+    class ProductList : IEnumerable<Product>
     {
         private List<Product> productList = new List<Product>();
 
@@ -39,6 +40,16 @@ namespace FoodWaste
         public void Sort(IComparer<Product> c)
         {
             productList.Sort(c);
+        }
+
+        public IEnumerator<Product> GetEnumerator()
+        {
+            return ((IEnumerable<Product>)productList).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)productList).GetEnumerator();
         }
 
         public List<Product> List { get => productList; set => productList = value; }
