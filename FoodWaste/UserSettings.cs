@@ -32,7 +32,7 @@ namespace FoodWaste
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (!RegisterPageValidation.ValidateEmailAddress(EmailTextBox.Text))
+            if (!EmailTextBox.Text.IsValidEmailAddress())
             {
                 EmailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                 EmailWarningLabel.Visible = true;
@@ -43,7 +43,7 @@ namespace FoodWaste
             
             if (ChangePassword.Checked)
             {
-                if (!RegisterPageValidation.ValidatePassword(PasswordTextBox.Text))
+                if (!PasswordTextBox.Text.IsValidPassword())
                 {
                     PasswordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                     PasswordWarningLabel.Visible = true;
