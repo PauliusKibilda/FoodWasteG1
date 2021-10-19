@@ -12,9 +12,9 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        private List<Product> ProductList = new List<Product>();
+        ObjectList<Product> ProductList = new ObjectList<Product>();
+        ObjectList<Product> VisibleProductList = new ObjectList<Product>();
         private User User;
-        private List<Product> VisibleProductList = new List<Product>();
         SortKey sortKey = new SortKey();
         public MainPage(User user)
         {
@@ -26,10 +26,12 @@ namespace FoodWaste
                 SettingsMenuStrip.Visible = false;
             }
             ProductList = FileManager.GetProductsFromFile();
+
             VisibleProductList = ProductList;
-            sortKey.type = -1;
-            sortKey.order = OrderBy.asc;
-            MainDataGridView.DataSource = ProductList;
+            MainDataGridView.DataSource = ProductList.List;
+            sortKey.columnIndex = 0;
+            sortKey.order = Order.asc;
+            VisibleProductList.Sort(new ProductComparer(sortKey));
             InitFilterValues();
         }
         private void InitFilterValues() 
@@ -56,7 +58,7 @@ namespace FoodWaste
                 ProductList[index].ReservedUsername = User.UserName;
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(new List<Product>(ProductList));
+                FileManager.InsertProducts(ProductList.List);
             }
         }
 
@@ -67,36 +69,15 @@ namespace FoodWaste
             
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
-                List<Product> sortedProductList;
+                if (sortKey.columnIndex == hitTestInfo.ColumnIndex)
+                {
+                    sortKey.order = (sortKey.order == Order.desc) ? Order.asc : Order.desc;
+                }
+                sortKey.columnIndex = hitTestInfo.ColumnIndex;
 
-                switch (hitTestInfo.ColumnIndex)
-                {
-                    case 0:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                    case 1:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.ExpiryDate).ToList();
-                        break;
-                    case 2:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.State.ToString()).ToList();
-                        break;
-                    default:
-                        sortedProductList = VisibleProductList.OrderBy(product => product.Name).ToList();
-                        break;
-                }
-                if (sortKey.type == hitTestInfo.ColumnIndex)
-                {
-                    if (sortKey.order == OrderBy.desc)
-                        sortKey.order = OrderBy.asc;
-                    else
-                        sortKey.order = OrderBy.desc;
-                }
-                if (sortKey.order == OrderBy.desc)
-                {
-                    sortedProductList.Reverse();
-                }
-                sortKey.type = hitTestInfo.ColumnIndex;
-                MainDataGridView.DataSource = sortedProductList;
+                VisibleProductList.Sort(new ProductComparer(sortKey));
+                
+                MainDataGridView.Refresh();
             }
             else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
             {
@@ -104,7 +85,6 @@ namespace FoodWaste
                 dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
                 this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
             }
-
         }
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,17 +118,17 @@ namespace FoodWaste
 
             if (selectedIndex == 0)
             {
-                MainDataGridView.DataSource = ProductList;
+                MainDataGridView.DataSource = ProductList.List;
             }
             if (selectedIndex == 1)
             {
                 VisibleProductList = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
-                MainDataGridView.DataSource = VisibleProductList;
+                MainDataGridView.DataSource = VisibleProductList.List;
             }
             if (selectedIndex == 2)
             {
                 VisibleProductList = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-                MainDataGridView.DataSource = VisibleProductList;
+                MainDataGridView.DataSource = VisibleProductList.List;
             }
         }
 
@@ -167,19 +147,14 @@ namespace FoodWaste
             else
             {
                 int index = GetSelectedRowIndex();
-                if (index == -1)
+                if (ProductList[index] == null)
                 {
                     e.Cancel = true;
                 }
-                if (User.UserName != ProductList[index].ReservedUsername)
-                {
-                    UnReserveToolStripMenuItem.Enabled = false;
-                    ReserveStripMenu.Enabled = true;
-                }
                 else
                 {
-                    UnReserveToolStripMenuItem.Enabled = true;
-                    ReserveStripMenu.Enabled = false;
+                    ReserveStripMenu.Enabled = ProductList[index].State.Equals(Product.ProductState.Listed);
+                    UnReserveToolStripMenuItem.Enabled = (ProductList[index].State.Equals(Product.ProductState.Reserved) && ProductList[index].ReservedUsername.Equals(User.UserName));
                 }
             }
         }
@@ -187,7 +162,7 @@ namespace FoodWaste
         private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = GetSelectedRowIndex();
-            if (index == -1)
+            if (ProductList[index] == null)
             {
                 return;
             }
@@ -197,7 +172,7 @@ namespace FoodWaste
                 ProductList[index].ReservedUsername = "";
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(new List<Product>(ProductList));
+                FileManager.InsertProducts(ProductList.List);
             }
         }
         private int GetSelectedRowIndex() 

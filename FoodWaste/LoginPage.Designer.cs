@@ -37,6 +37,7 @@ namespace FoodWaste
             this.showPasswordCheckbox = new System.Windows.Forms.CheckBox();
             this.backButton = new System.Windows.Forms.Button();
             this.signupButton = new System.Windows.Forms.Button();
+            this.IncorectCredentialsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -129,11 +130,24 @@ namespace FoodWaste
             this.signupButton.UseVisualStyleBackColor = true;
             this.signupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
+            // IncorectCredentialsLabel
+            // 
+            this.IncorectCredentialsLabel.AutoSize = true;
+            this.IncorectCredentialsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.IncorectCredentialsLabel.ForeColor = System.Drawing.Color.Red;
+            this.IncorectCredentialsLabel.Location = new System.Drawing.Point(288, 325);
+            this.IncorectCredentialsLabel.Name = "IncorectCredentialsLabel";
+            this.IncorectCredentialsLabel.Size = new System.Drawing.Size(252, 26);
+            this.IncorectCredentialsLabel.TabIndex = 8;
+            this.IncorectCredentialsLabel.Text = "Incorect login credentials";
+            this.IncorectCredentialsLabel.Visible = false;
+            // 
             // LoginPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.IncorectCredentialsLabel);
             this.Controls.Add(this.signupButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.showPasswordCheckbox);
@@ -161,6 +175,7 @@ namespace FoodWaste
         private System.Windows.Forms.CheckBox showPasswordCheckbox;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button signupButton;
+        private System.Windows.Forms.Label IncorectCredentialsLabel;
     }
 }
 
