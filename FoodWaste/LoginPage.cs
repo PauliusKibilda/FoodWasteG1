@@ -35,7 +35,15 @@ namespace FoodWaste
             User user = CheckLoginCredentials(usernameTextBox.Text, passwordTextBox.Text);
             if (user != null)
             {
-                OpenMainPage(user);
+                if (user.Role == "User")
+                {
+                    OpenMainPage(user);
+                }
+
+                if (user.Role == "Restaurant")
+                {
+                    OpenRestaurantPage(user);
+                }
             }
             else
             {
@@ -70,6 +78,13 @@ namespace FoodWaste
             this.Hide();
             MainPage mainPage = new MainPage(user);
             mainPage.ShowDialog();
+        }
+
+        private void OpenRestaurantPage(User user)
+        {
+            this.Hide();
+            RestaurantMainPage restaurantMainPage = new RestaurantMainPage(user);
+            restaurantMainPage.ShowDialog();
         }
     }
 }

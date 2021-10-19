@@ -97,6 +97,23 @@ namespace FoodWaste
                 }
             }
         }
+
+        public static void AddProduct(string ProductName, DateTime ExpirationDate, Product.ProductState state, string RestaurantName, string optionalName = "")
+        {
+            using (StreamWriter sw = new StreamWriter(ProductsFile, true))
+            {
+                    sw.Write(ProductName);
+                    sw.Write(',');
+                    sw.Write(String.Format("{0:yyyy-MM-dd}", ExpirationDate));
+                    sw.Write(',');
+                    sw.Write(state);
+                    sw.Write(',');
+                    sw.Write(RestaurantName);
+                    sw.Write(',');
+                    sw.Write(optionalName);
+                    sw.Write('\n');
+            }
+        }
         public static void InsertRestaurant(string RestaurantName, string PhoneNumber, string Adress)
         {
             using (StreamWriter sw = new StreamWriter(RestaurantsFile, true))
