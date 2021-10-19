@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProductComparer.cs" />
-    <Compile Include="ProductList.cs" />
+    <Compile Include="ObjectList.cs" />
     <Compile Include="RegisterPageValidation.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Hash.cs" />
