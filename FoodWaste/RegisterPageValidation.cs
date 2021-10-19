@@ -13,19 +13,17 @@ using System.IO;
 
 namespace FoodWaste
 {
-    class RegisterPageValidation
+    public static class RegisterPageValidation
     {
-        private static readonly string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
-
         private static string errorMessage;
         public static string GetErrorMessage()
         {
             return errorMessage;
         }
-        public static bool ValidateUserName(string username)
+        public static bool IsValidUsername(this string username)
         {
             string usernameTrimmed = Regex.Replace(username, @"\s", "");
-
+           
             if (String.IsNullOrWhiteSpace(username))
             {
                 errorMessage = "Username Can Not Be Empty";
@@ -43,11 +41,10 @@ namespace FoodWaste
             }
             else
             {
-                string text = System.IO.File.ReadAllText(AccountsFile);
-                string[] values = text.Split(new char[] { ',', '\n' });
-                for (int i = 0; i < values.Length; i++)
+                List<User> users = FileManager.GetUsersFromFile();
+                foreach (User oneUser in users)
                 {
-                    if (values[i].Equals(username))
+                    if (oneUser.UserName.Equals(username))
                     {
                         errorMessage = "This Username Already Exists";
                         return false;
@@ -56,7 +53,8 @@ namespace FoodWaste
                 return true;
             }
         }
-        public static bool ValidateEmailAddress(string email)
+
+        public static bool IsValidEmailAddress(this string email)
         {
             try
             {
@@ -69,7 +67,7 @@ namespace FoodWaste
             }
             return true;
         }
-        public static bool ValidatePassword(string password)
+        public static bool IsValidPassword(this string password)
         {
             if (String.IsNullOrWhiteSpace(password))
             {

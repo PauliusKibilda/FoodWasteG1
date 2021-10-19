@@ -58,6 +58,8 @@
     <Compile Include="RestaurantMainPage.Designer.cs">
       <DependentUpon>RestaurantMainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductComparer.cs" />
+    <Compile Include="ObjectList.cs" />
     <Compile Include="RegisterPageValidation.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Hash.cs" />

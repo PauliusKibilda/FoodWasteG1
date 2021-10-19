@@ -23,65 +23,65 @@ namespace FoodWaste
             Role = role;
             InitializeComponent();
             this.CenterToScreen();
-            usernameWarningLabel.Visible = false;
-            emailWarningLabel.Visible = false;
-            passwordWarningLabel.Visible = false;
-            passwordsMatchWarningLabel.Visible = false;
+            UsernameWarningLabel.Visible = false;
+            EmailWarningLabel.Visible = false;
+            PasswordWarningLabel.Visible = false;
+            PasswordsMatchWarningLabel.Visible = false;
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
             // Validate Username
-
-            if (!RegisterPageValidation.ValidateUserName(usernameTextBox.Text))
+            if (!UsernameTextBox.Text.IsValidUsername())
             {
-                usernameWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
-                usernameWarningLabel.Visible = true;
+                UsernameWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                UsernameWarningLabel.Visible = true;
             }
-            else usernameWarningLabel.Visible = false;
+            else UsernameWarningLabel.Visible = false;
 
             // Validate Email
-            if (!RegisterPageValidation.ValidateEmailAddress(emailTextBox.Text))
+            if (!EmailTextBox.Text.IsValidEmailAddress())
             {
-                emailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
-                emailWarningLabel.Visible = true;
+                EmailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                EmailWarningLabel.Visible = true;
             }
-            else emailWarningLabel.Visible = false;
+            else EmailWarningLabel.Visible = false;
 
             // Validate Password
-            if (!RegisterPageValidation.ValidatePassword(passwordTextBox.Text))
+            if (!PasswordTextBox.Text.IsValidPassword())
             {
-                passwordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
-                passwordWarningLabel.Visible = true;
+                PasswordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                PasswordWarningLabel.Visible = true;
             }
-            else passwordWarningLabel.Visible = false;
+            else PasswordWarningLabel.Visible = false;
 
             // Check if passwords match
-            if (!RegisterPageValidation.IsPasswordSame(passwordTextBox.Text, passwordConfirmTextbox.Text))
+            if (!RegisterPageValidation.IsPasswordSame(PasswordTextBox.Text, PasswordConfirmTextbox.Text))
             {
-                passwordsMatchWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
-                passwordsMatchWarningLabel.Visible = true;
+                PasswordsMatchWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                PasswordsMatchWarningLabel.Visible = true;
             }
-            else passwordsMatchWarningLabel.Visible = false;
+            else PasswordsMatchWarningLabel.Visible = false;
             
 
             // Check if there are no warnings
-            if (!(usernameWarningLabel.Visible || emailWarningLabel.Visible
-               || passwordWarningLabel.Visible || passwordsMatchWarningLabel.Visible))
+            if (!(UsernameWarningLabel.Visible || EmailWarningLabel.Visible
+               || PasswordWarningLabel.Visible || PasswordsMatchWarningLabel.Visible))
             {
                 // Sign up succesfull
                 // Add a user to the system
 
-                string passwordHash = Hash.GetHashString(passwordTextBox.Text);
-                if (String.IsNullOrWhiteSpace(phoneTextBox.Text))
+                string passwordHash = Hash.GetHashString(PasswordTextBox.Text);
+                if (String.IsNullOrWhiteSpace(PhoneTextBox.Text))
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, Role);
+                    FileManager.InsertUser(pUserName: UsernameTextBox.Text, pEmail: EmailTextBox.Text, pPassword: passwordHash, Role: Role);
                 }
                 else
                 {
-                    FileManager.InsertUser(usernameTextBox.Text, emailTextBox.Text, passwordHash, phoneTextBox.Text, Role);
+                    FileManager.InsertUser(pUserName: UsernameTextBox.Text, pEmail: EmailTextBox.Text, pPassword: passwordHash, optionalMobile: PhoneTextBox.Text, Role: Role);
                 }
-                MessageBox.Show("User " + usernameTextBox.Text + " registered succesfully.");
+                MessageBox.Show("User " + UsernameTextBox.Text + " registered succesfully.");
+                BackToLoginPage();
 
             }
         }
@@ -101,6 +101,7 @@ namespace FoodWaste
             this.Hide();
             LoginPage loginPage = new LoginPage();
             loginPage.ShowDialog();
+            this.Close();
         }
     }
 }
