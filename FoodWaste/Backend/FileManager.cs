@@ -11,11 +11,11 @@ namespace FoodWaste
     static class FileManager
     {
         private static string RestaurantsFile = 
-            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Restaurants.txt";
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Data\\Restaurants.txt";
         private static string ProductsFile = 
-            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Products.txt";
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Data\\Products.txt";
         private static string AccountsFile = 
-            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
+            Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Data\\Accounts.txt";
 
         public static List<Product> GetProductsFromFile()
         {
