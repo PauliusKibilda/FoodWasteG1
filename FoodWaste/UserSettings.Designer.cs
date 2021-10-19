@@ -176,6 +176,7 @@
             this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailWarningLabel.ForeColor = System.Drawing.Color.Red;
             this.EmailWarningLabel.Location = new System.Drawing.Point(369, 83);
+            this.EmailWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.EmailWarningLabel.Name = "EmailWarningLabel";
             this.EmailWarningLabel.Size = new System.Drawing.Size(235, 20);
             this.EmailWarningLabel.TabIndex = 30;
@@ -189,6 +190,7 @@
             this.PasswordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
             this.PasswordsMatchWarningLabel.Location = new System.Drawing.Point(369, 312);
+            this.PasswordsMatchWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
             this.PasswordsMatchWarningLabel.Name = "PasswordsMatchWarningLabel";
             this.PasswordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
             this.PasswordsMatchWarningLabel.TabIndex = 29;
