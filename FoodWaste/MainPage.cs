@@ -12,9 +12,9 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        ObjectList<Product> Products = new ObjectList<Product>();
-        private User User;
+        ObjectList<Product> ProductList = new ObjectList<Product>();
         ObjectList<Product> VisibleProductList = new ObjectList<Product>();
+        private User User;
         SortKey sortKey = new SortKey();
         public MainPage(User user)
         {
@@ -25,10 +25,10 @@ namespace FoodWaste
             {
                 SettingsMenuStrip.Visible = false;
             }
-            Products = FileManager.GetProductsFromFile();
+            ProductList = FileManager.GetProductsFromFile();
 
-            VisibleProductList = Products;
-            MainDataGridView.DataSource = Products.List;
+            VisibleProductList = ProductList;
+            MainDataGridView.DataSource = ProductList.List;
             sortKey.columnIndex = 0;
             sortKey.order = Order.asc;
             VisibleProductList.Sort(new ProductComparer(sortKey));
@@ -55,10 +55,10 @@ namespace FoodWaste
             if (MessageBox.Show("Do you want to reserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
-                Products[index].ReservedUsername = User.UserName;
+                ProductList[index].ReservedUsername = User.UserName;
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(Products.List);
+                FileManager.InsertProducts(ProductList.List);
             }
         }
 
@@ -118,16 +118,16 @@ namespace FoodWaste
 
             if (selectedIndex == 0)
             {
-                MainDataGridView.DataSource = Products.List;
+                MainDataGridView.DataSource = ProductList.List;
             }
             if (selectedIndex == 1)
             {
-                VisibleProductList = Products.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                VisibleProductList = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
                 MainDataGridView.DataSource = VisibleProductList.List;
             }
             if (selectedIndex == 2)
             {
-                VisibleProductList = Products.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                VisibleProductList = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
                 MainDataGridView.DataSource = VisibleProductList.List;
             }
         }
@@ -147,14 +147,14 @@ namespace FoodWaste
             else
             {
                 int index = GetSelectedRowIndex();
-                if (Products[index] == null)
+                if (ProductList[index] == null)
                 {
                     e.Cancel = true;
                 }
                 else
                 {
-                    ReserveStripMenu.Enabled = Products[index].State.Equals(Product.ProductState.Listed);
-                    UnReserveToolStripMenuItem.Enabled = (Products[index].State.Equals(Product.ProductState.Reserved) && Products[index].ReservedUsername.Equals(User.UserName));
+                    ReserveStripMenu.Enabled = ProductList[index].State.Equals(Product.ProductState.Listed);
+                    UnReserveToolStripMenuItem.Enabled = (ProductList[index].State.Equals(Product.ProductState.Reserved) && ProductList[index].ReservedUsername.Equals(User.UserName));
                 }
             }
         }
@@ -162,17 +162,17 @@ namespace FoodWaste
         private void UnReserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int index = GetSelectedRowIndex();
-            if (Products[index] == null)
+            if (ProductList[index] == null)
             {
                 return;
             }
             if (MessageBox.Show("Do you want to unreserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Listed;
-                Products[index].ReservedUsername = "";
+                ProductList[index].ReservedUsername = "";
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(Products.List);
+                FileManager.InsertProducts(ProductList.List);
             }
         }
         private int GetSelectedRowIndex() 
