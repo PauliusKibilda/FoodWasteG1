@@ -20,7 +20,7 @@ namespace FoodWaste
 
         public ProductComparer(SortKey sortKey)
         {
-            compareField = getColumnType(sortKey.columnIndex);
+            compareField = GetColumnType(sortKey.columnIndex);
             this.sortKey.columnIndex = sortKey.columnIndex;
             this.sortKey.order = sortKey.order;
         }
@@ -47,7 +47,7 @@ namespace FoodWaste
             return x.Name.CompareTo(y.Name);
         }
 
-        private SortBy getColumnType(int columnIndex)
+        private SortBy GetColumnType(int columnIndex)
         {
             switch (columnIndex)
             {

@@ -68,22 +68,14 @@ namespace FoodWaste
             
             if (hitTestInfo.Type == DataGridViewHitTestType.ColumnHeader)
             {
-                List<Product> sortedProductList;
-
                 if (sortKey.columnIndex == hitTestInfo.ColumnIndex)
                 {
-                    if (sortKey.order == Order.desc)
-                        sortKey.order = Order.asc;
-                    else
-                        sortKey.order = Order.desc;
+                    sortKey.order = (sortKey.order == Order.desc) ? Order.asc : Order.desc;
                 }
                 sortKey.columnIndex = hitTestInfo.ColumnIndex;
-                VisibleProductList.Sort(new ProductComparer(sortKey));
 
-                sortedProductList = VisibleProductList;
+                VisibleProductList.Sort(new ProductComparer(sortKey));
                 
-                MainDataGridView.DataSource = VisibleProductList;
-                MainDataGridView.Update();
                 MainDataGridView.Refresh();
             }
             else if (hitTestInfo.Type == DataGridViewHitTestType.Cell)
@@ -92,7 +84,6 @@ namespace FoodWaste
                 dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
                 this.MainDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
             }
-
         }
 
         private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
