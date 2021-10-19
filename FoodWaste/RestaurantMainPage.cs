@@ -12,7 +12,7 @@ namespace FoodWaste
 {
     public partial class RestaurantMainPage : Form
     {
-        private List<Product> ProductList = new List<Product>();
+        private ObjectList<Product> ProductList = new ObjectList<Product>();
         private User User;
 
         public RestaurantMainPage(User user)

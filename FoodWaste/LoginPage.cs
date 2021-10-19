@@ -26,8 +26,8 @@ namespace FoodWaste
         {
             UserList = FileManager.GetUsersFromFile();
             return (from User user in UserList
-                                 where username == user.UserName && Hash.GetHashString(password) == user.Password
-                                 select user).FirstOrDefault();
+                    where username == user.UserName && Hash.GetHashString(password) == user.Password
+                    select user).SingleOrDefault();
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace FoodWaste
             }
             else
             {
-                // Sign in failed
+                IncorectCredentialsLabel.Visible = true;
             }
         }
 
@@ -66,6 +66,7 @@ namespace FoodWaste
             this.Hide();
             RegisterOptions registerPage = new RegisterOptions();
             registerPage.ShowDialog();
+            this.Close();
         }
 
         private void LoginPage_FormClosed(object sender, FormClosedEventArgs e)
@@ -77,6 +78,8 @@ namespace FoodWaste
         {
             this.Hide();
             form.ShowDialog();
+            this.Close();
         }
     }
 }
+
