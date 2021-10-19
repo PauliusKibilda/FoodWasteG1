@@ -15,8 +15,6 @@ namespace FoodWaste
 {
     class RegisterPageValidation
     {
-        private static readonly string AccountsFile = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName + "\\" + "Accounts.txt";
-
         private static string errorMessage;
         public static string GetErrorMessage()
         {
