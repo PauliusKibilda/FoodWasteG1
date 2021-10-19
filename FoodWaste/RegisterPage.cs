@@ -32,8 +32,7 @@ namespace FoodWaste
         private void SignUpButton_Click(object sender, EventArgs e)
         {
             // Validate Username
-
-            if (!RegisterPageValidation.ValidateUserName(usernameTextBox.Text))
+            if (!usernameTextBox.Text.IsValidUsername())
             {
                 usernameWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                 usernameWarningLabel.Visible = true;
@@ -41,7 +40,7 @@ namespace FoodWaste
             else usernameWarningLabel.Visible = false;
 
             // Validate Email
-            if (!RegisterPageValidation.ValidateEmailAddress(emailTextBox.Text))
+            if (!emailTextBox.Text.IsValidEmailAddress())
             {
                 emailWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                 emailWarningLabel.Visible = true;
@@ -49,7 +48,7 @@ namespace FoodWaste
             else emailWarningLabel.Visible = false;
 
             // Validate Password
-            if (!RegisterPageValidation.ValidatePassword(passwordTextBox.Text))
+            if (!passwordTextBox.Text.IsValidPassword())
             {
                 passwordWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
                 passwordWarningLabel.Visible = true;

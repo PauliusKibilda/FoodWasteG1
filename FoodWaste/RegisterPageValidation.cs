@@ -13,14 +13,14 @@ using System.IO;
 
 namespace FoodWaste
 {
-    class RegisterPageValidation
+    public static class RegisterPageValidation
     {
         private static string errorMessage;
         public static string GetErrorMessage()
         {
             return errorMessage;
         }
-        public static bool ValidateUserName(string username)
+        public static bool IsValidUsername(this string username)
         {
             string usernameTrimmed = Regex.Replace(username, @"\s", "");
            
@@ -54,12 +54,7 @@ namespace FoodWaste
             }
         }
 
-        internal static string getErrorMessage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static bool ValidateEmailAddress(string email)
+        public static bool IsValidEmailAddress(this string email)
         {
             try
             {
@@ -72,7 +67,7 @@ namespace FoodWaste
             }
             return true;
         }
-        public static bool ValidatePassword(string password)
+        public static bool IsValidPassword(this string password)
         {
             if (String.IsNullOrWhiteSpace(password))
             {
