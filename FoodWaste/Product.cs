@@ -19,6 +19,7 @@ namespace FoodWaste
         public DateTime ExpiryDate { get; set; }
         public ProductState State { get; set; }
         public string ReservedUsername { get; set; }
+        public string RestaurantName { get; set; }
         public Product(string productName, DateTime expiryDate)
         {
             this.Name = productName;
@@ -26,11 +27,12 @@ namespace FoodWaste
             this.State = ProductState.Listed;
             this.ReservedUsername = "";
         }
-        public Product(string productName, DateTime expiryDate, ProductState state, string username = "")
+        public Product(string productName, DateTime expiryDate, ProductState state, string restaurantName, string username = "")
         {
             this.Name = productName;
             this.ExpiryDate = expiryDate;
             this.State = state;
+            this.RestaurantName = restaurantName;
             this.ReservedUsername = username;
         }
     }
