@@ -12,9 +12,9 @@ namespace FoodWaste
 {
     public partial class MainPage : Form
     {
-        private List<Product> ProductList = new List<Product>();
+        ProductList Products = new ProductList();
         private User User;
-        private List<Product> VisibleProductList = new List<Product>();
+        ProductList VisibleProductList = new ProductList();
         SortKey sortKey = new SortKey();
         public MainPage(User user)
         {
@@ -25,9 +25,10 @@ namespace FoodWaste
             {
                 SettingsMenuStrip.Visible = false;
             }
-            ProductList = FileManager.GetProductsFromFile();
-            VisibleProductList = ProductList;
-            MainDataGridView.DataSource = ProductList;
+            Products = FileManager.GetProductsFromFile();
+
+            VisibleProductList = Products;
+            MainDataGridView.DataSource = Products.List;
             sortKey.columnIndex = 0;
             sortKey.order = Order.asc;
             VisibleProductList.Sort(new ProductComparer(sortKey));
@@ -54,10 +55,10 @@ namespace FoodWaste
             if (MessageBox.Show("Do you want to reserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Reserved;
-                ProductList[index].ReservedUsername = User.UserName;
+                Products[index].ReservedUsername = User.UserName;
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(new List<Product>(ProductList));
+                FileManager.InsertProducts(Products.List);
             }
         }
 
@@ -117,17 +118,17 @@ namespace FoodWaste
 
             if (selectedIndex == 0)
             {
-                MainDataGridView.DataSource = ProductList;
+                MainDataGridView.DataSource = Products.List;
             }
             if (selectedIndex == 1)
             {
-                VisibleProductList = ProductList.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
-                MainDataGridView.DataSource = VisibleProductList;
+                VisibleProductList = Products.List.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                MainDataGridView.DataSource = VisibleProductList.List;
             }
             if (selectedIndex == 2)
             {
-                VisibleProductList = ProductList.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
-                MainDataGridView.DataSource = VisibleProductList;
+                VisibleProductList = Products.List.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                MainDataGridView.DataSource = VisibleProductList.List;
             }
         }
 
@@ -150,7 +151,7 @@ namespace FoodWaste
                 {
                     e.Cancel = true;
                 }
-                if (User.UserName != ProductList[index].ReservedUsername)
+                if (User.UserName != Products[index].ReservedUsername)
                 {
                     UnReserveToolStripMenuItem.Enabled = false;
                     ReserveStripMenu.Enabled = true;
@@ -173,10 +174,10 @@ namespace FoodWaste
             if (MessageBox.Show("Do you want to unreserve " + MainDataGridView.Rows[index].Cells[0].Value + "?", "Reservation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 MainDataGridView.Rows[index].Cells[2].Value = Product.ProductState.Listed;
-                ProductList[index].ReservedUsername = "";
+                Products[index].ReservedUsername = "";
                 MainDataGridView.Update();
                 MainDataGridView.Refresh();
-                FileManager.InsertProducts(new List<Product>(ProductList));
+                FileManager.InsertProducts(Products.List);
             }
         }
         private int GetSelectedRowIndex() 
