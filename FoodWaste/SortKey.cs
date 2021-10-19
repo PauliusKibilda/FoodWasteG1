@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace FoodWaste
 {
-    enum OrderBy 
+    enum Order 
     {
         asc,
         desc
     }
     struct SortKey
     {
-        public int type;
-        public OrderBy order;
+        public int collumnIndex;
+        public Order order;
     }
 }
