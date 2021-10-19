@@ -29,220 +29,220 @@ namespace FoodWaste
         /// </summary>
         private void InitializeComponent()
         {
-            this.signUpButton = new System.Windows.Forms.Button();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.usernameLabel = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.confirmPasswordLabel = new System.Windows.Forms.Label();
-            this.passwordConfirmTextbox = new System.Windows.Forms.TextBox();
-            this.phoneNumberLabel = new System.Windows.Forms.Label();
-            this.phoneTextBox = new System.Windows.Forms.TextBox();
-            this.backButton = new System.Windows.Forms.Button();
-            this.passwordsMatchWarningLabel = new System.Windows.Forms.Label();
-            this.usernameWarningLabel = new System.Windows.Forms.Label();
-            this.emailWarningLabel = new System.Windows.Forms.Label();
-            this.passwordWarningLabel = new System.Windows.Forms.Label();
+            this.SignUpButton = new System.Windows.Forms.Button();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.UsernameLabel = new System.Windows.Forms.Label();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.PonfirmPasswordLabel = new System.Windows.Forms.Label();
+            this.PasswordConfirmTextbox = new System.Windows.Forms.TextBox();
+            this.PhoneNumberLabel = new System.Windows.Forms.Label();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.PasswordsMatchWarningLabel = new System.Windows.Forms.Label();
+            this.UsernameWarningLabel = new System.Windows.Forms.Label();
+            this.EmailWarningLabel = new System.Windows.Forms.Label();
+            this.PasswordWarningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // signUpButton
+            // SignUpButton
             // 
-            this.signUpButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.signUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.signUpButton.Location = new System.Drawing.Point(403, 360);
-            this.signUpButton.Name = "signUpButton";
-            this.signUpButton.Size = new System.Drawing.Size(104, 40);
-            this.signUpButton.TabIndex = 10;
-            this.signUpButton.Text = "Sign up";
-            this.signUpButton.UseVisualStyleBackColor = true;
-            this.signUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
+            this.SignUpButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SignUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.SignUpButton.Location = new System.Drawing.Point(403, 360);
+            this.SignUpButton.Name = "SignUpButton";
+            this.SignUpButton.Size = new System.Drawing.Size(104, 40);
+            this.SignUpButton.TabIndex = 10;
+            this.SignUpButton.Text = "Sign up";
+            this.SignUpButton.UseVisualStyleBackColor = true;
+            this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
-            // passwordLabel
+            // PasswordLabel
             // 
-            this.passwordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordLabel.Location = new System.Drawing.Point(293, 235);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(108, 26);
-            this.passwordLabel.TabIndex = 9;
-            this.passwordLabel.Text = "Password";
+            this.PasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PasswordLabel.Location = new System.Drawing.Point(293, 235);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(108, 26);
+            this.PasswordLabel.TabIndex = 9;
+            this.PasswordLabel.Text = "Password";
             // 
-            // emailLabel
+            // EmailLabel
             // 
-            this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.emailLabel.Location = new System.Drawing.Point(293, 108);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(151, 26);
-            this.emailLabel.TabIndex = 8;
-            this.emailLabel.Text = "Email address";
+            this.EmailLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.EmailLabel.Location = new System.Drawing.Point(293, 108);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(151, 26);
+            this.EmailLabel.TabIndex = 8;
+            this.EmailLabel.Text = "Email address";
             // 
-            // emailTextBox
+            // EmailTextBox
             // 
-            this.emailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.emailTextBox.Location = new System.Drawing.Point(293, 134);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(214, 32);
-            this.emailTextBox.TabIndex = 6;
+            this.EmailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.EmailTextBox.Location = new System.Drawing.Point(293, 134);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(214, 32);
+            this.EmailTextBox.TabIndex = 6;
             // 
-            // passwordTextBox
+            // PasswordTextBox
             // 
-            this.passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordTextBox.Location = new System.Drawing.Point(293, 261);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(214, 32);
-            this.passwordTextBox.TabIndex = 7;
-            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PasswordTextBox.Location = new System.Drawing.Point(293, 261);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.Size = new System.Drawing.Size(214, 32);
+            this.PasswordTextBox.TabIndex = 7;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // usernameLabel
+            // UsernameLabel
             // 
-            this.usernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameLabel.Location = new System.Drawing.Point(293, 47);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(113, 26);
-            this.usernameLabel.TabIndex = 13;
-            this.usernameLabel.Text = "Username";
+            this.UsernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.UsernameLabel.Location = new System.Drawing.Point(293, 47);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(113, 26);
+            this.UsernameLabel.TabIndex = 13;
+            this.UsernameLabel.Text = "Username";
             // 
-            // usernameTextBox
+            // UsernameTextBox
             // 
-            this.usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.usernameTextBox.Location = new System.Drawing.Point(293, 73);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(214, 32);
-            this.usernameTextBox.TabIndex = 12;
+            this.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.UsernameTextBox.Location = new System.Drawing.Point(293, 73);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(214, 32);
+            this.UsernameTextBox.TabIndex = 12;
             // 
-            // confirmPasswordLabel
+            // PonfirmPasswordLabel
             // 
-            this.confirmPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.confirmPasswordLabel.AutoSize = true;
-            this.confirmPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.confirmPasswordLabel.Location = new System.Drawing.Point(293, 296);
-            this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(191, 26);
-            this.confirmPasswordLabel.TabIndex = 15;
-            this.confirmPasswordLabel.Text = "Confirm Password";
+            this.PonfirmPasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PonfirmPasswordLabel.AutoSize = true;
+            this.PonfirmPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PonfirmPasswordLabel.Location = new System.Drawing.Point(293, 296);
+            this.PonfirmPasswordLabel.Name = "PonfirmPasswordLabel";
+            this.PonfirmPasswordLabel.Size = new System.Drawing.Size(191, 26);
+            this.PonfirmPasswordLabel.TabIndex = 15;
+            this.PonfirmPasswordLabel.Text = "Confirm Password";
             // 
-            // passwordConfirmTextbox
+            // PasswordConfirmTextbox
             // 
-            this.passwordConfirmTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordConfirmTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.passwordConfirmTextbox.Location = new System.Drawing.Point(293, 322);
-            this.passwordConfirmTextbox.Name = "passwordConfirmTextbox";
-            this.passwordConfirmTextbox.Size = new System.Drawing.Size(214, 32);
-            this.passwordConfirmTextbox.TabIndex = 14;
-            this.passwordConfirmTextbox.UseSystemPasswordChar = true;
+            this.PasswordConfirmTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordConfirmTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PasswordConfirmTextbox.Location = new System.Drawing.Point(293, 322);
+            this.PasswordConfirmTextbox.Name = "PasswordConfirmTextbox";
+            this.PasswordConfirmTextbox.Size = new System.Drawing.Size(214, 32);
+            this.PasswordConfirmTextbox.TabIndex = 14;
+            this.PasswordConfirmTextbox.UseSystemPasswordChar = true;
             // 
-            // phoneNumberLabel
+            // PhoneNumberLabel
             // 
-            this.phoneNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.phoneNumberLabel.AutoSize = true;
-            this.phoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.phoneNumberLabel.Location = new System.Drawing.Point(293, 171);
-            this.phoneNumberLabel.Name = "phoneNumberLabel";
-            this.phoneNumberLabel.Size = new System.Drawing.Size(251, 26);
-            this.phoneNumberLabel.TabIndex = 17;
-            this.phoneNumberLabel.Text = "Phone number (optional)";
+            this.PhoneNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PhoneNumberLabel.AutoSize = true;
+            this.PhoneNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(293, 171);
+            this.PhoneNumberLabel.Name = "PhoneNumberLabel";
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(251, 26);
+            this.PhoneNumberLabel.TabIndex = 17;
+            this.PhoneNumberLabel.Text = "Phone number (optional)";
             // 
-            // phoneTextBox
+            // PhoneTextBox
             // 
-            this.phoneTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.phoneTextBox.Location = new System.Drawing.Point(293, 199);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(214, 32);
-            this.phoneTextBox.TabIndex = 16;
+            this.PhoneTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.PhoneTextBox.Location = new System.Drawing.Point(293, 199);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(214, 32);
+            this.PhoneTextBox.TabIndex = 16;
             // 
-            // backButton
+            // BackButton
             // 
-            this.backButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.backButton.Location = new System.Drawing.Point(293, 360);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(104, 40);
-            this.backButton.TabIndex = 18;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.BackButton.Location = new System.Drawing.Point(293, 360);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(104, 40);
+            this.BackButton.TabIndex = 18;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // passwordsMatchWarningLabel
+            // PasswordsMatchWarningLabel
             // 
-            this.passwordsMatchWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordsMatchWarningLabel.AutoSize = true;
-            this.passwordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordsMatchWarningLabel.Location = new System.Drawing.Point(513, 322);
-            this.passwordsMatchWarningLabel.Name = "passwordsMatchWarningLabel";
-            this.passwordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
-            this.passwordsMatchWarningLabel.TabIndex = 19;
-            this.passwordsMatchWarningLabel.Text = "The passwords must match";
+            this.PasswordsMatchWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordsMatchWarningLabel.AutoSize = true;
+            this.PasswordsMatchWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordsMatchWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.PasswordsMatchWarningLabel.Location = new System.Drawing.Point(513, 322);
+            this.PasswordsMatchWarningLabel.Name = "PasswordsMatchWarningLabel";
+            this.PasswordsMatchWarningLabel.Size = new System.Drawing.Size(203, 20);
+            this.PasswordsMatchWarningLabel.TabIndex = 19;
+            this.PasswordsMatchWarningLabel.Text = "The passwords must match";
             // 
-            // usernameWarningLabel
+            // UsernameWarningLabel
             // 
-            this.usernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.usernameWarningLabel.AutoSize = true;
-            this.usernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.usernameWarningLabel.Location = new System.Drawing.Point(515, 73);
-            this.usernameWarningLabel.Name = "usernameWarningLabel";
-            this.usernameWarningLabel.Size = new System.Drawing.Size(242, 20);
-            this.usernameWarningLabel.TabIndex = 20;
-            this.usernameWarningLabel.Text = "Username field can not be empty";
+            this.UsernameWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameWarningLabel.AutoSize = true;
+            this.UsernameWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.UsernameWarningLabel.Location = new System.Drawing.Point(515, 73);
+            this.UsernameWarningLabel.Name = "UsernameWarningLabel";
+            this.UsernameWarningLabel.Size = new System.Drawing.Size(242, 20);
+            this.UsernameWarningLabel.TabIndex = 20;
+            this.UsernameWarningLabel.Text = "Username field can not be empty";
             // 
-            // emailWarningLabel
+            // EmailWarningLabel
             // 
-            this.emailWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailWarningLabel.AutoSize = true;
-            this.emailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.emailWarningLabel.Location = new System.Drawing.Point(513, 134);
-            this.emailWarningLabel.Name = "emailWarningLabel";
-            this.emailWarningLabel.Size = new System.Drawing.Size(235, 20);
-            this.emailWarningLabel.TabIndex = 21;
-            this.emailWarningLabel.Text = "Email address can not be empty";
+            this.EmailWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EmailWarningLabel.AutoSize = true;
+            this.EmailWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.EmailWarningLabel.Location = new System.Drawing.Point(513, 134);
+            this.EmailWarningLabel.Name = "EmailWarningLabel";
+            this.EmailWarningLabel.Size = new System.Drawing.Size(235, 20);
+            this.EmailWarningLabel.TabIndex = 21;
+            this.EmailWarningLabel.Text = "Email address can not be empty";
             // 
-            // passwordWarningLabel
+            // PasswordWarningLabel
             // 
-            this.passwordWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.passwordWarningLabel.AutoSize = true;
-            this.passwordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordWarningLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordWarningLabel.Location = new System.Drawing.Point(515, 261);
-            this.passwordWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
-            this.passwordWarningLabel.Name = "passwordWarningLabel";
-            this.passwordWarningLabel.Size = new System.Drawing.Size(237, 20);
-            this.passwordWarningLabel.TabIndex = 22;
-            this.passwordWarningLabel.Text = "Password field can not be empty";
+            this.PasswordWarningLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PasswordWarningLabel.AutoSize = true;
+            this.PasswordWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordWarningLabel.ForeColor = System.Drawing.Color.Red;
+            this.PasswordWarningLabel.Location = new System.Drawing.Point(515, 261);
+            this.PasswordWarningLabel.MaximumSize = new System.Drawing.Size(250, 0);
+            this.PasswordWarningLabel.Name = "PasswordWarningLabel";
+            this.PasswordWarningLabel.Size = new System.Drawing.Size(237, 20);
+            this.PasswordWarningLabel.TabIndex = 22;
+            this.PasswordWarningLabel.Text = "Password field can not be empty";
             // 
             // RegisterPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.passwordWarningLabel);
-            this.Controls.Add(this.emailWarningLabel);
-            this.Controls.Add(this.usernameWarningLabel);
-            this.Controls.Add(this.passwordsMatchWarningLabel);
-            this.Controls.Add(this.backButton);
-            this.Controls.Add(this.phoneNumberLabel);
-            this.Controls.Add(this.phoneTextBox);
-            this.Controls.Add(this.confirmPasswordLabel);
-            this.Controls.Add(this.passwordConfirmTextbox);
-            this.Controls.Add(this.usernameLabel);
-            this.Controls.Add(this.usernameTextBox);
-            this.Controls.Add(this.signUpButton);
-            this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.emailLabel);
-            this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.PasswordWarningLabel);
+            this.Controls.Add(this.EmailWarningLabel);
+            this.Controls.Add(this.UsernameWarningLabel);
+            this.Controls.Add(this.PasswordsMatchWarningLabel);
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.PhoneNumberLabel);
+            this.Controls.Add(this.PhoneTextBox);
+            this.Controls.Add(this.PonfirmPasswordLabel);
+            this.Controls.Add(this.PasswordConfirmTextbox);
+            this.Controls.Add(this.UsernameLabel);
+            this.Controls.Add(this.UsernameTextBox);
+            this.Controls.Add(this.SignUpButton);
+            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.EmailLabel);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.EmailTextBox);
             this.MinimumSize = new System.Drawing.Size(300, 418);
             this.Name = "RegisterPage";
             this.Text = "Register";
@@ -253,21 +253,21 @@ namespace FoodWaste
         }
 
         #endregion
-        private System.Windows.Forms.Button signUpButton;
-        private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.TextBox usernameTextBox;
-        private System.Windows.Forms.Label confirmPasswordLabel;
-        private System.Windows.Forms.TextBox passwordConfirmTextbox;
-        private System.Windows.Forms.Label phoneNumberLabel;
-        private System.Windows.Forms.TextBox phoneTextBox;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Label passwordsMatchWarningLabel;
-        private System.Windows.Forms.Label usernameWarningLabel;
-        private System.Windows.Forms.Label emailWarningLabel;
-        private System.Windows.Forms.Label passwordWarningLabel;
+        private System.Windows.Forms.Button SignUpButton;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.TextBox EmailTextBox;
+        private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.Label PonfirmPasswordLabel;
+        private System.Windows.Forms.TextBox PasswordConfirmTextbox;
+        private System.Windows.Forms.Label PhoneNumberLabel;
+        private System.Windows.Forms.TextBox PhoneTextBox;
+        private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label PasswordsMatchWarningLabel;
+        private System.Windows.Forms.Label UsernameWarningLabel;
+        private System.Windows.Forms.Label EmailWarningLabel;
+        private System.Windows.Forms.Label PasswordWarningLabel;
     }
 }
