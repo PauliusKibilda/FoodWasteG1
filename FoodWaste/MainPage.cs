@@ -122,12 +122,12 @@ namespace FoodWaste
             }
             if (selectedIndex == 1)
             {
-                VisibleProductList = Products.List.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
+                VisibleProductList = Products.Where(x => (x.ExpiryDate >= StartingDateTimePicker.Value.Date && x.ExpiryDate <= EndingDateTimePicker.Value.Date)).ToList();
                 MainDataGridView.DataSource = VisibleProductList.List;
             }
             if (selectedIndex == 2)
             {
-                VisibleProductList = Products.List.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
+                VisibleProductList = Products.Where(x => x.Name.ToLower().Contains(textBox1.Text.ToLower())).ToList();
                 MainDataGridView.DataSource = VisibleProductList.List;
             }
         }
