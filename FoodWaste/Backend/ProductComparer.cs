@@ -12,7 +12,9 @@ namespace FoodWaste
         {
             Name,
             ExpiryDate,
-            State
+            State,
+            User,
+            Restaurant
         }
 
         private SortBy compareField;
@@ -41,6 +43,10 @@ namespace FoodWaste
                     return x.ExpiryDate.CompareTo(y.ExpiryDate);
                 case SortBy.State:
                     return x.State.CompareTo(y.State);
+                case SortBy.User:
+                    return x.ReservedUsername.CompareTo(y.ReservedUsername);
+                case SortBy.Restaurant:
+                    return x.RestaurantName.CompareTo(y.RestaurantName);
                 default:
                     break;
             }
@@ -57,6 +63,10 @@ namespace FoodWaste
                     return SortBy.ExpiryDate;
                 case 2:
                     return SortBy.State;
+                case 3:
+                    return SortBy.User;
+                case 4:
+                    return SortBy.Restaurant;
                 default:
                     return SortBy.Name;
             }
