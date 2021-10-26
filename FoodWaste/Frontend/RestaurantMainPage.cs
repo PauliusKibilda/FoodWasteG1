@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodWaste.Frontend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,26 @@ namespace FoodWaste
         private void RestaurantMainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void RestaurantSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restaurant restaurant = FileManager.GetRestaurantsFromFile().FirstOrDefault(x => x.UserName.Equals(User.UserName));
+            if (restaurant != null)
+            {
+                RestaurantRegistration restaurantRegistration = new RestaurantRegistration(restaurant);
+                restaurantRegistration.ShowDialog();
+            }
+            else 
+            {
+                MessageBox.Show("Could not retrieve restaurant info");
+            }
+        }
+
+        private void AccountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserSettings userSettings = new UserSettings(User);
+            userSettings.ShowDialog();
         }
     }
 }

@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
-
-
+using FoodWaste.Frontend;
 
 namespace FoodWaste
 {
-
     public partial class RegisterPage : Form
     {
         private string Role;
+        private User User;
         public RegisterPage(string role)
         {
             Role = role;
@@ -27,6 +26,26 @@ namespace FoodWaste
             EmailWarningLabel.Visible = false;
             PasswordWarningLabel.Visible = false;
             PasswordsMatchWarningLabel.Visible = false;
+            if (Role.Equals("Restaurant")) 
+            {
+                SignUpButton.Text = "Next";
+            }
+        }
+        public RegisterPage(User user)
+        {
+            User = user;
+            Role = user.Role;
+            InitializeComponent();
+            this.CenterToScreen();
+            UsernameWarningLabel.Visible = false;
+            EmailWarningLabel.Visible = false;
+            PasswordWarningLabel.Visible = false;
+            PasswordsMatchWarningLabel.Visible = false;
+            SignUpButton.Text = "Next";
+            UsernameTextBox.Text = User.UserName;
+            EmailTextBox.Text = User.Email;
+            PhoneTextBox.Text = User.Mobile;
+            PasswordTextBox.Text = PasswordConfirmTextbox.Text = User.Password;
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
@@ -70,19 +89,29 @@ namespace FoodWaste
             {
                 // Sign up succesfull
                 // Add a user to the system
-
-                string passwordHash = Hash.GetHashString(PasswordTextBox.Text);
-                if (String.IsNullOrWhiteSpace(PhoneTextBox.Text))
+                if (Role.Equals("Restaurant"))
                 {
-                    FileManager.InsertUser(pUserName: UsernameTextBox.Text, pEmail: EmailTextBox.Text, pPassword: passwordHash, Role: Role);
+                    if (User == null)
+                    {
+                        User = GetUser(PasswordTextBox.Text);
+                    }
+                    OpenForm(new RestaurantRegistration(User));
                 }
                 else
                 {
-                    FileManager.InsertUser(pUserName: UsernameTextBox.Text, pEmail: EmailTextBox.Text, pPassword: passwordHash, optionalMobile: PhoneTextBox.Text, Role: Role);
+                    string passwordHash = Hash.GetHashString(PasswordTextBox.Text);
+                    User = GetUser(passwordHash);
+                    if (String.IsNullOrWhiteSpace(PhoneTextBox.Text))
+                    {
+                        FileManager.InsertUser(User);
+                    }
+                    else
+                    {
+                        FileManager.InsertUser(User);
+                    }
+                    MessageBox.Show("User " + UsernameTextBox.Text + " registered succesfully.");
+                    BackToLoginPage();
                 }
-                MessageBox.Show("User " + UsernameTextBox.Text + " registered succesfully.");
-                BackToLoginPage();
-
             }
         }
 
@@ -98,9 +127,23 @@ namespace FoodWaste
 
         private void BackToLoginPage()
         {
+            OpenForm(new LoginPage());
+        }
+        private User GetUser(string password) 
+        {
+            if (String.IsNullOrWhiteSpace(PhoneTextBox.Text))
+            {
+                return new User(UsernameTextBox.Text, EmailTextBox.Text, password, Role);
+            }
+            else
+            {
+                return new User(UsernameTextBox.Text, EmailTextBox.Text, password, Role, PhoneTextBox.Text);
+            }
+        }
+        private void OpenForm(Form form) 
+        {
             this.Hide();
-            LoginPage loginPage = new LoginPage();
-            loginPage.ShowDialog();
+            form.ShowDialog();
             this.Close();
         }
     }

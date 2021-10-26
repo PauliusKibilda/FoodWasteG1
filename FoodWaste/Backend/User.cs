@@ -18,7 +18,7 @@ namespace FoodWaste
         public string Role {get ; set ; } 
         public string Status {get ; set ; }
 
-        public User(string UserName, string Email, string Password, string Role, string Mobile)
+        public User(string UserName, string Email, string Password, string Role, string Mobile = "")
         {
             this.UserName = UserName;
             this.Email = Email;

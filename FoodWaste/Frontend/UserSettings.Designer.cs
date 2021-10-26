@@ -41,6 +41,7 @@
             this.PasswordWarningLabel = new System.Windows.Forms.Label();
             this.EmailWarningLabel = new System.Windows.Forms.Label();
             this.PasswordsMatchWarningLabel = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PhoneNumberLabel
@@ -91,7 +92,7 @@
             // 
             this.ConfirmButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.ConfirmButton.Location = new System.Drawing.Point(251, 365);
+            this.ConfirmButton.Location = new System.Drawing.Point(271, 365);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(104, 40);
             this.ConfirmButton.TabIndex = 23;
@@ -197,11 +198,23 @@
             this.PasswordsMatchWarningLabel.Text = "The passwords must match";
             this.PasswordsMatchWarningLabel.Visible = false;
             // 
+            // BackButton
+            // 
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.BackButton.Location = new System.Drawing.Point(141, 365);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(104, 40);
+            this.BackButton.TabIndex = 32;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // UserSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 450);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.PasswordWarningLabel);
             this.Controls.Add(this.EmailWarningLabel);
             this.Controls.Add(this.PasswordsMatchWarningLabel);
@@ -237,5 +250,6 @@
         private System.Windows.Forms.Label PasswordWarningLabel;
         private System.Windows.Forms.Label EmailWarningLabel;
         private System.Windows.Forms.Label PasswordsMatchWarningLabel;
+        private System.Windows.Forms.Button BackButton;
     }
 }
