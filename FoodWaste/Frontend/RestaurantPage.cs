@@ -40,7 +40,7 @@ namespace FoodWaste
         {
             foreach (Restaurant restaurant in RestaurantList)
             {
-                dt.Rows.Add(restaurant.RestaurantName, restaurant.Adress, restaurant.PhoneNumber);
+                dt.Rows.Add(restaurant.Username, restaurant.Adress, restaurant.PhoneNumber);
             }
         }
     }

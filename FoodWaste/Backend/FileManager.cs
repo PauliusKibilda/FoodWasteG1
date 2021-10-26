@@ -39,13 +39,20 @@ namespace FoodWaste
         public static List<Restaurant> GetRestaurantsFromFile()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
+            var users = GetUsersFromFile();
             using (StreamReader reader = new StreamReader(RestaurantsFile))
             {
                 string[] parts = new string[3];
                 while (!reader.EndOfStream)
                 {
                     parts = reader.ReadLine().Split(',');
-                    restaurants.Add(new Restaurant(parts[0], parts[1], parts[2]));
+                    foreach (User user in users)
+                    {
+                        if (user.UserName == parts[0])
+                        {
+                            restaurants.Add(new Restaurant(parts[0], parts[1], user.Mobile, parts[2]));
+                        }
+                    }
                 }
             }
             return restaurants;
