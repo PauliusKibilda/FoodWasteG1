@@ -14,6 +14,7 @@ namespace FoodWaste
     {
         ObjectList<Product> ProductList = new ObjectList<Product>();
         ObjectList<Product> VisibleProductList = new ObjectList<Product>();
+        ObjectList<Restaurant> RestaurantList = new ObjectList<Restaurant>();
         private User User;
         SortKey sortKey = new SortKey();
         public MainPage(User user)
@@ -25,7 +26,14 @@ namespace FoodWaste
             {
                 SettingsMenuStrip.Visible = false;
             }
+            RestaurantList = FileManager.GetRestaurantsFromFile();
             ProductList = FileManager.GetProductsFromFile();
+            ProductList = ProductList.Select(prod =>
+            {
+                prod.RestaurantName =
+                  RestaurantList.FirstOrDefault(rest => rest.UserName == prod.RestaurantName).RestaurantName;
+                return prod;
+            }).ToList();
 
             VisibleProductList = ProductList;
             MainDataGridView.DataSource = ProductList.List;

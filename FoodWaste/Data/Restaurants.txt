@@ -1,4 +1,3 @@
-testas,8686868,testas,
-testas2,8686868,testa,
-dsds,888,dsds,adad
-ff,222,asd,ggggg
+Restoranas2,888,dsds,adad
+Restoranas1,222,asd,ggggg
+Rest2 Full Name,+37031313131,Rest2 Address,Rest2
