@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace FoodWaste
 {
-    class Restaurant
+    public class Restaurant
     {
         public string RestaurantName { get; set; }
         public string Adress { get; set; }
         public string PhoneNumber { get; set; } 
 
-        public Restaurant(string RestaurantName, string PhoneNumber, string Adress) 
+        public string UserName { get; set; }
+
+        public Restaurant(string RestaurantName, string PhoneNumber, string Adress, string UserName) 
         {
             this.RestaurantName = RestaurantName;
             this.PhoneNumber = PhoneNumber;
             this.Adress = Adress;
+            this.UserName = UserName;
         }
     }
 }

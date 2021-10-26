@@ -68,5 +68,11 @@ namespace FoodWaste
                 MessageBox.Show("Successfully changed account information!");
             }
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
     }
 }

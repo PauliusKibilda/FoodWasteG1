@@ -41,11 +41,11 @@ namespace FoodWaste
             List<Restaurant> restaurants = new List<Restaurant>();
             using (StreamReader reader = new StreamReader(RestaurantsFile))
             {
-                string[] parts = new string[3];
+                string[] parts = new string[4];
                 while (!reader.EndOfStream)
                 {
                     parts = reader.ReadLine().Split(',');
-                    restaurants.Add(new Restaurant(parts[0], parts[1], parts[2]));
+                    restaurants.Add(new Restaurant(parts[0], parts[1], parts[2], parts[3]));
                 }
             }
             return restaurants;
@@ -66,19 +66,19 @@ namespace FoodWaste
             return users;
         }
 
-        public static void InsertUser(string pUserName, string pEmail, string pPassword, string Role, string optionalMobile = "")
+        public static void InsertUser(User user)
         {
             using (StreamWriter sw = new StreamWriter(AccountsFile, true))
             {
-                sw.Write(pUserName);
+                sw.Write(user.UserName);
                 sw.Write(',');
-                sw.Write(pEmail);
+                sw.Write(user.Email);
                 sw.Write(',');
-                sw.Write(pPassword);
+                sw.Write(user.Password);
                 sw.Write(',');
-                sw.Write(Role);
+                sw.Write(user.Role);
                 sw.Write(',');
-                sw.Write(optionalMobile);
+                sw.Write(user.Mobile != null ? user.Mobile : "");
                 sw.Write('\n');
             }
         }
@@ -119,7 +119,7 @@ namespace FoodWaste
                     sw.Write('\n');
             }
         }
-        public static void InsertRestaurant(string RestaurantName, string PhoneNumber, string Adress)
+        public static void InsertRestaurant(string RestaurantName, string PhoneNumber, string Adress, string UserName)
         {
             using (StreamWriter sw = new StreamWriter(RestaurantsFile, true))
             {
@@ -128,6 +128,8 @@ namespace FoodWaste
                 sw.Write(PhoneNumber);
                 sw.Write(',');
                 sw.Write(Adress);
+                sw.Write(',');
+                sw.Write(UserName);
                 sw.Write('\n');
             }
         }
@@ -163,6 +165,39 @@ namespace FoodWaste
                         sw.Write(user.Role);
                         sw.Write(',');
                         sw.Write(user.Mobile);
+                        sw.Write('\n');
+                    }
+                }
+            }
+        }
+        public static void InserChangedRestaurant(Restaurant pRestaurant) 
+        {
+            List<Restaurant> restaurantList = GetRestaurantsFromFile();
+
+            using (StreamWriter sw = new StreamWriter(RestaurantsFile))
+            {
+                foreach (Restaurant restraurant in restaurantList)
+                {
+                    if (restraurant.UserName.Equals(pRestaurant.UserName))
+                    {
+                        sw.Write(pRestaurant.RestaurantName);
+                        sw.Write(',');
+                        sw.Write(pRestaurant.PhoneNumber);
+                        sw.Write(',');
+                        sw.Write(pRestaurant.Adress);
+                        sw.Write(',');
+                        sw.Write(pRestaurant.UserName);
+                        sw.Write('\n');
+                    }
+                    else
+                    {
+                        sw.Write(restraurant.RestaurantName);
+                        sw.Write(',');
+                        sw.Write(restraurant.PhoneNumber);
+                        sw.Write(',');
+                        sw.Write(restraurant.Adress);
+                        sw.Write(',');
+                        sw.Write(restraurant.UserName);
                         sw.Write('\n');
                     }
                 }
