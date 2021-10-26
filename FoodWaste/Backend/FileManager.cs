@@ -46,13 +46,9 @@ namespace FoodWaste
                 while (!reader.EndOfStream)
                 {
                     parts = reader.ReadLine().Split(',');
-                    foreach (User user in users)
-                    {
-                        if (user.UserName == parts[0])
-                        {
-                            restaurants.Add(new Restaurant(parts[0], parts[1], user.Mobile, parts[2]));
-                        }
-                    }
+                    restaurants.AddRange(from User user in users
+                                         where user.UserName == parts[0]
+                                         select new Restaurant(parts[0], parts[1], user.Mobile, parts[2]));
                 }
             }
             return restaurants;
