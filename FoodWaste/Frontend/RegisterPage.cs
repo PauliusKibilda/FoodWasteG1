@@ -46,6 +46,14 @@ namespace FoodWaste
                 EmailWarningLabel.Visible = true;
             }
             else EmailWarningLabel.Visible = false;
+            
+            //Validate Password
+            if(!PhoneTextBox.Text.IsValidPhoneNumber())
+            {
+                PhoneNumberWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                PhoneNumberWarningLabel.Visible = true;
+            }
+            else PhoneNumberWarningLabel.Visible = false;
 
             // Validate Password
             if (!PasswordTextBox.Text.IsValidPassword())
@@ -70,7 +78,7 @@ namespace FoodWaste
             {
                 // Sign up succesfull
                 // Add a user to the system
-
+                
                 string passwordHash = Hash.GetHashString(PasswordTextBox.Text);
                 if (String.IsNullOrWhiteSpace(PhoneTextBox.Text))
                 {

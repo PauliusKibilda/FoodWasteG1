@@ -15,6 +15,7 @@ namespace FoodWaste
 {
     public static class RegisterPageValidation
     {
+        private static readonly List<User> users = FileManager.GetUsersFromFile();
         private static string errorMessage;
 
         public static string GetErrorMessage()
@@ -24,6 +25,7 @@ namespace FoodWaste
 
         public static bool IsValidUsername(this string username)
         {
+
             string usernameTrimmed = Regex.Replace(username, @"\s", "");
            
             if (String.IsNullOrWhiteSpace(username))
@@ -43,16 +45,7 @@ namespace FoodWaste
             }
             else
             {
-                List<User> users = FileManager.GetUsersFromFile();
-                foreach (User oneUser in users)
-                {
-                    if (oneUser.UserName.Equals(username))
-                    {
-                        errorMessage = "This Username Already Exists";
-                        return false;
-                    }
-                }
-                return true;
+                return IsUsernameOrEmailUnique(username);
             }
         }
 
@@ -67,6 +60,58 @@ namespace FoodWaste
                 errorMessage = "Invalid Format Of Email Address";
                 return false;
             }
+            return IsUsernameOrEmailUnique(email);
+        }
+        public static bool IsUsernameOrEmailUnique(string parametre)
+        {
+            foreach (User oneUser in users)
+            {
+                if (oneUser.Email.ToLower() == parametre.ToLower())
+                {
+                    errorMessage = "This Email Already Exists";
+                    return false;
+                }
+                if(oneUser.UserName.ToLower() == parametre.ToLower())
+                {
+                    errorMessage = "This Username Already Exists";
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool IsValidPhoneNumber(this string phone)
+        {
+            if (string.IsNullOrEmpty(phone))
+            {
+                return true;
+            }
+            if (phone[0] == '+')
+            {
+                phone = phone.Remove(0, 1);
+            }
+            if(!((phone[0] == '3' && phone[1] == '7' && phone[2] == '0') || (phone[0] == '8' && phone[1] == '6')))
+            {
+                errorMessage = "Phone Number Should Be Lithuanian";
+                return false;
+            }
+            else if(!(phone.Length == 11 || phone.Length == 9) || !IsDigit(phone)) // if(true)
+            {
+                errorMessage = "Invalid Phone Number";
+                return false;
+            }
+            return true;
+        
+        }
+        
+        static bool IsDigit(String input)
+        {
+            foreach(char c in input)
+            {
+                if (c < '0' || c > '9')
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -79,6 +124,7 @@ namespace FoodWaste
             }
             else
             {
+                var hasLowerChar = new Regex(@"[a-z]+");
                 var hasNumber = new Regex(@"[0-9]+");
                 var hasUpperChar = new Regex(@"[A-Z]+");
                 var hasMinimum8Chars = new Regex(@".{8,}");
@@ -90,6 +136,11 @@ namespace FoodWaste
                 else if (!(hasUpperChar.IsMatch(password)))
                 {
                     errorMessage = "Password Must Contain 1 Upper Case Letter";
+                    return false;
+                }
+                else if(!hasLowerChar.IsMatch(password))
+                {
+                    errorMessage = "Password Must Contain At Least One Lower Case Letter";
                     return false;
                 }
                 else if (!(hasNumber.IsMatch(password)))
