@@ -1,2 +1,2 @@
-﻿test,Restoranas123,Adresas123
-Rest1,Restoranas1,Adresas1
+﻿test,Pavadinimas123,Adresas123
+Rest1,Pavadinimas1,Adresas1
