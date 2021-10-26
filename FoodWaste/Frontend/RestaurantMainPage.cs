@@ -21,7 +21,7 @@ namespace FoodWaste
             User = user;
             this.CenterToScreen();
             ProductList = FileManager.GetProductsFromFile();
-            restDataGridView.DataSource = ProductList.Where(x => x.RestaurantName == user.UserName).ToList();
+            RestDataGridView.DataSource = ProductList.Where(x => x.RestaurantName == user.UserName).ToList();
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
@@ -34,12 +34,39 @@ namespace FoodWaste
         private void ProductAddingPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             ProductList = FileManager.GetProductsFromFile();
-            restDataGridView.DataSource = ProductList.Where(x => x.RestaurantName == User.UserName).ToList();
+            RestDataGridView.DataSource = ProductList.Where(x => x.RestaurantName == User.UserName).ToList();
         }
-
         private void RestaurantMainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void RestDataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            DataGridView dataGridView = sender as DataGridView;
+            DataGridView.HitTestInfo hitTestInfo = dataGridView.HitTest(e.X, e.Y);
+
+            dataGridView.ClearSelection();
+            dataGridView.Rows[hitTestInfo.RowIndex].Selected = true;
+            this.RestDataGridView.CurrentCell = dataGridView.Rows[hitTestInfo.RowIndex].Cells[0];
+
+        }
+
+        private int GetSelectedRowIndex()
+        {
+            if (this.RestDataGridView.SelectedRows.Count == 0)
+            {
+                return -1;
+            }
+            int index = this.RestDataGridView.SelectedRows[0].Index;
+            return index;
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = GetSelectedRowIndex();
+            FileManager.DeleteProduct(ProductList[index]);
+            RestDataGridView.Refresh();
         }
     }
 }

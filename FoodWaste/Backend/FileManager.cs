@@ -168,5 +168,30 @@ namespace FoodWaste
                 }
             }
         }
+
+        public static void DeleteProduct(Product pProduct)
+        {
+            List<Product> productList = GetProductsFromFile();
+
+            using (StreamWriter sw = new StreamWriter(ProductsFile))
+            {
+                foreach (Product product in productList)
+                {
+                    if (product != pProduct)
+                    {
+                        sw.Write(product.Name);
+                        sw.Write(',');
+                        sw.Write(String.Format("{0:yyyy-MM-dd}", product.ExpiryDate));
+                        sw.Write(',');
+                        sw.Write(product.State);
+                        sw.Write(',');
+                        sw.Write(product.RestaurantName);
+                        sw.Write(',');
+                        sw.Write(product.ReservedUsername);
+                        sw.Write('\n');
+                    }
+                }
+            }
+        }
     }
 }

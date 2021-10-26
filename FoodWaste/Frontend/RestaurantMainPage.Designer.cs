@@ -29,18 +29,24 @@ namespace FoodWaste
         /// </summary>
         private void InitializeComponent()
         {
-            this.restDataGridView = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.RestDataGridView = new System.Windows.Forms.DataGridView();
             this.AddProductButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.restDataGridView)).BeginInit();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.RestDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // restDataGridView
+            // RestDataGridView
             // 
-            this.restDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.restDataGridView.Location = new System.Drawing.Point(12, 12);
-            this.restDataGridView.Name = "restDataGridView";
-            this.restDataGridView.Size = new System.Drawing.Size(580, 326);
-            this.restDataGridView.TabIndex = 0;
+            this.RestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RestDataGridView.ContextMenuStrip = this.contextMenuStrip1;
+            this.RestDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.RestDataGridView.Name = "RestDataGridView";
+            this.RestDataGridView.Size = new System.Drawing.Size(580, 326);
+            this.RestDataGridView.TabIndex = 0;
+            this.RestDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RestDataGridView_MouseDown);
             // 
             // AddProductButton
             // 
@@ -52,24 +58,41 @@ namespace FoodWaste
             this.AddProductButton.UseVisualStyleBackColor = true;
             this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DeleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteToolStripMenuItem.Text = " Delete";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
             // RestaurantMainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 384);
             this.Controls.Add(this.AddProductButton);
-            this.Controls.Add(this.restDataGridView);
+            this.Controls.Add(this.RestDataGridView);
             this.Name = "RestaurantMainPage";
             this.Text = "Restaurant";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RestaurantMainPage_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.restDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RestDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView restDataGridView;
+        private System.Windows.Forms.DataGridView RestDataGridView;
         private System.Windows.Forms.Button AddProductButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
     }
 }
