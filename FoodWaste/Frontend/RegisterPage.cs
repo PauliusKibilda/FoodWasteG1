@@ -13,7 +13,6 @@ using FoodWaste.Frontend;
 
 namespace FoodWaste
 {
-
     public partial class RegisterPage : Form
     {
         private string Role;
