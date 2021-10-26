@@ -45,7 +45,7 @@ namespace FoodWaste
 
         private void RestaurantSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Restaurant restaurant = GetRestaurantByUserName(User.UserName);
+            Restaurant restaurant = FileManager.GetRestaurantsFromFile().FirstOrDefault(x => x.UserName.Equals(User.UserName));
             if (restaurant != null)
             {
                 RestaurantRegistration restaurantRegistration = new RestaurantRegistration(restaurant);
@@ -61,17 +61,6 @@ namespace FoodWaste
         {
             UserSettings userSettings = new UserSettings(User);
             userSettings.ShowDialog();
-        }
-        private Restaurant GetRestaurantByUserName(string userName)
-        {
-            foreach (Restaurant restaurant in FileManager.GetRestaurantsFromFile())
-            {
-                if (restaurant.UserName.Equals(userName))
-                {
-                    return restaurant;
-                }
-            }
-            return null;
         }
     }
 }
