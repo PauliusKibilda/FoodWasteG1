@@ -1,2 +1,3 @@
 ﻿test,Pavadinimas123,Adresas123
 Rest1,Pavadinimas1,Adresas1
+Rest2,Pavadinimas,Adresas

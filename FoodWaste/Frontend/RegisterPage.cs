@@ -80,6 +80,11 @@ namespace FoodWaste
                 {
                     FileManager.InsertUser(pUserName: UsernameTextBox.Text, pEmail: EmailTextBox.Text, pPassword: passwordHash, optionalMobile: PhoneTextBox.Text, Role: Role);
                 }
+                if (Role == "Restaurant")
+                {
+                    // TODO: Implement FileManager.InsertRestaurant() properly
+                    FileManager.InsertRestaurant(UsernameTextBox.Text, "Pavadinimas", "Adresas");
+                }
                 MessageBox.Show("User " + UsernameTextBox.Text + " registered succesfully.");
                 BackToLoginPage();
 

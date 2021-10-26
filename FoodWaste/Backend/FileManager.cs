@@ -126,13 +126,13 @@ namespace FoodWaste
                     sw.Write('\n');
             }
         }
-        public static void InsertRestaurant(string RestaurantName, string PhoneNumber, string Adress)
+        public static void InsertRestaurant(string Username, string Name, string Adress)
         {
             using (StreamWriter sw = new StreamWriter(RestaurantsFile, true))
             {
-                sw.Write(RestaurantName);
+                sw.Write(Username);
                 sw.Write(',');
-                sw.Write(PhoneNumber);
+                sw.Write(Name);
                 sw.Write(',');
                 sw.Write(Adress);
                 sw.Write('\n');
