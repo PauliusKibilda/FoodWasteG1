@@ -66,6 +66,15 @@ namespace FoodWaste
             }
             else EmailWarningLabel.Visible = false;
 
+            if (!PhoneTextBox.Text.IsValidPhoneNumber())
+            {
+                PhoneNumberWarningLabel.Text = RegisterPageValidation.GetErrorMessage();
+                PhoneNumberWarningLabel.Visible = true;
+            }
+            else PhoneNumberWarningLabel.Visible = false;
+
+
+
             // Validate Password
             if (!PasswordTextBox.Text.IsValidPassword())
             {
