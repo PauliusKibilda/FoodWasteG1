@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.IO;
-
 namespace FoodWaste
 {
     public static class RegisterPageValidation
@@ -45,32 +44,30 @@ namespace FoodWaste
             }
             else
             {
-                return IsUsernameOrEmailUnique(username);
+                return IsUsernameUnique(username);
             }
         }
         public static bool IsValidEmailAddress(this string email)
         {
-            try
-            {
-                new MailAddress(email);
-            }
-            catch
+            string validEmailPattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+            + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+            + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+
+            var validEmail = new Regex(validEmailPattern, RegexOptions.IgnoreCase);
+
+            if (!validEmail.IsMatch(email))
             {
                 errorMessage = "Invalid Format Of Email Address";
                 return false;
             }
-            return IsUsernameOrEmailUnique(email);
+          
+            return true;
         }
-        public static bool IsUsernameOrEmailUnique(string parametre)
+        public static bool IsUsernameUnique(this string username)
         {
             foreach (User oneUser in users)
             {
-                if (oneUser.Email.ToLower() == parametre.ToLower())
-                {
-                    errorMessage = "This Email Already Exists";
-                    return false;
-                }
-                if (oneUser.UserName.ToLower() == parametre.ToLower())
+                if (oneUser.UserName.ToLower() == username.ToLower())
                 {
                     errorMessage = "This Username Already Exists";
                     return false;
